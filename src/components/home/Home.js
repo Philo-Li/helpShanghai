@@ -17,7 +17,7 @@ const Home = () => {
   // const baseUrl = 'https://media.philoart.io/articles.json';
 
   const variables = {
-    username: config.philoartAdmin,
+    username: config.admin,
     checkUserLike: userId,
     first: 20,
   };

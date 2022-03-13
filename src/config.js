@@ -6,9 +6,6 @@ dotenv.config({ path: path.resolve(__dirname, '..', '/.env') });
 export default {
   port: process.env.REACT_APP_PORT,
   graphqlUri: process.env.REACT_APP_GRAPHQL_URI,
-  philoartAdmin: process.env.REACT_APP_PHILOART_ADMIN,
-  visitorID: process.env.REACT_APP_PHILOART_VISITOR,
-  philoartApi: process.env.REACT_APP_PHILOART_API,
-  moralisAppID: process.env.REACT_APP_MORALIS_APPLICATION_ID,
-  moralisServerUrl: process.env.REACT_APP_MORALIS_SERVER_URL,
+  admin: process.env.REACT_APP_ADMIN,
+  philoartApi: process.env.REACT_APP_REST_API,
 };
