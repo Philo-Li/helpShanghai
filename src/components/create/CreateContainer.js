@@ -13,11 +13,6 @@ const CreateContainer = ({
   initialValues, onSubmit, errorInfo, loading, files, setFiles,
 }) => (
   <div className="container-col-create">
-    {/* <div className="container-profile">
-      <div className="profile-item">
-        <h1>Title</h1>
-      </div>
-    </div> */}
     {errorInfo && (
     <Alert variant="danger">
       {errorInfo}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import usePhotos from '../../hooks/usePhotos';
-import HomePhotoList from '../others/photo-list/HomePhotoList';
+import usePhotos from '../../hooks/useArticles';
+import HomePhotoList from '../others/list/HomeArticleList';
 
 const RelatedPhotos = ({
   photoToShow,

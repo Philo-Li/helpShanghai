@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
           </div>
           <Nav className="justify-content-end">
-            <Nav.Link className="text-dark" href="/license">License</Nav.Link>
+            {/* <Nav.Link className="text-dark" href="/license">License</Nav.Link> */}
           </Nav>
         </Card.Body>
       </Card>

@@ -2,10 +2,8 @@
 import React from 'react';
 import { Button, Spinner } from 'react-bootstrap';
 import { Form } from 'formik';
-import TextInput from '../others/TextInput';
 import TextInputTitle from '../others/TextInputTitle';
 import MyEditor from '../editor/draft';
-import EditorConvertToJSON from '../editor/rawDraftContent';
 
 const CreateForm = ({ loading, files, setFiles }) => (
   <Form>
@@ -16,18 +14,22 @@ const CreateForm = ({ loading, files, setFiles }) => (
         placeholder="Title"
       />
     </div>
-    <div className="editor-border">
-      <MyEditor />
+    <div className="editor-border editor-container">
+      <MyEditor files={files} setFiles={setFiles} />
+    </div>
+    <div>
+      Powered by draft.js
     </div>
     <div className="container-row-signup">
-      <div className="col-item-1">
+      {/* <div className="col-item-1">
         {!loading && (
-          <Button variant="outline-dark" id="create-button" type="submit" block="true">
+          <Button variant="outline-dark" id="save-button"
+          type="submit" onSubmit={console.log('click')} block="true">
             Save
           </Button>
         )}
         {loading && (
-          <Button variant="outline-dark" id="create-button-loading" disabled>
+          <Button variant="outline-dark" id="save-button-loading" disabled>
             <Spinner
               as="span"
               animation="border"
@@ -38,15 +40,15 @@ const CreateForm = ({ loading, files, setFiles }) => (
             <span className="sr-only">Loading...</span>
           </Button>
         )}
-      </div>
+      </div> */}
       <div className="col-item-1">
         {!loading && (
-          <Button variant="outline-dark" id="create-button" type="submit" block="true">
+          <Button variant="outline-dark" id="publish-button" type="submit" block="true">
             Publish
           </Button>
         )}
         {loading && (
-          <Button variant="outline-dark" id="create-button-loading" disabled>
+          <Button variant="outline-dark" id="publish-button-loading" disabled>
             <Spinner
               as="span"
               animation="border"

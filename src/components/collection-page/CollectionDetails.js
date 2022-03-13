@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import CollectionDropdownButton from '../others/button/edit-collection-btn/CollectionDropdownButton';
-import HomePhotoList from '../others/photo-list/HomePhotoList';
+import HomePhotoList from '../others/list/HomeArticleList';
 import useCollection from '../../hooks/useCollection';
 import EditCollectionModal from './edit-collection/EditCollectionModal';
 import DeleteCollectionModal from './DeleteCollectionModal';

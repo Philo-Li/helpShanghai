@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useUserLikes from '../../hooks/useUserLikes';
-import HomePhotoList from '../others/photo-list/HomePhotoList';
+import HomePhotoList from '../others/list/HomeArticleList';
 
 const UserLikes = () => {
   const [allPhotos, setAllPhotos] = useState();

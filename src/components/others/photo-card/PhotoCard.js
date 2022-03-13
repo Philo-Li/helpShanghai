@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 import LazyLoad from 'react-lazyload';
 import SaveToCollectionsModal from './SaveToCollectionsModal';
 import useDeletePhoto from '../../../hooks/useDeletePhoto';
@@ -10,6 +12,8 @@ const PhotoCard = ({
   photo, likeSinglePhoto,
 }) => {
   if (!photo) return null;
+
+  const thumb = photo.thumb || 'https://cdn.philoart.io/b/700x700/ejt2Vbza56UViZTf2vEHY.jpg';
 
   const [deletePhoto] = useDeletePhoto();
   const [downloadPhoto] = useDownloadPhoto();
@@ -28,7 +32,7 @@ const PhotoCard = ({
     <div style={mystyle}>
       <a href={`/photo/${photo.id}`}>
         <img
-          src={photo.srcTiny}
+          src={thumb}
           className="lazyload-img"
           width="100%"
           alt="gird item"
@@ -54,65 +58,66 @@ const PhotoCard = ({
     await downloadPhoto({ id: photo.id });
   };
 
+  console.log('article', photo);
+
   return (
     <div className="grid-item">
-      <LazyLoad height={300} offset={[-100, 0]} debounce={500} once placeholder={<Placeholder />}>
-        <div className="photo-card overlay">
-          <a href={`/photo/${photo.id}`}>
-            <img
-              src={photo.srcTiny}
-              width="100%"
-              alt="gird item"
-            />
-          </a>
-          <div>
-            <div id={photo.id} className="text-white">
+      <div className="p-3">
+        <Card key={photo.id}>
+          <LazyLoad
+            height={300}
+            offset={[-100, 0]}
+            debounce={500}
+            once
+            placeholder={<Placeholder />}
+          >
+            <div className="photo-card overlay">
+              <a href={`/photo/${photo.id}`}>
+                <img
+                  src={thumb}
+                  width="100%"
+                  alt="gird item"
+                />
+              </a>
+
+            </div>
+          </LazyLoad>
+          <Card.Title>
+            <div className="article-card-title">
+              {photo.title}
+            </div>
+            <p>{photo.tag}</p>
+            <div className="article-card-summary">
+              summaryWhen we talk about web3, I suspect most people in tech
+              instantly think about NFTs, cryptocurrency,
+              or DeFi. I can’t blame them there: judging by...
+            </div>
+            <div className="container-row-primary">
+              <div className="article-card-author">author name</div>
+              <div calssName="article-card-summary">Jan 29,2022</div>
+            </div>
+            <div className="">
+              <div calssName="article-card-author">adad 29,2022</div>
+            </div>
+            <div className="article-card-flex-end">
               <button
                 type="button"
-                className="photo-card-btn-icon photo-card-btn1"
-                onClick={() => downloadSinglePhoto()}
-              >
-                <i className="bi bi-download" />
-              </button>
-            </div>
-            <div id={photo.id} className="text-white">
-              <button type="button" className="photo-card-btn-icon photo-card-btn3" onClick={() => openCollectModal()}>
-                <i className="bi bi-plus-square" />
-              </button>
-              <SaveToCollectionsModal
-                photo={photo}
-                showCollectModal={showCollectModal}
-                setShowCollectModal={setShowCollectModal}
-              />
-            </div>
-            <div className="text-white">
-              <button
-                type="button"
-                className="photo-card-btn-icon photo-card-btn2"
+                className="photodetails-card-btn-like container-row-0 photodetails-card-btn-item"
                 onClick={() => likeSinglePhoto(photo)}
               >
-                {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />)}
-                {photo.isLiked && (
-                  <div className="red-icon">
-                    <i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />
-                  </div>
-                )}
+                <div className="">
+                  {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
+                  {photo.isLiked && (
+                    <div className="red-icon">
+                      <i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+                    </div>
+                  )}
+                </div>
               </button>
             </div>
-            { username === 'philo' && (
-              <div className="text-white">
-                <button
-                  type="button"
-                  className="photo-card-btn-icon photo-card-btn5"
-                  onClick={() => deleteSinglePhoto(photo)}
-                >
-                  <i className="bi bi-trash-fill" />
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </LazyLoad>
+          </Card.Title>
+        </Card>
+      </div>
     </div>
   );
 };

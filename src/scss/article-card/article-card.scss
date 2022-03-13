@@ -1,0 +1,49 @@
+.article-card-title {
+    display: flex;
+	flex-flow: row;
+	// justify-content: center;
+	// align-items: center;
+	padding-top: 10px;
+    padding-left: 8px;
+}
+
+.article-card-summary {
+    display: flex;
+	flex-flow: row;
+	justify-content: center;
+	align-items: center;
+	padding-top: 0.5rem;
+    font-size: 14px;
+    padding: 1px 10px;
+}
+
+.article-card-author {
+    display: flex;
+	flex-flow: row;
+	align-items: flex-start;
+	padding-top: 8px;
+    font-size: 14px;
+    padding-top: 10px;
+    padding: 8px 10px;
+}
+
+.article-card-date {
+    display: flex;
+	flex-flow: row;
+	align-items: flex-start;
+	padding-top: 8px;
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+.article-card-flex-end {
+    display: flex;
+	flex-flow: row;
+	// align-items: flex-start;
+}
+
+.container-row-primary {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }

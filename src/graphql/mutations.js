@@ -54,40 +54,24 @@ export const UPDATE_PROFILE = gql`
   ${USER_DETAILS}
 `;
 
-export const CREATE_PHOTO = gql`
-  mutation createPhoto(
-    $photoId: String
+export const CREATE_ARTICLE = gql`
+  mutation createArticle(
     $title: String!
-    $titleZh: String!
-    $year: Int!
-    $description: String
-    $artworkWidth: Int
-    $artworkHeight: Int
-    $srcLarge: String
-    $srcYoutube: String
-    $artist: String
+    $summary: String
+    $tag: String
+    $cover: String
+    $content: String
     $license: String
-    $type: String
-    $medium: String
-    $status: String
-    $relatedPhotos: String
+    $published: Boolean!
     ) {
-    createPhoto(photo: {
-      photoId: $photoId
+    createArticle(article: {
       title: $title
-      titleZh: $titleZh
-      year: $year
-      description: $description
-      artworkWidth: $artworkWidth
-      artworkHeight: $artworkHeight
-      srcLarge: $srcLarge
-      srcYoutube: $srcYoutube
-      artist: $artist
+      summary: $summary
+      tag: $tag
+      cover: $cover
+      content: $content
       license: $license
-      type: $type
-      medium: $medium
-      status: $status
-      relatedPhotos: $relatedPhotos
+      published: $published
     } ) {
       id
     }

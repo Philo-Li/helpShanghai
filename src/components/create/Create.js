@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 import { useHistory } from 'react-router-dom';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import CreateContainer from './CreateContainer';
-import useCreatePhoto from '../../hooks/useCreatePhoto';
+import useCreateArticle from '../../hooks/useCreateArticle';
 import config from '../../config';
 
 const override = css`
@@ -20,17 +20,16 @@ const override = css`
 const baseUrl = config.philoartApi;
 
 const initialValues = {
-  title: 'Untitled',
+  title: '',
   description: '',
-  license: 'Philo Art License',
-  type: 'painting',
+  license: 'CC 3.0',
 };
 
 const Create = () => {
   const history = useHistory();
   const [errorInfo, setErrorInfo] = useState('');
   const [loading, setLoading] = useState(false);
-  const [createPhoto] = useCreatePhoto();
+  const [createArticle] = useCreateArticle();
   const [files, setFiles] = useState([]);
   const userId = localStorage.getItem('philoart-userId');
 
@@ -44,7 +43,7 @@ const Create = () => {
 
   const onSubmit = async (values) => {
     const {
-      title, description, license, type,
+      title, content,
     } = values;
 
     setLoading(true);
@@ -53,8 +52,12 @@ const Create = () => {
 
       const variables = {
         title,
+        content: JSON.stringify(files),
+        license: 'CC 3.0',
+        published: true,
       };
-      await createPhoto(variables);
+      // console.log('content', files, JSON.stringify(files));
+      await createArticle(variables);
       history.push('/');
       setLoading(false);
     } catch (e) {

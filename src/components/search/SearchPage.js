@@ -3,8 +3,8 @@ import { useLocation, withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import { css } from '@emotion/react';
 import BeatLoader from 'react-spinners/BeatLoader';
-import usePhotos from '../../hooks/usePhotos';
-import HomePhotoList from '../others/photo-list/HomePhotoList';
+import usePhotos from '../../hooks/useArticles';
+import HomePhotoList from '../others/list/HomeArticleList';
 import RelatedTagBar from '../others/RelatedTagBar';
 import NavSearchBar from '../others/NavSearchBar';
 

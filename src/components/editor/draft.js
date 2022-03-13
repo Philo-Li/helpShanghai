@@ -8,12 +8,14 @@ import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 //   }],
 // };
 
-const MyEditor = () => {
+// eslint-disable-next-line no-unused-vars
+const MyEditor = ({ files, setFiles }) => {
   // eslint-disable-next-line no-unused-vars
   const [contentState, setContentState] = useState();
 
   const onContentStateChange = (state) => {
     setContentState(state);
+    setFiles(state);
   };
 
   return (
