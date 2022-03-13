@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import axios from 'axios';
 import { css } from '@emotion/react';
 import { nanoid } from 'nanoid';
@@ -18,23 +18,6 @@ const override = css`
 `;
 
 const baseUrl = config.philoartApi;
-
-// const initialValues = {
-//   title: 'Untitled',
-//   titleZh: '无题',
-//   year: new Date().getFullYear(),
-//   description: '',
-//   artworkWidth: 0,
-//   artworkHeight: 0,
-//   srcLarge: '',
-//   srcYoutube: '',
-//   artist: 'Philo',
-//   license: 'Philo Art License',
-//   type: 'painting',
-//   medium: 'acrylic painting on canvas',
-//   status: 'available',
-//   relatedPhotos: '',
-// };
 
 const initialValues = {
   title: 'Untitled',
@@ -67,38 +50,9 @@ const Create = () => {
     setLoading(true);
     try {
       // get secure url from our server
-      const photoId = `${userId}-${nanoid()}`;
-      const { url } = await axios.get(`${baseUrl}/s3Url/${photoId}`).then((res) => res.data);
 
-      // post the image direct to the s3 bucket
-      await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'image/jpeg',
-        },
-        body: files[0],
-      });
-
-      const imageUrl = url.split('?')[0];
-
-      // store the image data to the server
       const variables = {
-        photoId,
         title,
-        titleZh: 'untitled',
-        year: new Date().getFullYear(),
-        description,
-        artworkWidth: 0,
-        artworkHeight: 0,
-        srcLarge: imageUrl,
-        srcYoutube: '',
-        color: '2',
-        artist: '1',
-        license,
-        type,
-        medium: '',
-        status: 'unavailable',
-        relatedPhotos: '',
       };
       await createPhoto(variables);
       history.push('/');

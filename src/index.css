@@ -1228,6 +1228,16 @@ input:invalid {
   margin-right: 20%;
 }
 
+.container-col-create {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 .container-row-searchbar {
   display: flex;
   flex-direction: row;
@@ -1311,6 +1321,10 @@ div.scrollmenu a:hover {
   margin-right: 5%;
 }
 
+.container-col-title {
+  margin-bottom: 3rem;
+}
+
 .search-box-navbar {
   display: flex;
   flex-direction: column;
@@ -1340,6 +1354,16 @@ div.scrollmenu a:hover {
   padding: 8px 20px;
 }
 
+.editor-border {
+  flex-grow: 1;
+  border: 1px solid black;
+  border-color: rgba(0, 0, 0, 0.25);
+  border-width: 1px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
 .textarea {
   font-size: 15px;
   width: 100%;
@@ -1348,6 +1372,13 @@ div.scrollmenu a:hover {
 
 .text-1rem {
   font-size: 1rem;
+}
+
+.text-title {
+  font-size: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .about .my-masonry-grid {
