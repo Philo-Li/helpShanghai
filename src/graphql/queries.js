@@ -25,6 +25,7 @@ export const GET_ARTICLES = gql`
           title
           author
           tag
+          publishedAt
           isLiked(checkUserLike: $checkUserLike)
         }
         cursor

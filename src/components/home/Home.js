@@ -73,25 +73,27 @@ const Home = () => {
         </Carousel>
       </div>
       {/* <CategoryBar /> */}
-      <Tabs
-        id="controlled-tab-example"
-        activeKey={key}
-        onSelect={(k) => setKey(k)}
-        className="mb-3"
-      >
-        <Tab eventKey="home" title="Home">
-          <HomeArticleList
-            allArticles={allArticles}
-            setAllArticles={setAllArticles}
-            clickFetchMore={clickFetchMore}
-            loading={loading}
-            hasNextPage={hasNextPage}
-          />
-        </Tab>
-        <Tab eventKey="Recommend" title="Recommend">
-          <Discover />
-        </Tab>
-      </Tabs>
+      <div className="container-margin-top">
+        <Tabs
+          id="controlled-tab-example"
+          activeKey={key}
+          onSelect={(k) => setKey(k)}
+          className="mb-3"
+        >
+          <Tab eventKey="home" title="Home">
+            <HomeArticleList
+              allArticles={allArticles}
+              setAllArticles={setAllArticles}
+              clickFetchMore={clickFetchMore}
+              loading={loading}
+              hasNextPage={hasNextPage}
+            />
+          </Tab>
+          <Tab eventKey="Recommend" title="Recommend">
+            <Discover />
+          </Tab>
+        </Tabs>
+      </div>
     </div>
   );
 };
