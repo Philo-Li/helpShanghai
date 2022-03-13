@@ -7,6 +7,7 @@
 @import "license/license";
 @import "about/about";
 @import "article-card/article-card";
+@import "article-details/article-details";
 
 body {
   min-height: 100vh;
@@ -157,6 +158,12 @@ input:invalid {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container-row-primary {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .item-social-icon {

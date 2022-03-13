@@ -92,6 +92,20 @@ export const UNLIKE_PHOTO = gql`
   }
 `;
 
+export const LIKE_ARTICLE = gql`
+  mutation likeArticle( $articleId: ID! ) {
+    likeArticle( articleId: $articleId ) {
+      id
+    }
+  }
+`;
+
+export const UNLIKE_ARTICLE = gql`
+  mutation unlikeArticle( $articleId: ID! ) {
+    unlikeArticle(articleId: $articleId )
+  }
+`;
+
 export const COLLECT_PHOTO = gql`
   mutation collectPhoto( $photoId: ID!,  $collectionId: ID! ) {
     collectPhoto(collect: { photoId: $photoId, collectionId: $collectionId } ) {

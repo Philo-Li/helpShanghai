@@ -13,7 +13,7 @@ import Discover from './components/discover/Discover';
 import Footer from './components/Footer';
 import Profile from './components/profile/Profile';
 import Settings from './components/profile/Settings';
-import PhotoDetails from './components/photo-page/PhotoDetails';
+import ArticleDetails from './components/article-page/ArticleDetails';
 import CollectionDetails from './components/collection-page/CollectionDetails';
 import SignIn from './components/sign-in/SignIn';
 import SignUp from './components/sign-up/SignUp';
@@ -138,8 +138,8 @@ const App = () => {
             <Route path="/:username" exact>
               <Profile authorizedUser={authorizedUser} />
             </Route>
-            <Route path="/photo/:id" exact>
-              <PhotoDetails />
+            <Route path="/article/:id" exact>
+              <ArticleDetails />
             </Route>
             <Route path="/collection/:id" exact>
               <CollectionDetails />

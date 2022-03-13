@@ -19,7 +19,7 @@ const PhotoCard = ({
 
   const Placeholder = () => (
     <div style={mystyle}>
-      <a href={`/photo/${photo.id}`}>
+      <a href={`/article/${photo.id}`}>
         <img
           src={thumb}
           className="lazyload-img"
@@ -45,7 +45,7 @@ const PhotoCard = ({
             placeholder={<Placeholder />}
           >
             <div className="photo-card overlay">
-              <a href={`/photo/${photo.id}`}>
+              <a href={`/article/${photo.id}`}>
                 <img
                   src={thumb}
                   width="100%"
@@ -57,7 +57,7 @@ const PhotoCard = ({
           </LazyLoad>
           <Card.Title>
             <div className="article-card">
-              <a href={`/photo/${photo.id}`}>
+              <a href={`/article/${photo.id}`}>
                 <div className="article-card-title">
                   {photo.title}
                 </div>

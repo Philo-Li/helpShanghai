@@ -1,20 +1,20 @@
 import { useQuery } from '@apollo/client';
 
-import { GET_PHOTO } from '../graphql/queries';
+import { GET_ARTICLE } from '../graphql/queries';
 
-const usePhoto = (variables) => {
+const useArticle = (variables) => {
   const {
     data, loading, ...result
-  } = useQuery(GET_PHOTO, {
+  } = useQuery(GET_ARTICLE, {
     fetchPolicy: 'cache-and-network',
     variables,
   });
 
   return {
-    photo: data ? data.photo : undefined,
+    article: data ? data.article : undefined,
     loading,
     ...result,
   };
 };
 
-export default usePhoto;
+export default useArticle;

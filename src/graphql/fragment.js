@@ -1,28 +1,23 @@
 import { gql } from '@apollo/react-hooks';
 
-export const PHOTO_DETAILS = gql`
-  fragment photoDetails on Photo {
+export const ARTICLE_DETAILS = gql`
+  fragment articleDetails on Article {
     id
     title
-    titleZh
-    year
-    description
-    tags
-    photoWidth
-    photoHeight
-    artworkWidth
-    artworkHeight
-    srcTiny
-    srcSmall
-    srcLarge
-    srcYoutube
-    color
-    artist
+    metaTitle
+    slug
+    summary
+    content
+    tag
+    author
+    viewCount
     license
-    type
-    medium
-    status
-    relatedPhotos
+    cover
+    thumb
+    published
+    publishedAt
+    updatedAt
+    articleLikeCount
   }
 `;
 
@@ -30,8 +25,6 @@ export const COLLECTION_DETAILS = gql`
   fragment collectionDetails on Collection {
     id
     title
-    description
-    photoCount
     cover
   }
 `;
@@ -47,4 +40,4 @@ export const USER_DETAILS = gql`
   }
 `;
 
-export default PHOTO_DETAILS;
+export default ARTICLE_DETAILS;

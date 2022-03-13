@@ -1,5 +1,5 @@
 import { gql } from '@apollo/react-hooks';
-import { PHOTO_DETAILS, COLLECTION_DETAILS, USER_DETAILS } from './fragment';
+import { ARTICLE_DETAILS, COLLECTION_DETAILS, USER_DETAILS } from './fragment';
 
 export const GET_ARTICLES = gql`
   query getArticles(
@@ -40,20 +40,20 @@ export const GET_ARTICLES = gql`
   }
 `;
 
-export const GET_PHOTO = gql`
-  query getPhoto($id: ID!, $checkUserLike: ID) {
-    photo(id: $id) {
-      ...photoDetails
+export const GET_ARTICLE = gql`
+  query getArticle($id: ID!, $checkUserLike: ID) {
+    article(id: $id) {
+      ...articleDetails
       user {
         username
+        firstName
+        lastName
+        profileImage
       }
-      likeCount
-      collectionCount
-      downloadCount
       isLiked(checkUserLike: $checkUserLike)
     }
   }
-  ${PHOTO_DETAILS}
+  ${ARTICLE_DETAILS}
 `;
 
 export const GET_AUTHORIZED_USER = gql`
@@ -90,7 +90,7 @@ export const GET_USER_LIKES = gql`
             id
           }
           photo{
-            ...photoDetails
+            ...articleDetails
             isLiked(checkUserLike: $checkUserLike)
           }
         }
@@ -104,7 +104,7 @@ export const GET_USER_LIKES = gql`
       }
     }
   }
-  ${PHOTO_DETAILS}
+  ${ARTICLE_DETAILS}
 `;
 
 export const GET_COLLECTIONS = gql`
@@ -162,7 +162,7 @@ export const GET_COLLECTION = gql`
         edges {
           node {
             photo{
-              ...photoDetails
+              ...articleDetails
               isLiked(checkUserLike: $checkUserLike)
             }
           }
@@ -177,7 +177,7 @@ export const GET_COLLECTION = gql`
       }
     }
   }
-  ${PHOTO_DETAILS}
+  ${ARTICLE_DETAILS}
   ${COLLECTION_DETAILS}
 `;
 
@@ -226,7 +226,7 @@ export const GET_USER_COLLECTIONS_PLUS = gql`
     $after: String
     $userId: String
     $username: String
-    $checkPhotoCollect: ID
+    $checkArticleCollect: ID
   ) {
     collections(
       orderBy: $orderBy
@@ -240,7 +240,7 @@ export const GET_USER_COLLECTIONS_PLUS = gql`
       edges {
         node {
           ...collectionDetails
-          isCollected(checkPhotoCollect: $checkPhotoCollect)
+          isCollected(checkArticleCollect: $checkArticleCollect)
         }
         cursor
       }
@@ -254,3 +254,5 @@ export const GET_USER_COLLECTIONS_PLUS = gql`
   }
   ${COLLECTION_DETAILS}
 `;
+
+export default { GET_ARTICLE };
