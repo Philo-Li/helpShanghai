@@ -37,7 +37,6 @@ const Home = () => {
 
       // setAllArticles(temp);
     }
-    console.log(articles);
   }, [articles]);
 
   const clickFetchMore = () => {
@@ -48,26 +47,12 @@ const Home = () => {
   return (
     <div>
       <div>
-        <Carousel fade>
+        <Carousel>
           <Carousel.Item>
             <div className="jumbotron-slice-1" alt="First slide" />
             <Carousel.Caption>
-              <h3 className="jumbotron-header">Share your artworks with the world.</h3>
+              <h3 className="jumbotron-header">Share your thoughts with the world.</h3>
               <p className="jumbotron-subheader">Create, and Post it</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="jumbotron-slice-2" alt="Second slide" />
-            <Carousel.Caption>
-              <h3 className="jumbotron-header">Create, Mint, and Sell</h3>
-              <p className="jumbotron-subheader">Discover the best NFTs.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="jumbotron-slice-3" alt="Third slide" />
-            <Carousel.Caption>
-              <h3 className="jumbotron-header">Discover the best artworks.</h3>
-              <p className="jumbotron-subheader">Free for personal use and download.</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

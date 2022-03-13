@@ -56,51 +56,15 @@ const Discover = () => {
       </div>
       <div className="p-3">
         <div className="container-profile profile-item subheader">
-          <p>Nature</p>
+          <p>Authors</p>
         </div>
         <DiscoverCollectionList allCollections={allCollections} category="nature" />
       </div>
       <div className="p-3">
         <div className="container-profile profile-item subheader">
-          <p>Human</p>
+          <p>Articles</p>
         </div>
         <DiscoverCollectionList allCollections={allCollections} category="human" />
-      </div>
-      <div className="p-3">
-        <div className="container-profile profile-item subheader">
-          <p>Mood</p>
-        </div>
-        <DiscoverCollectionList allCollections={allCollections} category="mood" />
-      </div>
-      <div className="p-3">
-        <div className="container-profile profile-item subheader">
-          <p>Delicious food</p>
-        </div>
-        <DiscoverCollectionList allCollections={allCollections} category="food" />
-      </div>
-      <div className="p-3">
-        <div className="container-profile profile-item subheader">
-          <p>Animals</p>
-        </div>
-        <DiscoverCollectionList allCollections={allCollections} category="animals" />
-      </div>
-      <div className="p-3">
-        <div className="container-profile profile-item subheader">
-          <p>Light and shadow</p>
-        </div>
-        <DiscoverCollectionList allCollections={allCollections} category="light" />
-      </div>
-      <div className="p-3">
-        <div className="container-profile profile-item subheader">
-          <p>On the Road</p>
-        </div>
-        <DiscoverCollectionList allCollections={allCollections} category="road" />
-      </div>
-      <div className="p-3">
-        <div className="container-profile profile-item subheader">
-          <p>Other</p>
-        </div>
-        <DiscoverCollectionList allCollections={allCollections} category="" />
       </div>
     </div>
   );
