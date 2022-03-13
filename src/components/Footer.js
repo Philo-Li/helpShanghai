@@ -16,8 +16,8 @@ const Footer = () => {
 
   return (
     <div style={footerStyle}>
-      <Card className="text-left text-dark bg-white" fluid="true">
-        <Card.Footer className="text-center">
+      <Card className="text-left text-dark" bg="white" fluid="true">
+        <Card.Body className="text-center">
           <div>
             <Navbar.Brand href="/" className="text-dark container-row-0">
               <img
@@ -46,7 +46,7 @@ const Footer = () => {
           <Nav className="justify-content-end">
             <Nav.Link className="text-dark" href="/license">License</Nav.Link>
           </Nav>
-        </Card.Footer>
+        </Card.Body>
       </Card>
     </div>
   );
