@@ -61,8 +61,6 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   // console.log('article', photo, publishedDate, photo.publishedAt);
   const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
 
-  console.log('content', articleToShow.content);
-
   return (
     <div className="">
       <img
@@ -93,7 +91,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
           <div className="">
             <img src={profileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
           </div>
-          <div className="article-card-author-name">{photo.author || 'Author'}</div>
+          <div className="article-card-author-name">{photo.author || 'Philo'}</div>
           <div className="article-card-date">{publishedDate}</div>
         </div>
         <div className="container-article-card-bookmark">

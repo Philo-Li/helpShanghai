@@ -75,7 +75,7 @@ const PhotoCard = ({
               <div className="">
                 <img src={profileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
               </div>
-              <div className="article-card-author-name">{photo.author || 'Author'}</div>
+              <div className="article-card-author-name">{photo.author || 'Philo'}</div>
               <div className="article-card-date">{publishedDate}</div>
             </div>
             <div className="container-article-card-bookmark">
