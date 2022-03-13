@@ -19,8 +19,8 @@ const breakpointColumnsObj2 = {
   500: 1,
 };
 
-const HomePhotoListContainer = ({
-  allPhotos, setAllPhotos, clickFetchMore, loading, column, hasNextPage,
+const HomeArticleListContainer = ({
+  allArticles, setAllArticles, clickFetchMore, loading, column, hasNextPage,
 }) => {
   const [likePhoto] = useLikePhoto();
   const [unlikePhoto] = useUnlikePhoto();
@@ -31,9 +31,9 @@ const HomePhotoListContainer = ({
     if (!token) {
       history.push('/signin');
     } else {
-      const temp = allPhotos
+      const temp = allArticles
         .map((obj) => (obj.id === photo.id ? { ...obj, isLiked: !obj.isLiked } : obj));
-      setAllPhotos(temp);
+      setAllArticles(temp);
       if (photo.isLiked) {
         await unlikePhoto({ photoId: photo.id });
       } else {
@@ -50,7 +50,7 @@ const HomePhotoListContainer = ({
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {allPhotos.map((photo) => (
+          {allArticles.map((photo) => (
             <div key={nanoid()}>
               <PhotoCard
                 photo={photo}
@@ -69,4 +69,4 @@ const HomePhotoListContainer = ({
   );
 };
 
-export default HomePhotoListContainer;
+export default HomeArticleListContainer;

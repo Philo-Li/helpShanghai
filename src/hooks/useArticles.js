@@ -1,35 +1,35 @@
 import { useQuery } from '@apollo/client';
 
-import { GET_PHOTOS } from '../graphql/queries';
+import { GET_ARTICLES } from '../graphql/queries';
 
-const usePhotos = (variables) => {
+const useArticles = (variables) => {
   const {
     data, fetchMore, refetch, loading, ...result
-  } = useQuery(GET_PHOTOS, {
+  } = useQuery(GET_ARTICLES, {
     fetchPolicy: 'cache-and-network',
     variables,
   });
 
   const handleFetchMore = () => {
-    const canFetchMore = !loading && data && data.photos.pageInfo.hasNextPage;
+    const canFetchMore = !loading && data && data.articles.pageInfo.hasNextPage;
 
     if (!canFetchMore) {
       return;
     }
 
     fetchMore({
-      query: GET_PHOTOS,
+      query: GET_ARTICLES,
       variables: {
-        after: data.photos.pageInfo.endCursor,
+        after: data.articles.pageInfo.endCursor,
         ...variables,
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         const nextResult = {
-          photos: {
-            ...fetchMoreResult.photos,
+          articles: {
+            ...fetchMoreResult.articles,
             edges: [
-              ...previousResult.photos.edges,
-              ...fetchMoreResult.photos.edges,
+              ...previousResult.articles.edges,
+              ...fetchMoreResult.articles.edges,
             ],
           },
         };
@@ -40,13 +40,13 @@ const usePhotos = (variables) => {
   };
 
   return {
-    photos: data ? data.photos : undefined,
+    articles: data ? data.articles : undefined,
     fetchMore: handleFetchMore,
-    hasNextPage: data && data.photos.pageInfo.hasNextPage,
+    hasNextPage: data && data.articles.pageInfo.hasNextPage,
     refetch,
     loading,
     ...result,
   };
 };
 
-export default usePhotos;
+export default useArticles;

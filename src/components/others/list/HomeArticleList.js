@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
-import HomePhotoListContainer from './HomePhotoListContainer';
+import HomeArticleListContainer from './HomeArticleListContainer';
 
 const override = css`
   display: flex;
@@ -11,10 +11,10 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-const HomePhotoList = ({
-  allPhotos, setAllPhotos, clickFetchMore, loading, column, hasNextPage,
+const HomeArticleList = ({
+  allArticles, setAllArticles, clickFetchMore, loading, column, hasNextPage,
 }) => {
-  if (allPhotos === undefined) {
+  if (allArticles === undefined) {
     return (
       <div className="col-item-3">
         <PacmanLoader color="#9B9B9B" loading css={override} size={50} />
@@ -24,9 +24,9 @@ const HomePhotoList = ({
 
   return (
     <div>
-      <HomePhotoListContainer
-        allPhotos={allPhotos}
-        setAllPhotos={setAllPhotos}
+      <HomeArticleListContainer
+        allArticles={allArticles}
+        setAllArticles={setAllArticles}
         clickFetchMore={clickFetchMore}
         loading={loading}
         column={column}
@@ -36,4 +36,4 @@ const HomePhotoList = ({
   );
 };
 
-export default HomePhotoList;
+export default HomeArticleList;

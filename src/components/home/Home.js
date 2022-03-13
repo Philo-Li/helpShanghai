@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { Tabs, Tab, Carousel } from 'react-bootstrap';
-import usePhotos from '../../hooks/usePhotos';
-import HomePhotoList from '../others/photo-list/HomePhotoList';
-// import SearchBar from '../others/search-bar/SearchBar';
-import CategoryBar from '../others/CategoryBar';
+import useArticles from '../../hooks/useArticles';
+import HomeArticleList from '../others/list/HomeArticleList';
+// import CategoryBar from '../others/CategoryBar';
 import Discover from '../discover/Discover';
 import config from '../../config';
 // import '../../MDB-Free_4.19.2/css/mdb.css';
 
 const Home = () => {
-  const [allPhotos, setAllPhotos] = useState();
+  const [allArticles, setAllArticles] = useState();
   const [loading, setLoading] = useState(false);
   const [key, setKey] = useState('home');
 
   const userId = localStorage.getItem('philoart-userId');
-  const baseUrl = 'https://media.philoart.io/photos.json';
+  // const baseUrl = 'https://media.philoart.io/articles.json';
 
   const variables = {
     username: config.philoartAdmin,
@@ -23,22 +22,23 @@ const Home = () => {
     first: 20,
   };
 
-  const { photos, fetchMore, hasNextPage } = usePhotos(variables);
+  const { articles, fetchMore, hasNextPage } = useArticles(variables);
 
   useEffect(async () => {
-    if (photos) {
-      const temp = photos && photos.edges
-        ? photos.edges.map((edge) => edge.node)
+    if (articles) {
+      const temp = articles && articles.edges
+        ? articles.edges.map((edge) => edge.node)
         : [];
 
-      setAllPhotos(temp);
+      setAllArticles(temp);
       setLoading(false);
     } else {
-      const temp = await axios.get(baseUrl).then((res) => res.data.node);
+      // const temp = await axios.get(baseUrl).then((res) => res.data.node);
 
-      setAllPhotos(temp);
+      // setAllArticles(temp);
     }
-  }, [photos]);
+    console.log(articles);
+  }, [articles]);
 
   const clickFetchMore = () => {
     fetchMore();
@@ -52,7 +52,6 @@ const Home = () => {
           <Carousel.Item>
             <div className="jumbotron-slice-1" alt="First slide" />
             <Carousel.Caption>
-              {/* <SearchBar /> */}
               <h3 className="jumbotron-header">Share your artworks with the world.</h3>
               <p className="jumbotron-subheader">Create, and Post it</p>
             </Carousel.Caption>
@@ -73,7 +72,7 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
       </div>
-      <CategoryBar />
+      {/* <CategoryBar /> */}
       <Tabs
         id="controlled-tab-example"
         activeKey={key}
@@ -81,15 +80,15 @@ const Home = () => {
         className="mb-3"
       >
         <Tab eventKey="home" title="Home">
-          <HomePhotoList
-            allPhotos={allPhotos}
-            setAllPhotos={setAllPhotos}
+          <HomeArticleList
+            allArticles={allArticles}
+            setAllArticles={setAllArticles}
             clickFetchMore={clickFetchMore}
             loading={loading}
             hasNextPage={hasNextPage}
           />
         </Tab>
-        <Tab eventKey="collections" title="Collections">
+        <Tab eventKey="Recommend" title="Recommend">
           <Discover />
         </Tab>
       </Tabs>

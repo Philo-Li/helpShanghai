@@ -1,9 +1,9 @@
 import { gql } from '@apollo/react-hooks';
 import { PHOTO_DETAILS, COLLECTION_DETAILS, USER_DETAILS } from './fragment';
 
-export const GET_PHOTOS = gql`
-  query getPhotos(
-    $orderBy: AllPhotosOrderBy
+export const GET_ARTICLES = gql`
+  query getArticles(
+    $orderBy: AllArticlesOrderBy
     $orderDirection: OrderDirection
     $searchKeyword: String
     $username: String
@@ -11,7 +11,7 @@ export const GET_PHOTOS = gql`
     $after: String
     $checkUserLike: ID
   ) {
-    photos(
+    articles(
       orderBy: $orderBy
       orderDirection: $orderDirection
       searchKeyword: $searchKeyword
@@ -23,13 +23,8 @@ export const GET_PHOTOS = gql`
         node {
           id
           title
-          srcTiny
-          srcSmall
-          srcLarge
-          artist
-          status
-          tags
-          color
+          author
+          tag
           isLiked(checkUserLike: $checkUserLike)
         }
         cursor
