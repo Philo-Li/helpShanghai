@@ -243,9 +243,9 @@ export const UNLIKE_AND_DELETE_PHOTO = gql`
   }
 `;
 
-export const DELETE_PHOTO = gql`
-  mutation deletePhoto( $id: ID! ) {
-    deletePhoto( id: $id )
+export const DELETE_ARTICLE = gql`
+  mutation deleteArticle( $id: ID! ) {
+    deleteArticle( id: $id )
   }
 `;
 

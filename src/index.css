@@ -896,6 +896,16 @@
   align-items: center;
 }
 
+.container-col-article-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
 body {
   min-height: 100vh;
   scroll-behavior: smooth;

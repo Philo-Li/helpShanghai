@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Modal, Alert } from 'react-bootstrap';
-import useDeletePhoto from '../../hooks/useDeletePhoto';
+import useDeleteArticle from '../../hooks/useDeleteArticle';
 
-const DeletePhotoModal = ({
-  photo,
+const DeleteConfirmModal = ({
+  id,
+  itemType,
   showDeleteModal,
   setShowDeleteModal,
 }) => {
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
-  const [deletePhoto] = useDeletePhoto();
+  const [deleteArticle] = useDeleteArticle();
   const history = useHistory();
 
-  const deleteSinglePhoto = async () => {
+  const deleteSingleCollection = async () => {
     try {
-      await deletePhoto({ id: photo.id });
-      setSuccessInfo('Photo is deleted');
+      await deleteArticle({ id });
+      setSuccessInfo(`${itemType} is deleted`);
       setTimeout(() => { setSuccessInfo(''); setShowDeleteModal(false); history.goBack(); }, 3000);
     } catch (e) {
       setErrorInfo(e.message);
@@ -35,7 +36,9 @@ const DeletePhotoModal = ({
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            Delete this photo?
+            {`Delete this
+            ${itemType}
+            ?`}
           </Modal.Title>
         </Modal.Header>
         {errorInfo && (
@@ -52,7 +55,7 @@ const DeletePhotoModal = ({
           <button className="more-photos-btn" type="button" onClick={() => setShowDeleteModal(false)}>
             Close
           </button>
-          <button className="delete-btn" type="button" onClick={() => deleteSinglePhoto()}>
+          <button className="delete-btn" type="button" onClick={() => deleteSingleCollection()}>
             <i className="bi bi-trash-fill icon-delete" />
             Delete
           </button>
@@ -62,4 +65,4 @@ const DeletePhotoModal = ({
   );
 };
 
-export default DeletePhotoModal;
+export default DeleteConfirmModal;

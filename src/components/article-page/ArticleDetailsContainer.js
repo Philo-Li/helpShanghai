@@ -7,19 +7,19 @@ import { format } from 'date-fns';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import useLikePhoto from '../../hooks/useLikePhoto';
 import useUnlikePhoto from '../../hooks/useUnlikePhoto';
-import useDownloadPhoto from '../../hooks/useDownloadPhoto';
-import DropdownButton from '../others/button/edit-photo-btn/DropdownButton';
+// import DropdownButton from '../others/button/edit-photo-btn/DropdownButton';
 import SaveToCollectionsModal from '../others/photo-card/SaveToCollectionsModal';
-import DeletePhotoModal from './DeletePhotoModal';
+import DropdownButton from '../others/button/edit-article-btn/DropdownButton';
+import DeleteConfirmModal from './DeleteConfirmModal';
 
 const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   const [likePhoto] = useLikePhoto();
   const [unlikePhoto] = useUnlikePhoto();
-  const [downloadPhoto] = useDownloadPhoto();
   const [showCollectModal, setShowCollectModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [showEditModal, setShowEditModal] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const history = useHistory();
   const userId = localStorage.getItem('philoart-userId');
   const username = localStorage.getItem('philoart-username');
@@ -52,9 +52,8 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
 
   const photoCredit = `License: ${photo.license}`;
 
-  const downloadSinglePhoto = async () => {
-    window.open(photo.srcLarge);
-    await downloadPhoto({ id: photo.id });
+  const redirectToEditPage = async () => {
+    history.push(`/edit-article/${articleToShow.id}`);
   };
 
   const publishedDate = format(new Date(photo.publishedAt), 'PP');
@@ -69,6 +68,22 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         height={300}
         alt="gird item"
       />
+      <div className="container-collection-title">
+        <div className="collection-dropbtn">
+          {username && articleToShow.user.username === username && (
+            <DropdownButton
+              redirectToEditPage={redirectToEditPage}
+              setShowDeleteModal={setShowDeleteModal}
+            />
+          )}
+        </div>
+      </div>
+      <DeleteConfirmModal
+        id={articleToShow.id}
+        itemType="Article"
+        showDeleteModal={showDeleteModal}
+        setShowDeleteModal={setShowDeleteModal}
+      />
       <div className="container-col-title">
         <div className="article-details-title">
           {photo.title}
@@ -77,11 +92,6 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
       <div className="article-details-author-row">
         <div className="article-card">
           <a href={`/article/${photo.id}`}>
-            {/* <div className="article-card-summary">
-              summaryWhen we talk about web3, I suspect most people in tech
-              instantly think about NFTs, cryptocurrency,
-              or DeFi. I can’t blame them there: judging by...
-            </div> */}
             <div className="article-card-summary">
               {photo.summary}
             </div>
@@ -113,12 +123,29 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
           </div>
         </div>
       </div>
-      <div className="article-details-content">
-        <Editor
-          toolbarHidden="true"
-          initialContentState={articleToShow.content}
-          readOnly="true"
-        />
+      <div className="article-details-content container-col-article-details">
+        {!editMode && (
+          <Editor
+            toolbarHidden="true"
+            initialContentState={articleToShow.content}
+            readOnly="true"
+          />
+        )}
+        {editMode && (
+          <Editor
+            wrapperClassName="wrapper-class"
+            editorClassName="editor-class"
+            toolbarClassName="toolbar-class"
+            toolbar={{
+              inline: { inDropdown: true },
+              list: { inDropdown: true },
+              textAlign: { inDropdown: true },
+              link: { inDropdown: true },
+              history: { inDropdown: true },
+            }}
+            initialContentState={articleToShow.content}
+          />
+        )}
       </div>
       {/* <div className="article">
         {articleToShow.content || 'rendering'}
