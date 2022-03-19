@@ -60,9 +60,8 @@
     margin-top: 10%;
     font-weight: light;
     background-color: white;
-    border: 1px solid black;
+    border: none;
     border-radius: 5px;
-    padding: 0.5rem 1rem;
     transition: ease 0.2s;
 }
 
@@ -71,7 +70,6 @@
 }
 
 .article-card-btn-item {
-    margin: 0.5rem;
     align-self: flex-end;
 }
 

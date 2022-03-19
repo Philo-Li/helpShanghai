@@ -7,7 +7,6 @@ import { format } from 'date-fns';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import useLikeArticle from '../../hooks/useLikeArticle';
 import useUnlikeArticle from '../../hooks/useUnlikeArticle';
-// import DropdownButton from '../others/button/edit-photo-btn/DropdownButton';
 import SaveToCollectionsModal from '../others/photo-card/SaveToCollectionsModal';
 import DropdownButton from '../others/button/edit-article-btn/DropdownButton';
 import DeleteConfirmModal from './DeleteConfirmModal';
@@ -116,15 +115,14 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
               className="article-card-btn-bookmark article-card-btn-item"
               onClick={() => openCollectModal()}
             >
-              <i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
-              {/* <div className="">
-                {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
-                {photo.isLiked && (
+              <div className="">
+                {!photo.isCollected && (<i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
+                {photo.isCollected && (
                   <div className="yellow-icon">
-                    <i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+                    <i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
                   </div>
                 )}
-              </div> */}
+              </div>
             </button>
           </div>
         </div>

@@ -144,18 +144,18 @@ export const CREATE_COLLECTION = gql`
   }
 `;
 
-export const CREATE_COLLECTION_AND_COLLECT_PHOTO = gql`
+export const CREATE_COLLECTION_AND_COLLECT_ARTICLE = gql`
   mutation createCollectionAndCollectPhoto(
     $title: String!
     $description: String
     $public: Boolean!
-    $photoId: ID!
+    $articleId: ID!
     ) {
-      createCollectionAndCollectPhoto(collection: {
+      createCollectionAndCollectArticle(collection: {
       title: $title
       description: $description
       public: $public
-      photoId: $photoId
+      articleId: $articleId
     } ) {
       id
       collection {
@@ -228,3 +228,5 @@ export const UPDATE_AVATAR = gql`
     updateAvatar( url: $url )
   }
 `;
+
+export default { CREATE_COLLECTION_AND_COLLECT_ARTICLE };

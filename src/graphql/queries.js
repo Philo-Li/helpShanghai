@@ -10,6 +10,7 @@ export const GET_ARTICLES = gql`
     $first: Int
     $after: String
     $checkUserLike: ID
+    $checkUserCollect: ID
   ) {
     articles(
       orderBy: $orderBy
@@ -27,6 +28,7 @@ export const GET_ARTICLES = gql`
           tag
           publishedAt
           isLiked(checkUserLike: $checkUserLike)
+          isCollected(checkUserCollect: $checkUserCollect)
         }
         cursor
       }
@@ -41,7 +43,7 @@ export const GET_ARTICLES = gql`
 `;
 
 export const GET_ARTICLE = gql`
-  query getArticle($id: ID!, $checkUserLike: ID) {
+  query getArticle($id: ID!, $checkUserLike: ID, $checkUserCollect: ID) {
     article(id: $id) {
       ...articleDetails
       user {
@@ -51,6 +53,7 @@ export const GET_ARTICLE = gql`
         profileImage
       }
       isLiked(checkUserLike: $checkUserLike)
+      isCollected(checkUserCollect: $checkUserCollect)
     }
   }
   ${ARTICLE_DETAILS}

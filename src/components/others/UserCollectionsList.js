@@ -21,7 +21,7 @@ const breakpointColumnsObj = {
 };
 const INIT_COVER = galleryIcon;
 
-const UserCollectionsList = ({ loadingList, allCollections, collectSinglePhoto }) => {
+const UserCollectionsList = ({ loadingList, allCollections, collectSingleArticle }) => {
   if (loadingList) {
     return (
       <div className="col-item-3">
@@ -49,8 +49,8 @@ const UserCollectionsList = ({ loadingList, allCollections, collectSinglePhoto }
           <Card key={collection.id}>
             <div
               className="view zoom overlay"
-              onClick={() => { collectSinglePhoto(collection); }}
-              onKeyPress={() => collectSinglePhoto(collection)}
+              onClick={() => { collectSingleArticle(collection); }}
+              onKeyPress={() => collectSingleArticle(collection)}
               role="button"
               tabIndex="0"
             >

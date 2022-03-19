@@ -4,7 +4,7 @@ import { Modal, Spinner, Alert } from 'react-bootstrap';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import UserCollectionsList from '../UserCollectionsList';
-import useCreateCollectionAndCollectPhoto from '../../../hooks/useCreateCollectionAndCollectPhoto';
+import useCreateCollectionAndCollectArticle from '../../../hooks/useCreateCollectionAndCollectArticle';
 import useCollections from '../../../hooks/useUserCollectionsPlus';
 import useUncollectPhoto from '../../../hooks/useUncollectPhoto';
 import useCollectPhoto from '../../../hooks/useCollectPhoto';
@@ -53,9 +53,9 @@ export const CreateAndSaveForm = ({ loading }) => (
 );
 
 const SaveToCollectionsModal = ({
-  photo, showCollectModal, setShowCollectModal,
+  article, showCollectModal, setShowCollectModal,
 }) => {
-  const [createCollectionAndCollectPhoto, newCollection] = useCreateCollectionAndCollectPhoto();
+  const [createCollectionAndCollectArticle, newCollection] = useCreateCollectionAndCollectArticle();
   const [collectPhoto] = useCollectPhoto();
   const [uncollectPhoto] = useUncollectPhoto();
   const [errorInfo, setErrorInfo] = useState('');
@@ -67,7 +67,7 @@ const SaveToCollectionsModal = ({
 
   const { collections } = useCollections({
     username,
-    checkPhotoCollect: photo.id,
+    checkArticleCollect: article.id,
     first: 30,
   });
 
@@ -79,7 +79,7 @@ const SaveToCollectionsModal = ({
 
       const updatedAllCollections = temp
         .map((obj) => {
-          const coverToShow = obj.isCollected ? photo.srcLarge : obj.cover;
+          const coverToShow = obj.isCollected ? article.srcLarge : obj.cover;
           return { ...obj, coverToShow };
         });
 
@@ -101,9 +101,9 @@ const SaveToCollectionsModal = ({
         title,
         description: '',
         public: true,
-        photoId: photo.id,
+        articleId: article.id,
       };
-      await createCollectionAndCollectPhoto(variables);
+      await createCollectionAndCollectArticle(variables);
     } catch (e) {
       setErrorInfo(e.message);
       setTimeout(() => { setErrorInfo(''); }, 3000);
@@ -111,12 +111,12 @@ const SaveToCollectionsModal = ({
     setLoading(false);
   };
 
-  const collectSinglePhoto = async (collection) => {
+  const collectSingleArticle = async (collection) => {
     const uncollect = collection.isCollected;
     const updatedCollection = {
       ...collection,
       isCollected: !collection.isCollected,
-      coverToShow: uncollect ? collection.cover : photo.srcLarge,
+      coverToShow: uncollect ? collection.cover : article.srcLarge,
     };
     const updatedAllCollections = allCollections
       .map((obj) => (obj.id === collection.id ? updatedCollection : obj));
@@ -124,9 +124,9 @@ const SaveToCollectionsModal = ({
     setAllCollections(updatedAllCollections);
 
     if (uncollect) {
-      await uncollectPhoto({ photoId: photo.id, collectionId: collection.id });
+      await uncollectPhoto({ photoId: article.id, collectionId: collection.id });
     } else {
-      await collectPhoto({ photoId: photo.id, collectionId: collection.id });
+      await collectPhoto({ photoId: article.id, collectionId: collection.id });
     }
   };
 
@@ -165,7 +165,7 @@ const SaveToCollectionsModal = ({
               <UserCollectionsList
                 loadingList={loadingList}
                 allCollections={allCollections}
-                collectSinglePhoto={collectSinglePhoto}
+                collectSingleArticle={collectSingleArticle}
               />
             </div>
           </div>

@@ -21,6 +21,7 @@ const ArticleDetails = () => {
   const { article } = useArticle({
     id,
     checkUserLike: userId,
+    checkUserCollect: userId,
   });
 
   useEffect(() => {

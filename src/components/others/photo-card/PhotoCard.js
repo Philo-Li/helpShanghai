@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import LazyLoad from 'react-lazyload';
 import { format } from 'date-fns';
+import SaveToCollectionsModal from './SaveToCollectionsModal';
 import '../../../MDB-Free_4.19.2/css/mdb.css';
 
-const PhotoCard = ({
-  photo, likeSinglePhoto,
-}) => {
+const PhotoCard = ({ photo }) => {
   if (!photo) return null;
+  const history = useHistory();
+  const [showCollectModal, setShowCollectModal] = useState(false);
 
+  const userId = localStorage.getItem('philoart-userId');
   const thumb = photo.thumb || 'https://cdn.philoart.io/b/700x700/ejt2Vbza56UViZTf2vEHY.jpg';
 
   const bgColor = photo.color || '#84B0B3';
@@ -29,6 +32,15 @@ const PhotoCard = ({
       </a>
     </div>
   );
+
+  const openCollectModal = async () => {
+    if (!userId) {
+      history.push('/signin');
+    } else {
+      setShowCollectModal(true);
+    }
+  };
+
   const publishedDate = format(new Date(photo.publishedAt), 'PP');
   // console.log('article', photo, publishedDate, photo.publishedAt);
   const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
@@ -52,7 +64,6 @@ const PhotoCard = ({
                   alt="gird item"
                 />
               </a>
-
             </div>
           </LazyLoad>
           <Card.Title>
@@ -61,11 +72,6 @@ const PhotoCard = ({
                 <div className="article-card-title">
                   {photo.title}
                 </div>
-                {/* <div className="article-card-summary">
-                  summaryWhen we talk about web3, I suspect most people in tech
-                  instantly think about NFTs, cryptocurrency,
-                  or DeFi. I can’t blame them there: judging by...
-                </div> */}
                 <div className="article-card-summary">
                   {photo.summary}
                 </div>
@@ -80,16 +86,23 @@ const PhotoCard = ({
             </div>
             <div className="container-article-card-bookmark">
               <div className="article-card-bookmark-btn-end">
+                {userId && (
+                <SaveToCollectionsModal
+                  article={photo}
+                  showCollectModal={showCollectModal}
+                  setShowCollectModal={setShowCollectModal}
+                />
+                )}
                 <button
                   type="button"
                   className="article-card-btn-bookmark article-card-btn-item"
-                  onClick={() => likeSinglePhoto(photo)}
+                  onClick={() => openCollectModal()}
                 >
                   <div className="">
-                    {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
-                    {photo.isLiked && (
+                    {!photo.isCollected && (<i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
+                    {photo.isCollected && (
                       <div className="yellow-icon">
-                        <i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+                        <i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
                       </div>
                     )}
                   </div>

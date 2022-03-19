@@ -19,6 +19,7 @@ const Home = () => {
   const variables = {
     username: config.admin,
     checkUserLike: userId,
+    checkUserCollect: userId,
     first: 20,
   };
 
