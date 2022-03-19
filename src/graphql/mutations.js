@@ -203,46 +203,6 @@ export const DOWNLOAD_PHOTO = gql`
   }
 `;
 
-export const CREATE_AND_LIKE_PHOTO = gql`
-  mutation createAndLikePhoto(
-    $width: Int
-    $height: Int
-    $tiny: String
-    $small: String
-    $large: String
-    $color: String
-    $downloadPage: String
-    $creditWeb: String
-    $creditId: String
-    $photographer: String
-    $description: String
-    $tags: String
-    ) {
-    createAndLikePhoto(photo: {
-      width: $width
-      height: $height
-      tiny: $tiny
-      small: $small
-      large: $large
-      color: $color
-      creditWeb: $creditWeb
-      creditId: $creditId
-      photographer: $photographer
-      downloadPage: $downloadPage
-      description: $description
-      tags: $tags
-    } ) {
-      id
-    }
-  }
-`;
-
-export const UNLIKE_AND_DELETE_PHOTO = gql`
-  mutation unlikeAndDeletePhoto( $url: String! ) {
-    unlikeAndDeletePhoto( url: $url )
-  }
-`;
-
 export const DELETE_ARTICLE = gql`
   mutation deleteArticle( $id: ID! ) {
     deleteArticle( id: $id )

@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import { nanoid } from 'nanoid';
 import LoadMore from '../button/LoadMore';
-import useLikePhoto from '../../../hooks/useLikePhoto';
+import useLikeArticle from '../../../hooks/useLikeArticle';
 import PhotoCard from '../photo-card/PhotoCard';
-import useUnlikePhoto from '../../../hooks/useUnlikePhoto';
+import useUnlikeArticle from '../../../hooks/useUnlikeArticle';
 
 const breakpointColumnsObj = {
   default: 3,
@@ -22,12 +22,12 @@ const breakpointColumnsObj2 = {
 const HomeArticleListContainer = ({
   allArticles, setAllArticles, clickFetchMore, loading, column, hasNextPage,
 }) => {
-  const [likePhoto] = useLikePhoto();
-  const [unlikePhoto] = useUnlikePhoto();
+  const [likeArticle] = useLikeArticle();
+  const [unlikeArticle] = useUnlikeArticle();
   const history = useHistory();
   const token = localStorage.getItem('philoart-token');
 
-  const likeSinglePhoto = async (photo) => {
+  const likeSingleArticle = async (photo) => {
     if (!token) {
       history.push('/signin');
     } else {
@@ -35,9 +35,9 @@ const HomeArticleListContainer = ({
         .map((obj) => (obj.id === photo.id ? { ...obj, isLiked: !obj.isLiked } : obj));
       setAllArticles(temp);
       if (photo.isLiked) {
-        await unlikePhoto({ photoId: photo.id });
+        await unlikeArticle({ photoId: photo.id });
       } else {
-        await likePhoto({ photoId: photo.id });
+        await likeArticle({ photoId: photo.id });
       }
     }
   };
@@ -54,7 +54,7 @@ const HomeArticleListContainer = ({
             <div key={nanoid()}>
               <PhotoCard
                 photo={photo}
-                likeSinglePhoto={likeSinglePhoto}
+                likeSinglePhoto={likeSingleArticle}
               />
             </div>
           ))}

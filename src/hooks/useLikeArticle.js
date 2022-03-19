@@ -2,16 +2,16 @@ import { useMutation } from '@apollo/client';
 
 import { LIKE_ARTICLE } from '../graphql/mutations';
 
-const useLikePhoto = () => {
+const useLikeArticle = () => {
   const [mutate, result] = useMutation(LIKE_ARTICLE);
 
-  const likePhoto = async (variables) => {
+  const likeArticle = async (variables) => {
     await mutate({
       variables,
     });
   };
 
-  return [likePhoto, result];
+  return [likeArticle, result];
 };
 
-export default useLikePhoto;
+export default useLikeArticle;

@@ -5,16 +5,16 @@ import { useHistory } from 'react-router-dom';
 import { Editor } from 'react-draft-wysiwyg';
 import { format } from 'date-fns';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import useLikePhoto from '../../hooks/useLikePhoto';
-import useUnlikePhoto from '../../hooks/useUnlikePhoto';
+import useLikeArticle from '../../hooks/useLikeArticle';
+import useUnlikeArticle from '../../hooks/useUnlikeArticle';
 // import DropdownButton from '../others/button/edit-photo-btn/DropdownButton';
 import SaveToCollectionsModal from '../others/photo-card/SaveToCollectionsModal';
 import DropdownButton from '../others/button/edit-article-btn/DropdownButton';
 import DeleteConfirmModal from './DeleteConfirmModal';
 
 const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
-  const [likePhoto] = useLikePhoto();
-  const [unlikePhoto] = useUnlikePhoto();
+  const [likeArticle] = useLikeArticle();
+  const [unlikeArticle] = useUnlikeArticle();
   const [showCollectModal, setShowCollectModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   // eslint-disable-next-line no-unused-vars
@@ -33,9 +33,9 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
       const temp = { ...articleToShow, isLiked: !articleToShow.isLiked };
       setArticleToShow(temp);
       if (articleToShow.isLiked) {
-        await unlikePhoto({ photoId: articleToShow.id });
+        await unlikeArticle({ articleId: articleToShow.id });
       } else {
-        await likePhoto({ photoId: articleToShow.id });
+        await likeArticle({ articleId: articleToShow.id });
       }
     }
   };
@@ -106,16 +106,40 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         </div>
         <div className="container-article-card-bookmark">
           <div className="article-card-bookmark-btn-end">
+            <SaveToCollectionsModal
+              photo={photo}
+              showCollectModal={showCollectModal}
+              setShowCollectModal={setShowCollectModal}
+            />
+            <button
+              type="button"
+              className="article-card-btn-bookmark article-card-btn-item"
+              onClick={() => openCollectModal()}
+            >
+              <i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+              {/* <div className="">
+                {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
+                {photo.isLiked && (
+                  <div className="yellow-icon">
+                    <i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+                  </div>
+                )}
+              </div> */}
+            </button>
+          </div>
+        </div>
+        <div className="container-article-card-bookmark">
+          <div className="article-card-bookmark-btn-end">
             <button
               type="button"
               className="article-card-btn-bookmark article-card-btn-item"
               onClick={() => likeSinglePhoto(photo)}
             >
               <div className="">
-                {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
+                {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />)}
                 {photo.isLiked && (
-                  <div className="yellow-icon">
-                    <i className={photo.isLiked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+                  <div className="red-icon">
+                    <i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />
                   </div>
                 )}
               </div>
@@ -147,29 +171,12 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
           />
         )}
       </div>
-      {/* <div className="article">
-        {articleToShow.content || 'rendering'}
-      </div> */}
-      {/* <div className="container-collection-title">
-        <div className="collection-dropbtn">
-          {photo.user.username === username && (
-            <DropdownButton
-              setShowEditModal={setShowEditModal}
-              setShowDeleteModal={setShowDeleteModal}
-            />
-          )}
-        </div>
-      </div> */}
-      {/* <DeletePhotoModal
-        photo={photo}
-        showDeleteModal={showDeleteModal}
-        setShowDeleteModal={setShowDeleteModal}
-      />
-      <div className="container-row-photodetail-btn">
-        <div className="">
+
+      <div className="container-row-0">
+        <div className="container-row-0">
           <button
             type="button"
-            className="photodetails-card-btn-like container-row-0 photodetails-card-btn-item"
+            className="article-card-btn-bookmark article-card-btn-item"
             onClick={() => likeSinglePhoto(photo)}
           >
             <div className="">
@@ -181,23 +188,8 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
               )}
             </div>
           </button>
-        </div> */}
-      {/* <div>
-          <button type="button" className="photodetails-card-btn-collect photodetails-card-btn-item" onClick={() => openCollectModal()}>
-            <i className="bi bi-plus-square" />
-          </button>
-          <SaveToCollectionsModal
-            photo={photo}
-            showCollectModal={showCollectModal}
-            setShowCollectModal={setShowCollectModal}
-          />
         </div>
-        <div className="photodetails-card-btn-item">
-          <button type="button" className="photodetails-card-btn-download" onClick={() => downloadSinglePhoto()}>
-            <i className="bi bi-download" />
-          </button>
-        </div>
-      </div> */}
+      </div>
       <div className="container-row-0">
         <h5>{photoCredit}</h5>
       </div>
