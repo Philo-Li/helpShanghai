@@ -55,6 +55,8 @@ const UserCollections = ({ username }) => {
     );
   }
 
+  console.log(allCollections);
+
   return (
     <div className="p-3 photo-list-container">
       <Masonry

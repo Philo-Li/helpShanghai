@@ -9,6 +9,7 @@ import useLikeArticle from '../../hooks/useLikeArticle';
 import useUnlikeArticle from '../../hooks/useUnlikeArticle';
 import SaveToCollectionsModal from '../others/article-card/SaveToCollectionsModal';
 import DropdownButton from '../others/button/edit-article-btn/DropdownButton';
+import EditModal from './edit-article-meta/EditModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
 
 const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
@@ -71,12 +72,19 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         <div className="collection-dropbtn">
           {username && articleToShow.user.username === username && (
             <DropdownButton
+              setShowEditModal={setShowEditModal}
               redirectToEditPage={redirectToEditPage}
               setShowDeleteModal={setShowDeleteModal}
             />
           )}
         </div>
       </div>
+      <EditModal
+        articleToShow={photo}
+        setArticleToShow={setArticleToShow}
+        showEditModal={showEditModal}
+        setShowEditModal={setShowEditModal}
+      />
       <DeleteConfirmModal
         id={articleToShow.id}
         itemType="Article"

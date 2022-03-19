@@ -210,8 +210,18 @@ export const DELETE_ARTICLE = gql`
 `;
 
 export const EDIT_COLLECTION = gql`
-  mutation editCollection( $collectionId: ID!, $newTitle: String!, $newDescription: String! ){
-    editCollection(edit: {collectionId: $collectionId, newTitle: $newTitle, newDescription: $newDescription} ) {
+  mutation editCollection(
+    $collectionId: ID!
+    $newTitle: String!
+    $newDescription: String!
+    $newCover: String
+    ){
+    editCollection(edit: {
+      collectionId: $collectionId
+      newTitle: $newTitle
+      newDescription: $newDescription
+      newCover: $newCover
+    } ) {
       id
   }
 }
@@ -229,4 +239,20 @@ export const UPDATE_AVATAR = gql`
   }
 `;
 
-export default { CREATE_COLLECTION_AND_COLLECT_ARTICLE };
+export const UPDATE_ARTICLE_COVER = gql`
+  mutation updateArticleCover(
+    $articleId: ID!
+    $newCover: String
+    ){
+    updateArticleCover(edit: {
+      articleId: $articleId
+      newCover: $newCover
+    })
+  }
+`;
+
+export default {
+  CREATE_COLLECTION_AND_COLLECT_ARTICLE,
+  EDIT_COLLECTION,
+  UPDATE_ARTICLE_COVER,
+};

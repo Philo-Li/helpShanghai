@@ -160,13 +160,13 @@ export const GET_COLLECTION = gql`
       user {
         username
       }
-      photos(
+      articles(
         first: $first
         after: $after
       ) {
         edges {
           node {
-            photo{
+            article{
               ...articleDetails
               isLiked(checkUserLike: $checkUserLike)
             }

@@ -10,11 +10,12 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
-const options = ['Edit', 'Delete'];
+const options = ['Change Cover', 'Edit', 'Delete'];
 
 export default function DropdownButton({
   redirectToEditPage,
   setShowDeleteModal,
+  setShowEditModal,
 }) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -24,6 +25,8 @@ export default function DropdownButton({
       redirectToEditPage();
     } else if (options[index] === 'Delete') {
       setShowDeleteModal(true);
+    } else if (options[index] === 'Change Cover') {
+      setShowEditModal(true);
     }
     setOpen(false);
   };

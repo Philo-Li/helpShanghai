@@ -21,6 +21,8 @@ const CollectionCard = ({
     history.push(`/collection/${collectionId}`);
   };
 
+  // console.log('cover', collection.cover);
+
   return (
     <div className="p-3">
       <Card key={collection.id}>
@@ -46,7 +48,7 @@ const CollectionCard = ({
               <div className="user-collection-list-title-padding-left">
                 {collection.title}
                 (
-                {collection.photoCount}
+                {collection.articleCount}
                 )
               </div>
             )}
@@ -54,7 +56,7 @@ const CollectionCard = ({
               <div className="user-collection-list-title">
                 {collection.title}
                 (
-                {collection.photoCount}
+                {collection.articleCount}
                 )
               </div>
             )}

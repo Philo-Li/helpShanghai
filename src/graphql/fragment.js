@@ -26,6 +26,7 @@ export const COLLECTION_DETAILS = gql`
     id
     title
     cover
+    articleCount
   }
 `;
 

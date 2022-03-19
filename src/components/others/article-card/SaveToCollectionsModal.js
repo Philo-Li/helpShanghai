@@ -65,6 +65,8 @@ const SaveToCollectionsModal = ({
   const [allCollections, setAllCollections] = useState();
   const { username } = localStorage;
 
+  if (!article) return null;
+
   const { collections } = useCollections({
     username,
     checkArticleCollect: article.id,

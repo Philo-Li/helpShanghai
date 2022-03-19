@@ -1,51 +1,42 @@
 import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
-import useEditCollection from '../../../../hooks/useEditCollection';
+import useUpdateArticleCover from '../../../hooks/useUpdateArticleCover';
 import EditCollectionContainer from './EditCollectionContainer';
 
-const EditCollectionModal = ({
-  collectionNow,
-  allCollections,
-  setAllCollections,
-  showEditCollectionModal,
-  setShowEditCollectionModal,
+const EditModal = ({
+  articleToShow,
+  setArticleToShow,
+  showEditModal,
+  setShowEditModal,
 }) => {
-  const [editCollection] = useEditCollection();
+  const [updateArticleCover] = useUpdateArticleCover();
   const [loading, setLoading] = useState(false);
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
 
   const initialValues = {
-    title: collectionNow.title,
-    description: collectionNow.description || '',
-    cover: collectionNow.cover || '',
+    cover: articleToShow.cover || '',
   };
 
   const onSubmit = async (values) => {
     const variables = {
-      collectionId: collectionNow.id,
-      newTitle: values.title,
-      newDescription: values.description,
+      articleId: articleToShow.id,
       newCover: values.cover,
     };
 
-    const updatedCollectionNow = {
-      ...collectionNow,
-      title: values.title,
-      description: values.description,
+    const updatedArticle = {
+      ...articleToShow,
       cover: values.cover,
     };
     setLoading(true);
 
     try {
-      await editCollection(variables);
-      setSuccessInfo('Collection details updated');
+      await updateArticleCover(variables);
+      setSuccessInfo('Cover details updated');
 
-      const updatedAllCollections = allCollections
-        .map((obj) => (obj.id === collectionNow.id ? updatedCollectionNow : obj));
       setTimeout(() => {
         setSuccessInfo('');
-        setAllCollections(updatedAllCollections);
+        setArticleToShow(updatedArticle);
       }, 2000);
       setTimeout(() => { setSuccessInfo(''); }, 3000);
     } catch (e) {
@@ -58,8 +49,8 @@ const EditCollectionModal = ({
   return (
     <div>
       <Modal
-        show={showEditCollectionModal}
-        onHide={() => setShowEditCollectionModal(false)}
+        show={showEditModal}
+        onHide={() => setShowEditModal(false)}
         centered
         dialogClassName="modal-90w"
         aria-labelledby="example-custom-modal-styling-title"
@@ -68,7 +59,7 @@ const EditCollectionModal = ({
           <Modal.Title id="example-custom-modal-styling-title">
             Edit Collection
             {' '}
-            {collectionNow.title}
+            {articleToShow.title}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -85,4 +76,4 @@ const EditCollectionModal = ({
   );
 };
 
-export default EditCollectionModal;
+export default EditModal;

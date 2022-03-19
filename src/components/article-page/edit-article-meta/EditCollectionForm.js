@@ -3,28 +3,10 @@ import React from 'react';
 import { Button, Spinner } from 'react-bootstrap';
 import { Form } from 'formik';
 
-import TextInput from '../../../others/TextInput';
+import TextInput from '../../others/TextInput';
 
 const EditCollectionForm = ({ loading }) => (
   <Form>
-    <div className="col-item-1">
-      <TextInput
-        label="Title"
-        name="title"
-        type="title"
-        placeholder=""
-      />
-    </div>
-
-    <div className="col-item-1">
-      <TextInput
-        label="Description"
-        name="description"
-        type="text"
-        placeholder=""
-      />
-    </div>
-
     <div className="col-item-1">
       <TextInput
         label="Cover"

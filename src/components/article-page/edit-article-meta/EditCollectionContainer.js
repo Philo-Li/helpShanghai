@@ -6,12 +6,6 @@ import * as Yup from 'yup';
 import EditCollectionForm from './EditCollectionForm';
 
 const validationSchema = Yup.object().shape({
-  title: Yup
-    .string()
-    .required('Title is required'),
-  description: Yup
-    .string()
-    .max(50, 'Must be 50 characters or less'),
   cover: Yup
     .string(),
 });
