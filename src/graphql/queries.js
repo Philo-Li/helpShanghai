@@ -79,7 +79,7 @@ export const GET_USER_LIKES = gql`
     $checkUserLike: ID
     $checkUserCollect: ID
   ) {
-    likes(
+    articleLikes(
       orderBy: $orderBy
       orderDirection: $orderDirection
       first: $first

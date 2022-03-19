@@ -34,10 +34,10 @@ const Profile = ({ authorizedUser }) => {
           <UserArticles username={username} />
         </Tab>
         <Tab eventKey="collections" title="Collections">
-          <UserCollections />
+          <UserCollections username={username} />
         </Tab>
         <Tab eventKey="likes" title="Likes">
-          <UserLikes />
+          <UserLikes username={username} />
         </Tab>
       </Tabs>
     </div>

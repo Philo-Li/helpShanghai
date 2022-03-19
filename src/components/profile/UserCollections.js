@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
-import { useParams } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import '../../index.css';
 import useCollections from '../../hooks/useCollections';
@@ -22,13 +21,11 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-const UserCollections = () => {
+const UserCollections = ({ username }) => {
   const [loading, setLoading] = useState(false);
   const [allCollections, setAllCollections] = useState();
   const authUsername = localStorage.getItem('philoart-username');
 
-  let { username } = useParams();
-  username = username.substr(1, username.length - 1);
   const { collections, fetchMore, hasNextPage } = useCollections({
     username,
     first: 30,

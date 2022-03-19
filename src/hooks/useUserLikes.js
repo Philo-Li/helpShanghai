@@ -11,7 +11,7 @@ const useUserLikedArticles = (variables) => {
   });
 
   const handleFetchMore = () => {
-    const canFetchMore = !loading && data && data.likes.pageInfo.hasNextPage;
+    const canFetchMore = !loading && data && data.articleLikes.pageInfo.hasNextPage;
 
     if (!canFetchMore) {
       return;
@@ -20,16 +20,16 @@ const useUserLikedArticles = (variables) => {
     fetchMore({
       query: GET_USER_LIKES,
       variables: {
-        after: data.likes.pageInfo.endCursor,
+        after: data.articleLikes.pageInfo.endCursor,
         ...variables,
       },
       updateQuery: (previousResult, { fetchMoreResult }) => {
         const nextResult = {
-          likes: {
-            ...fetchMoreResult.likes,
+          articleLikes: {
+            ...fetchMoreResult.articleLikes,
             edges: [
-              ...previousResult.likes.edges,
-              ...fetchMoreResult.likes.edges,
+              ...previousResult.articleLikes.edges,
+              ...fetchMoreResult.articleLikes.edges,
             ],
           },
         };
@@ -40,9 +40,9 @@ const useUserLikedArticles = (variables) => {
   };
 
   return {
-    likes: data ? data.likes : undefined,
+    likes: data ? data.articleLikes : undefined,
     fetchMore: handleFetchMore,
-    hasNextPage: data && data.likes.pageInfo.hasNextPage,
+    hasNextPage: data && data.articleLikes.pageInfo.hasNextPage,
     refetch,
     loading,
     ...result,

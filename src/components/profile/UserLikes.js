@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import useUserLikes from '../../hooks/useUserLikes';
-import HomePhotoList from '../others/list/HomeArticleList';
+import HomeArticleList from '../others/list/HomeArticleList';
 
-const UserLikes = () => {
-  const [allPhotos, setAllPhotos] = useState();
+const UserLikes = ({ username }) => {
+  const [allArticles, setAllArticles] = useState();
   const [loading, setLoading] = useState(false);
-  let { username } = useParams();
-  username = username.substr(1, username.length - 1);
   const userId = localStorage.getItem('philoart-userId');
 
   const variables = {
@@ -21,10 +18,10 @@ const UserLikes = () => {
   useEffect(() => {
     if (likes) {
       const temp = likes && likes.edges
-        ? likes.edges.map((edge) => edge.node.photo)
+        ? likes.edges.map((edge) => edge.node.article)
         : [];
 
-      setAllPhotos(temp);
+      setAllArticles(temp);
       setLoading(false);
     }
   }, [likes]);
@@ -36,9 +33,9 @@ const UserLikes = () => {
 
   return (
     <div className="p-3">
-      <HomePhotoList
-        allPhotos={allPhotos}
-        setAllPhotos={setAllPhotos}
+      <HomeArticleList
+        allArticles={allArticles}
+        setAllArticles={setAllArticles}
         clickFetchMore={clickFetchMore}
         loading={loading}
         hasNextPage={hasNextPage}
