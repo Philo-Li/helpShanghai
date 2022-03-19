@@ -1,16 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import LazyLoad from 'react-lazyload';
-import SaveToCollectionsModal from '../others/photo-card/SaveToCollectionsModal';
-import useCreatePhoto from '../../hooks/useCreatePhoto';
+import SaveToCollectionsModal from '../others/article-card/SaveToCollectionsModal';
 import '../../MDB-Free_4.19.2/css/mdb.css';
 
 const SearchPhotoCard = ({
   photo, likeSinglePhoto, collectSinglePhoto,
 }) => {
   if (!photo) return null;
-  const [createPhoto] = useCreatePhoto();
-
   const bgColor = photo.color || '#84B0B3';
   const username = localStorage.getItem('philoart-username');
 
@@ -46,8 +43,6 @@ const SearchPhotoCard = ({
         tags: photo.tags,
         labels: photo.tags,
       };
-
-      await createPhoto(variables);
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log(e);

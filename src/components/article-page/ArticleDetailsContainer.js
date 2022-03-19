@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import useLikeArticle from '../../hooks/useLikeArticle';
 import useUnlikeArticle from '../../hooks/useUnlikeArticle';
-import SaveToCollectionsModal from '../others/photo-card/SaveToCollectionsModal';
+import SaveToCollectionsModal from '../others/article-card/SaveToCollectionsModal';
 import DropdownButton from '../others/button/edit-article-btn/DropdownButton';
 import DeleteConfirmModal from './DeleteConfirmModal';
 

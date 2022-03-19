@@ -6,15 +6,15 @@ import { format } from 'date-fns';
 import SaveToCollectionsModal from './SaveToCollectionsModal';
 import '../../../MDB-Free_4.19.2/css/mdb.css';
 
-const PhotoCard = ({ photo }) => {
-  if (!photo) return null;
+const ArticleCard = ({ article }) => {
+  if (!article) return null;
   const history = useHistory();
   const [showCollectModal, setShowCollectModal] = useState(false);
 
   const userId = localStorage.getItem('philoart-userId');
-  const thumb = photo.thumb || 'https://cdn.philoart.io/b/700x700/ejt2Vbza56UViZTf2vEHY.jpg';
+  const thumb = article.thumb || 'https://cdn.philoart.io/b/700x700/ejt2Vbza56UViZTf2vEHY.jpg';
 
-  const bgColor = photo.color || '#84B0B3';
+  const bgColor = article.color || '#84B0B3';
 
   const mystyle = {
     backgroundColor: bgColor,
@@ -22,7 +22,7 @@ const PhotoCard = ({ photo }) => {
 
   const Placeholder = () => (
     <div style={mystyle}>
-      <a href={`/article/${photo.id}`}>
+      <a href={`/article/${article.id}`}>
         <img
           src={thumb}
           className="lazyload-img"
@@ -41,14 +41,14 @@ const PhotoCard = ({ photo }) => {
     }
   };
 
-  const publishedDate = format(new Date(photo.publishedAt), 'PP');
-  // console.log('article', photo, publishedDate, photo.publishedAt);
+  const publishedDate = format(new Date(article.publishedAt), 'PP');
+  // console.log('article', article, publishedDate, article.publishedAt);
   const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
 
   return (
     <div className="grid-item">
       <div className="p-3">
-        <Card key={photo.id}>
+        <Card key={article.id}>
           <LazyLoad
             height={300}
             offset={[-100, 0]}
@@ -56,8 +56,8 @@ const PhotoCard = ({ photo }) => {
             once
             placeholder={<Placeholder />}
           >
-            <div className="photo-card overlay">
-              <a href={`/article/${photo.id}`}>
+            <div className="article-card overlay">
+              <a href={`/article/${article.id}`}>
                 <img
                   src={thumb}
                   width="100%"
@@ -68,12 +68,12 @@ const PhotoCard = ({ photo }) => {
           </LazyLoad>
           <Card.Title>
             <div className="article-card">
-              <a href={`/article/${photo.id}`}>
+              <a href={`/article/${article.id}`}>
                 <div className="article-card-title">
-                  {photo.title}
+                  {article.title}
                 </div>
                 <div className="article-card-summary">
-                  {photo.summary}
+                  {article.summary}
                 </div>
               </a>
             </div>
@@ -81,14 +81,14 @@ const PhotoCard = ({ photo }) => {
               <div className="">
                 <img src={profileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
               </div>
-              <div className="article-card-author-name">{photo.author || 'Philo'}</div>
+              <div className="article-card-author-name">{article.author || 'Philo'}</div>
               <div className="article-card-date">{publishedDate}</div>
             </div>
             <div className="container-article-card-bookmark">
               <div className="article-card-bookmark-btn-end">
                 {userId && (
                 <SaveToCollectionsModal
-                  article={photo}
+                  article={article}
                   showCollectModal={showCollectModal}
                   setShowCollectModal={setShowCollectModal}
                 />
@@ -99,10 +99,10 @@ const PhotoCard = ({ photo }) => {
                   onClick={() => openCollectModal()}
                 >
                   <div className="">
-                    {!photo.isCollected && (<i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
-                    {photo.isCollected && (
+                    {!article.isCollected && (<i className={article.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
+                    {article.isCollected && (
                       <div className="yellow-icon">
-                        <i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+                        <i className={article.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
                       </div>
                     )}
                   </div>
@@ -116,4 +116,4 @@ const PhotoCard = ({ photo }) => {
   );
 };
 
-export default PhotoCard;
+export default ArticleCard;

@@ -106,17 +106,17 @@ export const UNLIKE_ARTICLE = gql`
   }
 `;
 
-export const COLLECT_PHOTO = gql`
-  mutation collectPhoto( $photoId: ID!,  $collectionId: ID! ) {
-    collectPhoto(collect: { photoId: $photoId, collectionId: $collectionId } ) {
+export const COLLECT_ARTICLE = gql`
+  mutation collectArticle( $articleId: ID!,  $collectionId: ID! ) {
+    collectArticle(collect: { articleId: $articleId, collectionId: $collectionId } ) {
       id
     }
   }
 `;
 
-export const UNCOLLECT_PHOTO = gql`
-  mutation deleteColletedPhoto( $photoId: ID!,  $collectionId: ID! ){
-    deleteCollectedPhoto(uncollect: { photoId: $photoId, collectionId: $collectionId })
+export const UNCOLLECT_ARTICLE = gql`
+  mutation deleteColletedArticle( $articleId: ID!,  $collectionId: ID! ){
+    deleteCollectedArticle(uncollect: { articleId: $articleId, collectionId: $collectionId })
   }
 `;
 

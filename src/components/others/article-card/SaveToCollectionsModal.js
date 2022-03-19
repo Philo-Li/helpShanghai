@@ -6,8 +6,8 @@ import * as Yup from 'yup';
 import UserCollectionsList from '../UserCollectionsList';
 import useCreateCollectionAndCollectArticle from '../../../hooks/useCreateCollectionAndCollectArticle';
 import useCollections from '../../../hooks/useUserCollectionsPlus';
-import useUncollectPhoto from '../../../hooks/useUncollectPhoto';
-import useCollectPhoto from '../../../hooks/useCollectPhoto';
+import useUncollectArticle from '../../../hooks/useUncollectArticle';
+import useCollectArticle from '../../../hooks/useCollectArticle';
 import TextInput from '../TextInput';
 
 const validationSchema = Yup.object().shape({
@@ -56,8 +56,8 @@ const SaveToCollectionsModal = ({
   article, showCollectModal, setShowCollectModal,
 }) => {
   const [createCollectionAndCollectArticle, newCollection] = useCreateCollectionAndCollectArticle();
-  const [collectPhoto] = useCollectPhoto();
-  const [uncollectPhoto] = useUncollectPhoto();
+  const [collectArticle] = useCollectArticle();
+  const [uncollectArticle] = useUncollectArticle();
   const [errorInfo, setErrorInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [loadingList, setLoadingList] = useState(true);
@@ -124,9 +124,9 @@ const SaveToCollectionsModal = ({
     setAllCollections(updatedAllCollections);
 
     if (uncollect) {
-      await uncollectPhoto({ photoId: article.id, collectionId: collection.id });
+      await uncollectArticle({ articleId: article.id, collectionId: collection.id });
     } else {
-      await collectPhoto({ photoId: article.id, collectionId: collection.id });
+      await collectArticle({ articleId: article.id, collectionId: collection.id });
     }
   };
 
