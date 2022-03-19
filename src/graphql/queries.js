@@ -77,6 +77,7 @@ export const GET_USER_LIKES = gql`
     $userId: String
     $username: String
     $checkUserLike: ID
+    $checkUserCollect: ID
   ) {
     likes(
       orderBy: $orderBy
@@ -92,9 +93,10 @@ export const GET_USER_LIKES = gql`
           user{
             id
           }
-          photo{
+          article{
             ...articleDetails
             isLiked(checkUserLike: $checkUserLike)
+            isCollected(checkUserCollect: $checkUserCollect)
           }
         }
         cursor

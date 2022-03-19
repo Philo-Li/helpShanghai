@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Image, Tabs, Tab } from 'react-bootstrap';
+import UserArticles from './UserArticles';
 import UserCollections from './UserCollections';
 import UserLikes from './UserLikes';
 
 const Profile = ({ authorizedUser }) => {
-  const [key, setKey] = useState('likes');
+  const [key, setKey] = useState('articles');
   let { username } = useParams();
   username = username.substr(1, username.length - 1);
 
@@ -29,11 +30,14 @@ const Profile = ({ authorizedUser }) => {
         onSelect={(k) => setKey(k)}
         className="mb-3"
       >
-        <Tab eventKey="likes" title="Likes">
-          <UserLikes />
+        <Tab eventKey="articles" title="Articles">
+          <UserArticles username={username} />
         </Tab>
         <Tab eventKey="collections" title="Collections">
           <UserCollections />
+        </Tab>
+        <Tab eventKey="likes" title="Likes">
+          <UserLikes />
         </Tab>
       </Tabs>
     </div>

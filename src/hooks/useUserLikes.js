@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 
 import { GET_USER_LIKES } from '../graphql/queries';
 
-const useUserLikedPhotos = (variables) => {
+const useUserLikedArticles = (variables) => {
   const {
     data, fetchMore, refetch, loading, ...result
   } = useQuery(GET_USER_LIKES, {
@@ -49,4 +49,4 @@ const useUserLikedPhotos = (variables) => {
   };
 };
 
-export default useUserLikedPhotos;
+export default useUserLikedArticles;

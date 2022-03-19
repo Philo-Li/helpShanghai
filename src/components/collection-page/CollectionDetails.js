@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import CollectionDropdownButton from '../others/button/edit-collection-btn/CollectionDropdownButton';
-import HomePhotoList from '../others/list/HomeArticleList';
+import HomeArticleList from '../others/list/HomeArticleList';
 import useCollection from '../../hooks/useCollection';
 import EditCollectionModal from './edit-collection/EditCollectionModal';
 import DeleteCollectionModal from './DeleteCollectionModal';
@@ -19,7 +19,7 @@ const override = css`
 
 const CollectionDetails = () => {
   const { id } = useParams();
-  const [allPhotos, setAllPhotos] = useState();
+  const [allArticles, setAllArticles] = useState();
   const [collectionNow, setCollectionNow] = useState();
   const [showEditCollectionModal, setShowEditCollectionModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -37,18 +37,18 @@ const CollectionDetails = () => {
 
   useEffect(() => {
     if (collection) {
-      const temp = collection.photoCount > 0
-        ? collection.photos.edges.map((edge) => edge.node.photo)
+      const temp = collection.articleCount > 0
+        ? collection.articles.edges.map((edge) => edge.node.article)
         : [];
       setCollectionNow(collection);
 
-      setAllPhotos(temp);
+      setAllArticles(temp);
       setLoading(false);
     }
   }, [collection]);
 
   const clickFetchMore = () => {
-    if (collectionNow.photoCount > allPhotos.length) {
+    if (collectionNow.articleCount > allArticles.length) {
       fetchMore();
       setLoading(true);
     }
@@ -80,9 +80,9 @@ const CollectionDetails = () => {
           </div>
           <div className="col-item-collection-description">
             <p className="">
-              {collectionNow.photoCount}
+              {collectionNow.articleCount}
               {' '}
-              photos
+              articles
             </p>
           </div>
         </div>
@@ -108,9 +108,9 @@ const CollectionDetails = () => {
         showDeleteModal={showDeleteModal}
         setShowDeleteModal={setShowDeleteModal}
       />
-      <HomePhotoList
-        allPhotos={allPhotos}
-        setAllPhotos={setAllPhotos}
+      <HomeArticleList
+        allArticles={allArticles}
+        setAllArticles={setAllArticles}
         clickFetchMore={clickFetchMore}
         loading={loading}
         column="collection"
