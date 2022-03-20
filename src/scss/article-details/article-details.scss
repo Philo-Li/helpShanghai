@@ -35,3 +35,12 @@
 	margin-left: 20%;
 	margin-right: 20%;
   }
+
+  .article-details-cover {
+	  object-fit: cover;
+  }
+
+  .article-card-cover {
+	object-fit: cover;
+	max-height: 300px;
+}

@@ -60,8 +60,10 @@ const ArticleCard = ({ article }) => {
             <div className="article-card overlay">
               <a href={`/article/${article.id}`}>
                 <img
+                  className="article-card-cover"
                   src={thumb}
                   width="100%"
+                  height={200}
                   alt="gird item"
                 />
               </a>

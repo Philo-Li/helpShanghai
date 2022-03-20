@@ -906,6 +906,15 @@
   margin-right: 20%;
 }
 
+.article-details-cover {
+  object-fit: cover;
+}
+
+.article-card-cover {
+  object-fit: cover;
+  max-height: 300px;
+}
+
 body {
   min-height: 100vh;
   scroll-behavior: smooth;

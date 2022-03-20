@@ -66,6 +66,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
     <div className="">
       <img
         src={article.cover}
+        className="article-details-cover"
         width="100%"
         height={300}
         alt="gird item"
