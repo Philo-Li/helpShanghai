@@ -104,6 +104,7 @@ const SaveToCollectionsModal = ({
         description: '',
         public: true,
         articleId: article.id,
+        cover: article.thumb,
       };
       await createCollectionAndCollectArticle(variables);
     } catch (e) {

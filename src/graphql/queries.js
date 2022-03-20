@@ -113,6 +113,49 @@ export const GET_USER_LIKES = gql`
   ${ARTICLE_DETAILS}
 `;
 
+export const GET_ARTICLE_COMMENTS = gql`
+  query getArticleComments(
+    $orderBy: AllCommentsOrderBy
+    $orderDirection: OrderDirection
+    $first: Int
+    $after: String
+    $userId: String
+    $username: String
+    $articleId: ID
+  ) {
+    articleComments(
+      orderBy: $orderBy
+      orderDirection: $orderDirection
+      first: $first
+      after: $after
+      userId: $userId
+      username: $username
+      articleId: $articleId
+    ) {
+      edges {
+        node {
+          id
+          user{
+            id
+            profileImage
+            firstName
+            lastName
+          }
+          content
+          createdAt
+        }
+        cursor
+      }
+      pageInfo {
+        endCursor
+        startCursor
+        totalCount
+        hasNextPage
+      }
+    }
+  }
+`;
+
 export const GET_COLLECTIONS = gql`
   query getCollections(
     $orderBy: AllCollectionsOrderBy
@@ -261,4 +304,4 @@ export const GET_USER_COLLECTIONS_PLUS = gql`
   ${COLLECTION_DETAILS}
 `;
 
-export default { GET_ARTICLE, GET_ARTICLES };
+export default { GET_ARTICLE, GET_ARTICLES, GET_ARTICLE_COMMENTS };

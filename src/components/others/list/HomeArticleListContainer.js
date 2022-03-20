@@ -25,7 +25,7 @@ const HomeArticleListContainer = ({
   const [likeArticle] = useLikeArticle();
   const [unlikeArticle] = useUnlikeArticle();
   const history = useHistory();
-  const token = localStorage.getItem('philoart-token');
+  const token = localStorage.getItem('token');
 
   const likeSingleArticle = async (article) => {
     if (!token) {

@@ -150,12 +150,14 @@ export const CREATE_COLLECTION_AND_COLLECT_ARTICLE = gql`
     $description: String
     $public: Boolean!
     $articleId: ID!
+    $cover: String
     ) {
       createCollectionAndCollectArticle(collection: {
       title: $title
       description: $description
       public: $public
       articleId: $articleId
+      cover:  $cover
     } ) {
       id
       collection {
@@ -251,8 +253,20 @@ export const UPDATE_ARTICLE_COVER = gql`
   }
 `;
 
+export const CREATE_ARTICLE_COMMENT = gql`
+  mutation createArticleComment( $articleId: ID!, $content: String! ) {
+    createArticleComment( articleComment: {
+      articleId: $articleId
+      content: $content
+    } ) {
+      content
+    }
+  }
+`;
+
 export default {
   CREATE_COLLECTION_AND_COLLECT_ARTICLE,
   EDIT_COLLECTION,
   UPDATE_ARTICLE_COVER,
+  CREATE_ARTICLE_COMMENT,
 };

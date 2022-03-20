@@ -915,6 +915,27 @@
   max-height: 300px;
 }
 
+.article-comment-card a {
+  color: black;
+}
+
+.article-comment-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  flex-grow: 1;
+}
+
+.comment-card-border {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-width: 1px;
+  border-radius: 5px;
+}
+
 body {
   min-height: 100vh;
   scroll-behavior: smooth;

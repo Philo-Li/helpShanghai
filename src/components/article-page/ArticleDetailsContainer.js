@@ -11,6 +11,7 @@ import SaveToCollectionsModal from '../others/article-card/SaveToCollectionsModa
 import DropdownButton from '../others/button/edit-article-btn/DropdownButton';
 import EditModal from './edit-article-meta/EditModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
+import ArticleComment from './ArticleComment';
 
 const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   const [likeArticle] = useLikeArticle();
@@ -205,6 +206,9 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
       </div>
       <div className="container-row-0">
         <h5>{articleCredit}</h5>
+      </div>
+      <div className="container-article-comment">
+        <ArticleComment articleId={article.id} />
       </div>
     </div>
   );
