@@ -13,7 +13,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [key, setKey] = useState('home');
 
-  const userId = localStorage.getItem('waldon-userId');
+  const userId = localStorage.getItem('userId');
   // const baseUrl = 'https://media.waldon.io/articles.json';
 
   const variables = {

@@ -9,7 +9,7 @@ const SearchPhotoCard = ({
 }) => {
   if (!photo) return null;
   const bgColor = photo.color || '#84B0B3';
-  const username = localStorage.getItem('waldon-username');
+  const username = localStorage.getItem('username');
 
   const mystyle = {
     backgroundColor: bgColor,

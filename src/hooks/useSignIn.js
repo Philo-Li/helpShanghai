@@ -11,9 +11,9 @@ const useSignIn = () => {
     const { data } = payload;
 
     if (data && data.authorize) {
-      localStorage.setItem('waldon-token', data.authorize.accessToken);
-      localStorage.setItem('waldon-userId', data.authorize.user.id);
-      localStorage.setItem('waldon-username', data.authorize.user.username);
+      localStorage.setItem('token', data.authorize.accessToken);
+      localStorage.setItem('userId', data.authorize.user.id);
+      localStorage.setItem('username', data.authorize.user.username);
       apolloClient.resetStore();
     }
     return payload;

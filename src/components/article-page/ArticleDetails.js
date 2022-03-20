@@ -16,7 +16,7 @@ const override = css`
 const ArticleDetails = () => {
   const [articleToShow, setArticleToShow] = useState();
   const { id } = useParams();
-  const userId = localStorage.getItem('waldon-userId');
+  const userId = localStorage.getItem('userId');
 
   const { article } = useArticle({
     id,

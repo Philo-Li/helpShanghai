@@ -24,8 +24,8 @@ const CollectionDetails = () => {
   const [showEditCollectionModal, setShowEditCollectionModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const userId = localStorage.getItem('waldon-userId');
-  const username = localStorage.getItem('waldon-username');
+  const userId = localStorage.getItem('userId');
+  const username = localStorage.getItem('username');
 
   const variables = {
     id,

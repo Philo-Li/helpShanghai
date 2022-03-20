@@ -9,7 +9,7 @@ import config from './config';
 import App from './App';
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('philoart-token');
+  const token = localStorage.getItem('token');
   return {
     headers: {
       ...headers,

@@ -24,7 +24,7 @@ const breakpointColumnsObj = {
 const UserCollections = ({ username }) => {
   const [loading, setLoading] = useState(false);
   const [allCollections, setAllCollections] = useState();
-  const authUsername = localStorage.getItem('waldon-username');
+  const authUsername = localStorage.getItem('username');
 
   const { collections, fetchMore, hasNextPage } = useCollections({
     username,

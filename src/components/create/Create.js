@@ -31,7 +31,7 @@ const Create = () => {
   const [loading, setLoading] = useState(false);
   const [createArticle] = useCreateArticle();
   const [files, setFiles] = useState([]);
-  const userId = localStorage.getItem('waldon-userId');
+  const userId = localStorage.getItem('userId');
 
   if (!userId) {
     return (

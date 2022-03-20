@@ -42,8 +42,8 @@ const App = () => {
   const [newSearchValue, setNewSearchValue] = useState('');
 
   const Menu = () => {
-    const token = localStorage.getItem('waldon-token');
-    const username = localStorage.getItem('waldon-username');
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('username');
 
     const handleLogout = async (event) => {
       event.preventDefault();
