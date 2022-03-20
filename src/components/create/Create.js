@@ -17,7 +17,7 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-const baseUrl = config.philoartApi;
+const baseUrl = config.waldonApi;
 
 const initialValues = {
   title: '',
@@ -31,7 +31,7 @@ const Create = () => {
   const [loading, setLoading] = useState(false);
   const [createArticle] = useCreateArticle();
   const [files, setFiles] = useState([]);
-  const userId = localStorage.getItem('philoart-userId');
+  const userId = localStorage.getItem('waldon-userId');
 
   if (!userId) {
     return (

@@ -11,7 +11,7 @@ const ArticleCard = ({ article }) => {
   const history = useHistory();
   const [showCollectModal, setShowCollectModal] = useState(false);
 
-  const userId = localStorage.getItem('philoart-userId');
+  const userId = localStorage.getItem('waldon-userId');
   const thumb = article.thumb || 'https://cdn.philoart.io/b/700x700/ejt2Vbza56UViZTf2vEHY.jpg';
 
   const bgColor = article.color || '#84B0B3';

@@ -13,8 +13,8 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [key, setKey] = useState('home');
 
-  const userId = localStorage.getItem('philoart-userId');
-  // const baseUrl = 'https://media.philoart.io/articles.json';
+  const userId = localStorage.getItem('waldon-userId');
+  // const baseUrl = 'https://media.waldon.io/articles.json';
 
   const variables = {
     username: config.admin,

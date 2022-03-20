@@ -6,7 +6,7 @@ const UserArticles = ({ username }) => {
   const [allArticles, setAllArticles] = useState();
   const [loading, setLoading] = useState(false);
 
-  const userId = localStorage.getItem('philoart-userId');
+  const userId = localStorage.getItem('waldon-userId');
 
   const variables = {
     username,

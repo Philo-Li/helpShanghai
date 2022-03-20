@@ -21,8 +21,8 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const history = useHistory();
-  const userId = localStorage.getItem('philoart-userId');
-  const username = localStorage.getItem('philoart-username');
+  const userId = localStorage.getItem('waldon-userId');
+  const username = localStorage.getItem('waldon-username');
 
   if (!articleToShow) return null;
 
