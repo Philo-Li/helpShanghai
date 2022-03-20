@@ -18,6 +18,12 @@ export const ARTICLE_DETAILS = gql`
     publishedAt
     updatedAt
     articleLikeCount
+    user {
+      username
+      firstName
+      lastName
+      profileImage
+    }
   }
 `;
 

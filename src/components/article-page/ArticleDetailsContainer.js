@@ -26,7 +26,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
 
   if (!articleToShow) return null;
 
-  const likeSinglePhoto = async () => {
+  const likeSingleArticle = async () => {
     if (!userId) {
       history.push('/signin');
     } else {
@@ -48,22 +48,24 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
     }
   };
 
-  const photo = articleToShow;
+  const article = articleToShow;
 
-  const photoCredit = `License: ${photo.license}`;
+  const articleCredit = `License: ${article.license}`;
 
   const redirectToEditPage = async () => {
     history.push(`/edit-article/${articleToShow.id}`);
   };
 
-  const publishedDate = format(new Date(photo.publishedAt), 'PP');
-  // console.log('article', photo, publishedDate, photo.publishedAt);
-  const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
+  const publishedDate = format(new Date(article.publishedAt), 'PP');
+  // console.log('article', article, publishedDate, article.publishedAt);
+  const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+  const { profileImage } = article.user;
+  // const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
 
   return (
     <div className="">
       <img
-        src={photo.cover}
+        src={article.cover}
         width="100%"
         height={300}
         alt="gird item"
@@ -80,7 +82,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         </div>
       </div>
       <EditModal
-        articleToShow={photo}
+        articleToShow={article}
         setArticleToShow={setArticleToShow}
         showEditModal={showEditModal}
         setShowEditModal={setShowEditModal}
@@ -93,28 +95,32 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
       />
       <div className="container-col-title">
         <div className="article-details-title">
-          {photo.title}
+          {article.title}
         </div>
       </div>
       <div className="article-details-author-row">
         <div className="article-card">
-          <a href={`/article/${photo.id}`}>
+          <a href={`/article/${article.id}`}>
             <div className="article-card-summary">
-              {photo.summary}
+              {article.summary}
             </div>
           </a>
         </div>
         <div className="container-row-primary flex-center">
-          <div className="">
-            <img src={profileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
-          </div>
-          <div className="article-card-author-name">{photo.author || 'Philo'}</div>
+          <a href={`/@${article.user.username}`}>
+            <div className="">
+              <img src={profileImage || initProfileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
+            </div>
+          </a>
+          <a href={`/@${article.user.username}`}>
+            <div className="article-card-author-name">{`${article.user.firstName} ${article.user.lastName || ''}`}</div>
+          </a>
           <div className="article-card-date">{publishedDate}</div>
         </div>
         <div className="container-article-card-bookmark">
           <div className="article-card-bookmark-btn-end">
             <SaveToCollectionsModal
-              photo={photo}
+              article={article}
               showCollectModal={showCollectModal}
               setShowCollectModal={setShowCollectModal}
             />
@@ -124,10 +130,10 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
               onClick={() => openCollectModal()}
             >
               <div className="">
-                {!photo.isCollected && (<i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
-                {photo.isCollected && (
+                {!article.isCollected && (<i className={article.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />)}
+                {article.isCollected && (
                   <div className="yellow-icon">
-                    <i className={photo.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
+                    <i className={article.isCollected ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'} />
                   </div>
                 )}
               </div>
@@ -139,13 +145,13 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
             <button
               type="button"
               className="article-card-btn-bookmark article-card-btn-item"
-              onClick={() => likeSinglePhoto(photo)}
+              onClick={() => likeSingleArticle(article)}
             >
               <div className="">
-                {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />)}
-                {photo.isLiked && (
+                {!article.isLiked && (<i className={article.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />)}
+                {article.isLiked && (
                   <div className="red-icon">
-                    <i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />
+                    <i className={article.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />
                   </div>
                 )}
               </div>
@@ -183,13 +189,13 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
           <button
             type="button"
             className="article-card-btn-bookmark article-card-btn-item"
-            onClick={() => likeSinglePhoto(photo)}
+            onClick={() => likeSingleArticle(article)}
           >
             <div className="">
-              {!photo.isLiked && (<i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />)}
-              {photo.isLiked && (
+              {!article.isLiked && (<i className={article.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />)}
+              {article.isLiked && (
                 <div className="red-icon">
-                  <i className={photo.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />
+                  <i className={article.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'} />
                 </div>
               )}
             </div>
@@ -197,7 +203,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         </div>
       </div>
       <div className="container-row-0">
-        <h5>{photoCredit}</h5>
+        <h5>{articleCredit}</h5>
       </div>
     </div>
   );

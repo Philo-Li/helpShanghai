@@ -27,6 +27,13 @@ export const GET_ARTICLES = gql`
           author
           tag
           publishedAt
+          thumb
+          user {
+            username
+            firstName
+            lastName
+            profileImage
+          }
           isLiked(checkUserLike: $checkUserLike)
           isCollected(checkUserCollect: $checkUserCollect)
         }
@@ -46,12 +53,6 @@ export const GET_ARTICLE = gql`
   query getArticle($id: ID!, $checkUserLike: ID, $checkUserCollect: ID) {
     article(id: $id) {
       ...articleDetails
-      user {
-        username
-        firstName
-        lastName
-        profileImage
-      }
       isLiked(checkUserLike: $checkUserLike)
       isCollected(checkUserCollect: $checkUserCollect)
     }
@@ -260,4 +261,4 @@ export const GET_USER_COLLECTIONS_PLUS = gql`
   ${COLLECTION_DETAILS}
 `;
 
-export default { GET_ARTICLE };
+export default { GET_ARTICLE, GET_ARTICLES };

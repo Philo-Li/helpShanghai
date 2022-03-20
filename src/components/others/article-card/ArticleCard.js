@@ -43,7 +43,8 @@ const ArticleCard = ({ article }) => {
 
   const publishedDate = format(new Date(article.publishedAt), 'PP');
   // console.log('article', article, publishedDate, article.publishedAt);
-  const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
+  const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+  const { profileImage } = article.user;
 
   return (
     <div className="grid-item">
@@ -78,10 +79,14 @@ const ArticleCard = ({ article }) => {
               </a>
             </div>
             <div className="container-row-primary">
-              <div className="">
-                <img src={profileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
-              </div>
-              <div className="article-card-author-name">{article.author || 'Philo'}</div>
+              <a href={`/@${article.user.username}`}>
+                <div className="">
+                  <img src={profileImage || initProfileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
+                </div>
+              </a>
+              <a href={`/@${article.user.username}`}>
+                <div className="article-card-author-name">{`${article.user.firstName} ${article.user.lastName || ''}`}</div>
+              </a>
               <div className="article-card-date">{publishedDate}</div>
             </div>
             <div className="container-article-card-bookmark">

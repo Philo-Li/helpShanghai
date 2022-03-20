@@ -46,7 +46,7 @@ const ArticleDetails = () => {
     );
   }
 
-  console.log('article', articleToShow);
+  // console.log('article', articleToShow);
 
   return (
     <div>

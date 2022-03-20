@@ -25,6 +25,7 @@
     display: flex;
 	flex-flow: row;
 	align-items: flex-start;
+    color: black;
 	padding-top: 8px;
     font-size: 14px;
     padding-top: 10px;
@@ -85,6 +86,7 @@
     margin-left: 10px;
     width: 30px;
     height: 30px;
+    border-radius: 50%;
 }
 
 .article-card-bookmark-btn-end {
