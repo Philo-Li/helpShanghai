@@ -72,7 +72,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         height={300}
         alt="gird item"
       />
-      <div className="container-collection-title">
+      <div className="container-collection-title p-3">
         <div className="collection-dropbtn">
           {username && articleToShow.user.username === username && (
             <DropdownButton
