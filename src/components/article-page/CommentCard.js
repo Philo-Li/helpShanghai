@@ -7,17 +7,12 @@ const CommentCard = ({ comment }) => {
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   const { profileImage } = comment.user;
 
-  const reply = () => {
-    console.log('reply');
-  };
+  // const reply = () => {
+  //   console.log('reply');
+  // };
 
   return (
     <div className="article-comment-card-container comment-card-border">
-      <div className="article-comment-card">
-        <div className="article-card-summary">
-          {comment.content}
-        </div>
-      </div>
       <div className="container-row-primary">
         <a href={`/@${comment.user.username}`}>
           <div className="">
@@ -25,12 +20,17 @@ const CommentCard = ({ comment }) => {
           </div>
         </a>
         <a href={`/@${comment.user.username}`}>
-          <div className="article-card-author-name">{`${comment.user.firstName} ${comment.user.lastName || ''}`}</div>
+          <div className="article-comment-card-name">{`${comment.user.firstName} ${comment.user.lastName || ''}:`}</div>
         </a>
-        <div className="article-card-date">{createDate}</div>
+      </div>
+      <div className="article-comment-card">
+        <div className="article-comment-card-content">
+          {comment.content}
+        </div>
       </div>
       <div className="container-article-card-bookmark">
-        <div className="article-card-bookmark-btn-end">
+        <div className="article-card-date">{createDate}</div>
+        {/* <div className="article-card-bookmark-btn-end">
           <button
             type="button"
             className="article-card-btn-bookmark article-card-btn-item"
@@ -40,7 +40,7 @@ const CommentCard = ({ comment }) => {
               reply
             </div>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

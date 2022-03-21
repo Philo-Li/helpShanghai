@@ -14,15 +14,14 @@ const EditCollectionForm = ({ loading }) => (
         placeholder="Comment here..."
       />
     </div>
-
-    <div className="col-item-1">
+    <div className="col-item-1 container-flex-end item-flex-end">
       {!loading && (
-        <Button variant="primary" id="comment-button" type="submit" block="true">
+        <Button variant="outline-dark" id="comment-button" type="submit" block="true">
           Comment
         </Button>
       )}
       {loading && (
-        <Button variant="primary" id="comment-button-loading" disabled block="true">
+        <Button variant="outline-dark" id="comment-button-loading" disabled block="true">
           <Spinner
             as="span"
             animation="border"
