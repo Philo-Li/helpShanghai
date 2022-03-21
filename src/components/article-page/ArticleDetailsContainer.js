@@ -54,7 +54,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   const articleCredit = `License: ${article.license}`;
 
   const redirectToEditPage = async () => {
-    history.push(`/edit-article/${articleToShow.id}`);
+    history.push(`/edit/${articleToShow.id}`);
   };
 
   const publishedDate = format(new Date(article.publishedAt), 'PP');

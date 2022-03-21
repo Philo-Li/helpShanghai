@@ -27,6 +27,7 @@ import About from './components/about/About';
 import AboutZh from './components/about/AboutZh';
 import ContactUs from './components/ContactUs';
 import Create from './components/create/Create';
+import Edit from './components/create/Edit';
 import logo from './img/logo/logo2.svg';
 import './index.css';
 
@@ -143,6 +144,9 @@ const App = () => {
             </Route>
             <Route path="/collection/:id" exact>
               <CollectionDetails />
+            </Route>
+            <Route path="/edit/:id" exact>
+              <Edit />
             </Route>
             <Route path="/" exact>
               <Home

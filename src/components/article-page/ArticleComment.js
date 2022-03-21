@@ -34,8 +34,6 @@ const ArticleComment = ({
     setLoading(true);
   };
 
-  console.log('comments', comments);
-
   return (
     <div>
       <div className="article-comment-card-container">
