@@ -28,7 +28,7 @@ import AboutZh from './components/about/AboutZh';
 import ContactUs from './components/ContactUs';
 import Create from './components/create/Create';
 import Edit from './components/create/Edit';
-import logo from './img/logo/logo2.svg';
+import logo from './img/logo/logo-w-dark-192.jpg';
 import './index.css';
 
 const navStyle = {

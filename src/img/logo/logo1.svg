@@ -1,120 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 25.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
-<style type="text/css">
-	.st0{display:none;}
-	.st1{display:inline;}
-	.st2{fill:#FFFFFF;}
-	.st3{clip-path:url(#SVGID_2_);}
-	.st4{display:inline;fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
-	.st5{fill:url(#SVGID_3_);}
-	.st6{fill:url(#SVGID_4_);}
-	.st7{fill:url(#SVGID_5_);}
-	.st8{fill:url(#SVGID_6_);stroke:#000000;stroke-miterlimit:10;}
-</style>
-<g id="图层_11" class="st0">
-	<g class="st1">
-		<circle class="st2" cx="249" cy="249" r="212.5"/>
-		<path d="M249,37c28.62,0,56.38,5.61,82.52,16.66c25.24,10.68,47.92,25.96,67.39,45.43c19.47,19.47,34.76,42.14,45.43,67.39
-			C455.39,192.62,461,220.38,461,249s-5.61,56.38-16.66,82.52c-10.68,25.24-25.96,47.92-45.43,67.39
-			c-19.47,19.47-42.14,34.76-67.39,45.43C305.38,455.39,277.62,461,249,461s-56.38-5.61-82.52-16.66
-			c-25.24-10.68-47.92-25.96-67.39-45.43c-19.47-19.47-34.76-42.14-45.43-67.39C42.61,305.38,37,277.62,37,249
-			s5.61-56.38,16.66-82.52c10.68-25.24,25.96-47.92,45.43-67.39c19.47-19.47,42.14-34.76,67.39-45.43C192.62,42.61,220.38,37,249,37
-			 M249,36C131.36,36,36,131.36,36,249s95.36,213,213,213s213-95.36,213-213S366.64,36,249,36L249,36z"/>
-	</g>
-</g>
-<g id="图层_11_x5F_复制" class="st0">
-</g>
-<g id="图层_1" class="st0">
-	<g class="st1">
-		<rect x="169.5" y="122.5" class="st2" width="40" height="282"/>
-		<path d="M209,123v281h-39V123H209 M210,122h-41v283h41V122L210,122z"/>
-	</g>
-</g>
-<g id="图层_1_x5F_复制" class="st0">
-</g>
-<g id="图层_5" class="st0">
-	<g class="st1">
-		<g>
-			<defs>
-				<circle id="SVGID_1_" cx="265" cy="195" r="13"/>
-			</defs>
-			<clipPath id="SVGID_2_">
-				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-			</clipPath>
-			<g class="st3">
-			</g>
-		</g>
-		<path d="M265,183c6.62,0,12,5.38,12,12s-5.38,12-12,12s-12-5.38-12-12S258.38,183,265,183 M265,182c-7.18,0-13,5.82-13,13
-			s5.82,13,13,13c7.18,0,13-5.82,13-13S272.18,182,265,182L265,182z"/>
-	</g>
-</g>
-<g id="图层_10" class="st0">
-	<g class="st1">
-		<circle class="st2" cx="265" cy="195" r="12.5"/>
-		<path d="M265,183c6.62,0,12,5.38,12,12s-5.38,12-12,12s-12-5.38-12-12S258.38,183,265,183 M265,182c-7.18,0-13,5.82-13,13
-			s5.82,13,13,13s13-5.82,13-13S272.18,182,265,182L265,182z"/>
-	</g>
-</g>
-<g id="图层_6" class="st0">
-	<g class="st1">
-		<rect x="65.5" y="122.5" class="st2" width="282" height="40"/>
-		<path d="M347,123v39H66v-39H347 M348,122H65v41h283V122L348,122z"/>
-	</g>
-	<g class="st1">
-		<rect x="65.5" y="222.5" class="st2" width="282" height="40"/>
-		<path d="M347,223v39H66v-39H347 M348,222H65v41h283V222L348,222z"/>
-	</g>
-	<g id="图层_8" class="st1">
-	</g>
-</g>
-<g id="图层_7" class="st0">
-</g>
-<g id="图层_3" class="st0">
-	<path class="st4" d="M221,122v36.98l101,33.52c-3.72,9.19-101,70.5-101,70.5c68.93,0.35,119.77-18.39,139-70.5
-		C347.61,145.9,298.91,124.01,221,122l0.5,26"/>
-</g>
-<g id="图层_4" class="st0">
-	<path class="st4" d="M223.5,124.5c100-10,133,18,133,69c0,42-29,77-133,71v-40c63,11,92-5,93-30c0-26.43-34.33-43.57-93-31V124.5z"
-		/>
-</g>
-<g id="图层_4_x5F_复制">
-	<g>
-		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="36.5" y1="249" x2="461.5" y2="249">
-			<stop  offset="1" style="stop-color:#FFFFFF"/>
-			<stop  offset="1" style="stop-color:#000000"/>
-		</linearGradient>
-		<circle class="st5" cx="249" cy="249" r="212.5"/>
-		<path d="M249,37c28.62,0,56.38,5.61,82.52,16.66c25.24,10.68,47.92,25.96,67.39,45.43c19.47,19.47,34.76,42.14,45.43,67.39
-			C455.39,192.62,461,220.38,461,249s-5.61,56.38-16.66,82.52c-10.68,25.24-25.96,47.92-45.43,67.39
-			c-19.47,19.47-42.14,34.76-67.39,45.43C305.38,455.39,277.62,461,249,461s-56.38-5.61-82.52-16.66
-			c-25.24-10.68-47.92-25.96-67.39-45.43c-19.47-19.47-34.76-42.14-45.43-67.39C42.61,305.38,37,277.62,37,249
-			s5.61-56.38,16.66-82.52c10.68-25.24,25.96-47.92,45.43-67.39c19.47-19.47,42.14-34.76,67.39-45.43C192.62,42.61,220.38,37,249,37
-			 M249,36C131.36,36,36,131.36,36,249s95.36,213,213,213s213-95.36,213-213S366.64,36,249,36L249,36z"/>
-	</g>
-	<g>
-		<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="169.5" y1="263.5" x2="209.5" y2="263.5">
-			<stop  offset="0" style="stop-color:#FFFFFF"/>
-			<stop  offset="0" style="stop-color:#000000"/>
-		</linearGradient>
-		<rect x="169.5" y="122.5" class="st6" width="40" height="282"/>
-		<path d="M209,123v281h-39V123H209 M210,122h-41v283h41V122L210,122z"/>
-	</g>
-	<g>
-		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="252.5" y1="195" x2="277.5" y2="195">
-			<stop  offset="0" style="stop-color:#FFFFFF"/>
-			<stop  offset="0" style="stop-color:#000000"/>
-		</linearGradient>
-		<circle class="st7" cx="265" cy="195" r="12.5"/>
-		<path d="M265,183c6.62,0,12,5.38,12,12s-5.38,12-12,12s-12-5.38-12-12S258.38,183,265,183 M265,182c-7.18,0-13,5.82-13,13
-			s5.82,13,13,13c7.18,0,13-5.82,13-13S272.18,182,265,182L265,182z"/>
-	</g>
-	<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="223.5" y1="193.8316" x2="356.5" y2="193.8316">
-		<stop  offset="0" style="stop-color:#FFFFFF"/>
-		<stop  offset="0" style="stop-color:#000000"/>
-	</linearGradient>
-	<path class="st8" d="M223.5,124.5c100-10,133,18,133,69c0,42-29,77-133,71v-40c63,11,92-5,93-30c0-26.43-34.33-43.57-93-31V124.5z"
-		/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 354.167px;
+        font-family: "Goudy Old Style";
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <text id="W" class="cls-1" x="81" y="393">W</text>
+  <image id="图层_2" data-name="图层 2" width="512" height="512" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAIW0lEQVR4nO2deYjVVRTHv75JS83S0hbLpdSyHBfcKDXTVkzTokW0nBbICIoKUwP1n4ymIALFFgtUtNWKTC1poaFFwxbTtHJrAdMKNXPJXJs49r1yGWbG92bee7/7u+d84EE937x3zvec9/vdd+5yGiA+TgNQykc3AB0AtAfQCkDTLLz9F8BuAL8D+BnABgArAXwHYA2Av2NSLIYE6A/gagBXAegNoMT7t0MAfmUgNwPYAmAbgF0M5EFqcDyTozkTqDWANgDaATizyudJciwF8B6AD5kURhGRoDwIYDmASu/xC4CXAIwF0AdAszyaJEkxCMB4AIsB7Kzy2UsA3ArgREuEwnAGgAkMshN9E4CnAFwKoGECNrUEcCOAVwDs9+xaBqAMwHEJ2BQdw3m5deLKvfg+XqJDowuAqQC2eva+CqCn9iDmSiNeavdSxL8ATAo06DXRFcDzXiKs5dXCqIXGAB7zRPsEwGURCFbm3br+5P8bVZjsBf5lAOdGKNBgACvo43YANwRgU+LcDOCAF/izFPg8AMC39PkHAL0CsKnoyDf8K4ogg7zOyvwXhnoDxlkJ/ZJJBHe5l0HeMC1O18J47/Y3Ilgr80BbjobF0Wmp9ya/SKGpwrsVRscYOicVtL4xOpgnbqdOewB0j8Ij3t/EqXkB2JIGZCC8jprdnWZHmnCUW2m/fevEDGo3O4W2oxONl9m4CwOwJ62Mpo7L02R/Pxq9jtOsRv3oRj3lJ+NJoWs5xJseNfJHK65hEG1PD1XX4TbYKyglnAKvDHFibCgNmxmALbGzMbQrwUAaNCcAW7SwmZonvgKpMw1ZpEb6MMiwlL49SWuaMfirAhJGEy2o/5dJ+byFa+GM5Cj1ZhOLyoJQR6MKGclYjC2W6/fxA20qNxxc2fiCQlvkSrzTUySOFn4sxi15J+/9Rng055dzfqEse9bu+8FTxhgNybehXfnGD8enWXR8zljlFSk4/KZd2ZTQhAnwYr7MfYhveH7sykWEW2h6Xn1dyvCN3tSuaAqRdYU/1dfsl5gAJVm81giLQfWt17ha8xMW2NSynpNGdeLdQowmjaLi5gpG5/qhrqgw1eKVemQzzj+5OvGKffujoWeuxaFMUlOMRsHYmksJfyIT4GSLRzS4KeOO2Ti0n/vXjbjIauled77wcgt+dMzNZly32AZ/0dKOsb25Ngfd0WZGnOzmkbfV4kqHPSz40VLOGFd7HM1bdvmPnra13QYqWf414ka27H9U1cP2TAA7uy5+5ld3pR/HJ5toV0cBI6orCi3l/nMjftySsQd8T+WJ1yz4apA1Ah84Z09hAtypXRVFvANgHzjzdzH9XqZdFUVU8PymEzLewY1rtauiCHfqWGmGp1Xv1q6IMlbT3R4ZnuNXY33YiJK/6FS3DGeJvrc4q+MP2U6e4UBwg3Y1FCK9FNtk6Pcm7WooRGLe2iXAVu1qKEQSoFmGPXv2aFdDIUeOmHPnzUXVENnIih1gAhxwZUFDFXtdAhxiEhi62O8SwNBJpUuAEut0rRLp0XwkARpaZw+VSK/mIwkg/9FUuxoKObL30yVA4ufOG0VHFgIdHQSeYvqrQ/oT7nMJcLZ2NRQim0R+dwkQY79+o3ZkGcDmjJsXNrHUIZuB1mW4FrBUuxrKOIHurpYE+CbkZoRGQXBX/FUZb4WoHQOvh170dGWGx4vD2x9gxM8gerjDeVrJhhCGDmTg/7Xv6VpbF6iGBtWdAltup4OowbX37+s73ItPXqJdHQVMq+nLLk++oF0dBWyvaSfY8rqcKm2kCtfv+f7qjL7F2sJFzz2M8anVOdqQ/1iuXaWIkR5C22pz79v6tBgxgqYpv+ATajPy2ny1GzOCYwpje8zVX/Kity1+0SGbf9Zk49RsKwpFh6vzDM7GsZZ88UPaVYuIFQAO5+JOzn9gBIv7Qo/LxcAu2TQXMFLBorre0jfauQGpx1X+Hq+LIz34x6O0q5hiFtZ3QL8SwL/aVUwprRn8yfUxvw3fZJJmJVPKN/n6Oe/ayDbSqGJKuYIxuz5f5subva9NxRRz2DsONi/cyiS4UruyKWAGY5X3vR5fWIk4eLoyRlMKYahrNbIwLs2iQiZ8fiykQzcxCW7Rp23wuMF6q0Ib+iI/yM4UCAc3RhtdLIt+s9NFg6ETgz+7mAa5RlMVYWsTPSWMQyLtftwOk+m6NA+K9UkX6cbUZa7ZyAvvUftzkpZzIg25I2lDFOEG4v1Ccbncpo6LxkxqPSQ0w56kYbcHYEuszKHGw0P1r9zGBAVjAbUdGrqhE2jojABsiQU3tz8wLf6U0eAPsnitUTPnsKtrJRt8por+NFwOIupgQc6Z66ifHN3TImW2H+UMOlDJq4KRHdOp2Rux6DXXc8i6k9RMRwC/UKt7QzWyroyiY6kYySaAK6hti/noXpmr/tRbWGJ9CoDe7OOr6pfTbd7VQOuScxnYzaMGWwBcFIBNRUWWmM2iAP9wYkkDjbyCmTzGK/G7RuR+t4xibI14uZn0ZnrEC/wLrnGT8T9ygPEqirOX34zGEWgjrVme8QL/Kp8zamAAgI+rCNY7hWJJIWep58csbrUzskT6GD3nCSgVxUcDb2/T36t5yGMngIetLV/9Gen9fHTCSnJcnnBhqSXrGws92+TxOq9kRp45iSuPKqoILosin2aiFGqJVEPuvLkLwHwOWN3nH+ZzwS3SOBYNwjbvmEiXk2EAruGBFj6/MjE2cPHkFt5GdnGQKbtoDvH1jdhISQ5TbM4CVVuWZjvz4U/IyN99BmAxgCUAvg9LluxJewJURQLWh4/uAM4HcGaVNvku+Ae9g7DkNuKSwHXUEqTHviSSBFjm5OVAbTk0Q5Ip/QD4DwOMCHSCpHA+AAAAAElFTkSuQmCC"/>
 </svg>

@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Card, Navbar, Nav,
 } from 'react-bootstrap';
-import logo from '../img/logo/logo1.svg';
+import logo from '../img/logo/logo-w-dark-192.jpg';
 
 const Footer = () => {
   const footerStyle = {
@@ -22,8 +22,8 @@ const Footer = () => {
             <Navbar.Brand href="/" className="text-dark container-row-0">
               <img
                 src={logo}
-                width="40"
-                height="40"
+                width="30"
+                height="30"
                 className="d-inline-block align-top"
                 alt="Free Stock Photos"
               />
