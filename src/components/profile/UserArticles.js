@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useArticles from '../../hooks/useArticles';
 import HomeArticleList from '../others/list/HomeArticleList';
 
-const UserArticles = ({ username }) => {
+const UserArticles = ({ username, setProfileImage }) => {
   const [allArticles, setAllArticles] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +22,7 @@ const UserArticles = ({ username }) => {
       const temp = articles && articles.edges
         ? articles.edges.map((edge) => edge.node)
         : [];
-
+      setProfileImage(temp[0].user.profileImage);
       setAllArticles(temp);
       setLoading(false);
     }
