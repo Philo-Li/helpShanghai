@@ -34,6 +34,11 @@ const ArticleComment = ({
     setLoading(true);
   };
 
+  const updateList = (id) => {
+    const updatedAllComments = allComments.filter((obj) => obj.id !== id);
+    setAllComments(updatedAllComments);
+  };
+
   return (
     <div>
       <div className="article-comment-card-container">
@@ -44,7 +49,7 @@ const ArticleComment = ({
       </div>
       {allComments && allComments.map((comment) => (
         <div key={nanoid()}>
-          <CommentCard comment={comment} />
+          <CommentCard comment={comment} updateList={updateList} />
         </div>
       ))}
     </div>

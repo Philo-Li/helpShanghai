@@ -7,6 +7,7 @@ const DeleteConfirmModal = ({
   itemType,
   showDeleteModal,
   setShowDeleteModal,
+  updateList,
 }) => {
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
@@ -16,7 +17,7 @@ const DeleteConfirmModal = ({
     try {
       await deleteArticleComment({ id });
       setSuccessInfo(`${itemType} is deleted`);
-      setTimeout(() => { setSuccessInfo(''); setShowDeleteModal(false); }, 3000);
+      setTimeout(() => { setSuccessInfo(''); setShowDeleteModal(false); updateList(id); }, 3000);
     } catch (e) {
       setErrorInfo(e.message);
       setTimeout(() => { setErrorInfo(''); }, 3000);

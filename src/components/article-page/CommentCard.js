@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { format } from 'date-fns';
 import DeleteConfirmModal from './DeleteCommentConfirmModal';
 
-const CommentCard = ({ comment }) => {
+const CommentCard = ({ comment, updateList }) => {
   const createDate = format(new Date(comment.createdAt), 'PP');
   const username = localStorage.getItem('username');
 
@@ -22,6 +22,7 @@ const CommentCard = ({ comment }) => {
         itemType="Comment"
         showDeleteModal={showDeleteModal}
         setShowDeleteModal={setShowDeleteModal}
+        updateList={updateList}
       />
       <div className="container-row-primary">
         <a href={`/@${comment.user.username}`}>
