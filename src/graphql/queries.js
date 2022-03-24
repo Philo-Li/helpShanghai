@@ -97,6 +97,21 @@ export const GET_AUTHORIZED_USER = gql`
   ${USER_DETAILS}
 `;
 
+export const GET_USER = gql`
+  query getUser($username: String!) {
+    user(username: $username) {
+      id
+      firstName
+      lastName
+      username
+      profileImage
+      articleCount
+      followerCount
+    }
+  }
+  ${USER_DETAILS}
+`;
+
 export const GET_USER_LIKES = gql`
   query getLikes(
     $orderBy: AllLikesOrderBy
@@ -334,5 +349,5 @@ export const GET_USER_COLLECTIONS_PLUS = gql`
 `;
 
 export default {
-  GET_ARTICLE, GET_ARTICLES, GET_ARTICLE_COMMENTS, GET_USERS,
+  GET_ARTICLE, GET_ARTICLES, GET_ARTICLE_COMMENTS, GET_USERS, GET_USER,
 };
