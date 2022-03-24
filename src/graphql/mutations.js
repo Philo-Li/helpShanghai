@@ -235,6 +235,12 @@ export const FOLLOW_USER = gql`
   }
 `;
 
+export const UNFOLLOW_USER = gql`
+  mutation unfollowUser( $userId: ID! ) {
+    unfollowUser( userId: $userId )
+  }
+`;
+
 export const UPDATE_AVATAR = gql`
   mutation updateAvatar( $url: String! ) {
     updateAvatar( url: $url )
@@ -276,4 +282,5 @@ export default {
   UPDATE_ARTICLE_COVER,
   CREATE_ARTICLE_COMMENT,
   DELETE_ARTICLE_COMMENT,
+  UNFOLLOW_USER,
 };

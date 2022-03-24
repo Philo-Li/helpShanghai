@@ -1,32 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Image, Tabs, Tab } from 'react-bootstrap';
 import UserArticles from './UserArticles';
 import UserCollections from './UserCollections';
 import UserLikes from './UserLikes';
 import useUser from '../../hooks/useUser';
+import useFollowUser from '../../hooks/useFollowUser';
+import useUnfollowUser from '../../hooks/useUnfollowUser';
 
 const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
 const Profile = () => {
   const [key, setKey] = useState('articles');
+  const [followUser] = useFollowUser();
+  const [unfollowUser] = useUnfollowUser();
   const [profileImage, setProfileImage] = useState(initProfileImage);
   const [follow, setFollow] = useState(false);
   const [userNow, setUserNow] = useState();
+  const userId = localStorage.getItem('userId');
 
+  const history = useHistory();
   let { username } = useParams();
   username = username.substr(1, username.length - 1);
 
-  const { user } = useUser({ username });
+  let variables;
+
+  if (userId) variables = { username, checkUserFollow: userId };
+  else variables = { username };
+
+  const { user } = useUser(variables);
 
   useEffect(() => {
     if (user) {
       setUserNow(user);
+      setFollow(user.isFollowed);
     }
   }, [user]);
 
   const handleFollowUser = async () => {
-    setFollow(!follow);
+    if (!userId) {
+      history.push('/signin');
+    } else {
+      setFollow(!follow);
+      if (userNow.isFollowed) {
+        await unfollowUser({ userId: userNow.id });
+      } else {
+        await followUser({ userId: userNow.id });
+      }
+    }
   };
   return (
     <div className="p-3">

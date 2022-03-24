@@ -98,18 +98,18 @@ export const GET_AUTHORIZED_USER = gql`
 `;
 
 export const GET_USER = gql`
-  query getUser($username: String!) {
+  query getUser($username: String!, $checkUserFollow: ID) {
     user(username: $username) {
       id
       firstName
       lastName
       username
+      isFollowed(checkUserFollow: $checkUserFollow)
       profileImage
       articleCount
       followerCount
     }
   }
-  ${USER_DETAILS}
 `;
 
 export const GET_USER_LIKES = gql`
