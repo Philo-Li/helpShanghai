@@ -165,6 +165,7 @@ export const GET_ARTICLE_COMMENTS = gql`
           id
           user{
             id
+            username
             profileImage
             firstName
             lastName

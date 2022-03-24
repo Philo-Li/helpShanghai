@@ -264,9 +264,16 @@ export const CREATE_ARTICLE_COMMENT = gql`
   }
 `;
 
+export const DELETE_ARTICLE_COMMENT = gql`
+  mutation deleteArticleComment( $id: ID! ) {
+    deleteArticleComment( id: $id )
+  }
+`;
+
 export default {
   CREATE_COLLECTION_AND_COLLECT_ARTICLE,
   EDIT_COLLECTION,
   UPDATE_ARTICLE_COVER,
   CREATE_ARTICLE_COMMENT,
+  DELETE_ARTICLE_COMMENT,
 };

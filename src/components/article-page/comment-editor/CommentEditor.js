@@ -4,7 +4,7 @@ import EditCollectionContainer from './EditCollectionContainer';
 
 const CommentEditor = ({
   articleId,
-  setArticleToShow,
+  // setArticleToShow,
 }) => {
   const [createArticleComment] = useCreateArticleComment();
   const [loading, setLoading] = useState(false);
@@ -21,9 +21,9 @@ const CommentEditor = ({
       content: values.content,
     };
 
-    const updatedArticle = {
-      content: values.content,
-    };
+    // const updatedArticle = {
+    //   content: values.content,
+    // };
     setLoading(true);
 
     try {
@@ -32,7 +32,7 @@ const CommentEditor = ({
 
       setTimeout(() => {
         setSuccessInfo('');
-        setArticleToShow(updatedArticle);
+        // setArticleToShow(updatedArticle);
       }, 2000);
       setTimeout(() => { setSuccessInfo(''); }, 3000);
     } catch (e) {

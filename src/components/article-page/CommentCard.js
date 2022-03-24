@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { format } from 'date-fns';
+import DeleteConfirmModal from './DeleteCommentConfirmModal';
 
 const CommentCard = ({ comment }) => {
   const createDate = format(new Date(comment.createdAt), 'PP');
+  const username = localStorage.getItem('username');
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   const { profileImage } = comment.user;
@@ -13,6 +17,12 @@ const CommentCard = ({ comment }) => {
 
   return (
     <div className="article-comment-card-container comment-card-border">
+      <DeleteConfirmModal
+        id={comment.id}
+        itemType="Comment"
+        showDeleteModal={showDeleteModal}
+        setShowDeleteModal={setShowDeleteModal}
+      />
       <div className="container-row-primary">
         <a href={`/@${comment.user.username}`}>
           <div className="">
@@ -29,6 +39,17 @@ const CommentCard = ({ comment }) => {
         </div>
       </div>
       <div className="container-article-card-bookmark">
+        {username === comment.user.username && (
+          <div className="">
+            <button
+              type="button"
+              className="article-comment-card-btn-delete article-card-date"
+              onClick={() => setShowDeleteModal(true)}
+            >
+              <i className="bi bi-trash" />
+            </button>
+          </div>
+        )}
         <div className="article-card-date">{createDate}</div>
         {/* <div className="article-card-bookmark-btn-end">
           <button

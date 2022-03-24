@@ -956,6 +956,16 @@
   border-radius: 5px;
 }
 
+.article-comment-card-btn-delete {
+  font-size: 1rem;
+  font-weight: light;
+  align-items: center;
+  align-self: center;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+}
+
 .article-comment-card-name {
   display: flex;
   flex-flow: row;
