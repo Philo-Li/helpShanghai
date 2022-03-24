@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -20,7 +19,6 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [showEditModal, setShowEditModal] = useState(false);
-  const [editMode, setEditMode] = useState(false);
   const history = useHistory();
   const userId = localStorage.getItem('userId');
   const username = localStorage.getItem('username');
@@ -162,28 +160,11 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         </div>
       </div>
       <div className="article-details-content container-col-article-details">
-        {!editMode && (
-          <Editor
-            toolbarHidden="true"
-            initialContentState={articleToShow.content}
-            readOnly="true"
-          />
-        )}
-        {editMode && (
-          <Editor
-            wrapperClassName="wrapper-class"
-            editorClassName="editor-class"
-            toolbarClassName="toolbar-class"
-            toolbar={{
-              inline: { inDropdown: true },
-              list: { inDropdown: true },
-              textAlign: { inDropdown: true },
-              link: { inDropdown: true },
-              history: { inDropdown: true },
-            }}
-            initialContentState={articleToShow.content}
-          />
-        )}
+        <Editor
+          toolbarHidden="true"
+          initialContentState={articleToShow.content}
+          readOnly="true"
+        />
       </div>
 
       <div className="container-row-0">

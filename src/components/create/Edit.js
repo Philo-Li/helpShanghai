@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useParams, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { css } from '@emotion/react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import CreateContainer from './CreateContainer';
 import useArticle from '../../hooks/useArticle';
-import useCreateArticle from '../../hooks/useCreateArticle';
+import useUpdateArticle from '../../hooks/useUpdateArticle';
 
 const override = css`
   display: flex;
@@ -15,10 +15,11 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-const initialValues = {
-  title: '',
-  description: '',
-  license: 'CC 3.0',
+const editorContentInit = {
+  entityMap: {},
+  blocks: [{
+    key: '637gr', text: 'Type here.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {},
+  }],
 };
 
 const Edit = () => {
@@ -27,20 +28,19 @@ const Edit = () => {
   const [articleToShow, setArticleToShow] = useState();
   const [errorInfo, setErrorInfo] = useState('');
   const [loading, setLoading] = useState(false);
-  const [createArticle] = useCreateArticle();
-  const [files, setFiles] = useState([]);
+  const [updateArticle] = useUpdateArticle();
+  const [editorState, setEditorState] = useState();
   const userId = localStorage.getItem('userId');
 
   const { article } = useArticle({
     id,
-    checkUserLike: userId,
-    checkUserCollect: userId,
   });
 
   useEffect(() => {
     if (article) {
       const content = JSON.parse(article.content);
       setArticleToShow({ ...article, content });
+      setEditorState(content);
     }
   }, [article]);
 
@@ -52,7 +52,7 @@ const Edit = () => {
     );
   }
 
-  if (article === undefined) {
+  if (articleToShow === undefined) {
     return (
       <div className="discover">
         <div className="p-3 container-profile">
@@ -67,6 +67,12 @@ const Edit = () => {
     );
   }
 
+  const initialValues = {
+    title: articleToShow.title,
+    description: '',
+    license: 'CC 3.0',
+  };
+
   const onSubmit = async (values) => {
     const {
       title, content,
@@ -77,13 +83,15 @@ const Edit = () => {
       // get secure url from our server
 
       const variables = {
+        articleId: articleToShow.id,
         title,
-        content: JSON.stringify(files),
+        summary: '',
+        content: JSON.stringify(editorState),
         license: 'CC 3.0',
         published: true,
       };
       // console.log('content', files, JSON.stringify(files));
-      await createArticle(variables);
+      await updateArticle(variables);
       history.push('/');
       setLoading(false);
     } catch (e) {
@@ -100,8 +108,8 @@ const Edit = () => {
         onSubmit={onSubmit}
         errorInfo={errorInfo}
         loading={loading}
-        files={files}
-        setFiles={setFiles}
+        editorState={editorState}
+        setEditorState={setEditorState}
       />
     </div>
   );

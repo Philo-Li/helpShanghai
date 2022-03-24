@@ -2,20 +2,16 @@ import React, { useState } from 'react';
 import { Editor } from 'react-draft-wysiwyg';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-// const content = {
-//   entityMap: {},
-//   blocks: [{
-//   }],
-// };
-
 // eslint-disable-next-line no-unused-vars
-const MyEditor = ({ files, setFiles }) => {
+const MyEditor = ({ editorState, setEditorState }) => {
   // eslint-disable-next-line no-unused-vars
   const [contentState, setContentState] = useState();
 
+  if (!editorState) return null;
+
   const onContentStateChange = (state) => {
     setContentState(state);
-    setFiles(state);
+    setEditorState(state);
   };
 
   return (
@@ -31,6 +27,8 @@ const MyEditor = ({ files, setFiles }) => {
           link: { inDropdown: true },
           history: { inDropdown: true },
         }}
+        initialContentState={editorState}
+        // defaultEditorState={sampleEditorContent}
         onContentStateChange={onContentStateChange}
         // wrapperStyle={<wrapperStyleObject>}
         // editorStyle={<editorStyleObject>}

@@ -30,7 +30,7 @@ const Create = () => {
   const [errorInfo, setErrorInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [createArticle] = useCreateArticle();
-  const [files, setFiles] = useState([]);
+  const [editorstate, setEditorState] = useState([]);
   const userId = localStorage.getItem('userId');
 
   if (!userId) {
@@ -52,11 +52,11 @@ const Create = () => {
 
       const variables = {
         title,
-        content: JSON.stringify(files),
+        content: JSON.stringify(editorstate),
         license: 'CC 3.0',
         published: true,
       };
-      // console.log('content', files, JSON.stringify(files));
+      // console.log('content', editorstate, JSON.stringify(editorstate));
       await createArticle(variables);
       history.push('/');
       setLoading(false);
@@ -74,8 +74,8 @@ const Create = () => {
         onSubmit={onSubmit}
         errorInfo={errorInfo}
         loading={loading}
-        files={files}
-        setFiles={setFiles}
+        editorstate={editorstate}
+        setEditorState={setEditorState}
       />
     </div>
   );

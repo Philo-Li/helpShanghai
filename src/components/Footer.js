@@ -24,7 +24,7 @@ const Footer = () => {
                 src={logo}
                 width="30"
                 height="30"
-                className="d-inline-block align-top"
+                className="d-inline-block align-top margin-right-5"
                 alt="Free Stock Photos"
               />
               Waldon

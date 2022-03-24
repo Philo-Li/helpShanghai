@@ -8,6 +8,10 @@
   align-items: center;
   transition: 0.5s ease;
 } */
+.margin-right-5 {
+  margin-right: 5px;
+}
+
 .jumbotron-slice-1 {
   background-image: url("https://cdn.philoart.io/b/1200x1200/ejt2Vbza56UViZTf2vEHY.jpg");
   background-size: cover;

@@ -78,6 +78,30 @@ export const CREATE_ARTICLE = gql`
   }
 `;
 
+export const UPDATE_ARTICLE = gql`
+  mutation updateArticle(
+    $articleId: ID!
+    $title: String!
+    $summary: String
+    $tag: String
+    $content: String
+    $license: String
+    $published: Boolean!
+    ) {
+    updateArticle(article: {
+      articleId: $articleId
+      title: $title
+      summary: $summary
+      tag: $tag
+      content: $content
+      license: $license
+      published: $published
+    } ) {
+      id
+    }
+  }
+`;
+
 export const LIKE_PHOTO = gql`
   mutation likePhoto( $photoId: ID! ) {
     likePhoto( photoId: $photoId ) {
@@ -280,6 +304,7 @@ export default {
   CREATE_COLLECTION_AND_COLLECT_ARTICLE,
   EDIT_COLLECTION,
   UPDATE_ARTICLE_COVER,
+  UPDATE_ARTICLE,
   CREATE_ARTICLE_COMMENT,
   DELETE_ARTICLE_COMMENT,
   UNFOLLOW_USER,

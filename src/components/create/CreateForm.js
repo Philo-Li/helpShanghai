@@ -5,7 +5,7 @@ import { Form } from 'formik';
 import TextInputTitle from '../others/TextInputTitle';
 import MyEditor from '../editor/draft';
 
-const CreateForm = ({ loading, files, setFiles }) => (
+const CreateForm = ({ loading, editorState, setEditorState }) => (
   <Form>
     <div className="container-col-title">
       <TextInputTitle
@@ -15,7 +15,7 @@ const CreateForm = ({ loading, files, setFiles }) => (
       />
     </div>
     <div className="editor-border editor-container">
-      <MyEditor files={files} setFiles={setFiles} />
+      <MyEditor editorState={editorState} setEditorState={setEditorState} />
     </div>
     <div>
       Powered by draft.js

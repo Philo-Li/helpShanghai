@@ -62,6 +62,7 @@ const App = () => {
               src={logo}
               width="30"
               height="30"
+              className="margin-right-5"
               alt="Waldon brand logo"
             />
             Waldon
@@ -73,13 +74,13 @@ const App = () => {
                 <NavSearchBar placeholder="Search..." />
               </div>
             </Nav>
-            <Nav className="justify-content-end container-row-0">
+            <Nav className="justify-content-end container-row-0 navbar-link">
               <a className="navbar-link" href="/discover">Discover</a>
               {/* <a className="navbar-link" href="/about">About</a> */}
               {!token && <a className="navbar-link" href="/signin">Login</a>}
               {token && (
                 <NavDropdown title="My Account" id="basic-nav-dropdown">
-                  <NavDropdown.Item href={userPage}>Profile</NavDropdown.Item>
+                  <NavDropdown.Item className="navbar-link" href={userPage}>Profile</NavDropdown.Item>
                   <NavDropdown.Item href="/user/edit">Settings</NavDropdown.Item>
                   <NavDropdown.Divider />
                   {token && <button className="navbar-button-logout" type="submit" onClick={handleLogout}>Logout</button>}
