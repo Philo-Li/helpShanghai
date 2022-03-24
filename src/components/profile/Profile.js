@@ -5,14 +5,13 @@ import UserArticles from './UserArticles';
 import UserCollections from './UserCollections';
 import UserLikes from './UserLikes';
 
-const Profile = ({ authorizedUser }) => {
+const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+
+const Profile = () => {
   const [key, setKey] = useState('articles');
+  const [profileImage, setProfileImage] = useState(initProfileImage);
   let { username } = useParams();
   username = username.substr(1, username.length - 1);
-
-  const profileImage = authorizedUser && authorizedUser.profileImage
-    ? authorizedUser.profileImage
-    : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
   return (
     <div className="p-3">
@@ -31,7 +30,7 @@ const Profile = ({ authorizedUser }) => {
         className="mb-3"
       >
         <Tab eventKey="articles" title="Articles">
-          <UserArticles username={username} />
+          <UserArticles username={username} setProfileImage={setProfileImage} />
         </Tab>
         <Tab eventKey="collections" title="Collections">
           <UserCollections username={username} />

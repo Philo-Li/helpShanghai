@@ -49,6 +49,34 @@ export const GET_ARTICLES = gql`
   }
 `;
 
+export const GET_USERS = gql`
+  query getUsers(
+    $first: Int
+    $after: String
+  ) {
+    users(
+      first: $first
+      after: $after
+    ) {
+      edges {
+        node {
+          username
+          firstName
+          lastName
+          profileImage
+        }
+        cursor
+      }
+      pageInfo {
+        endCursor
+        startCursor
+        totalCount
+        hasNextPage
+      }
+    }
+  }
+`;
+
 export const GET_ARTICLE = gql`
   query getArticle($id: ID!, $checkUserLike: ID, $checkUserCollect: ID) {
     article(id: $id) {
@@ -304,4 +332,6 @@ export const GET_USER_COLLECTIONS_PLUS = gql`
   ${COLLECTION_DETAILS}
 `;
 
-export default { GET_ARTICLE, GET_ARTICLES, GET_ARTICLE_COMMENTS };
+export default {
+  GET_ARTICLE, GET_ARTICLES, GET_ARTICLE_COMMENTS, GET_USERS,
+};

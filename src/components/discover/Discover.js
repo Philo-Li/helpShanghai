@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
-import DiscoverCollectionList from './DiscoverCollectionList';
-import config from '../../config';
-import useDiscoverCollections from '../../hooks/useDiscoverCollections';
+import useUsers from '../../hooks/useUsers';
+import DiscoverAuthorList from './DiscoverAuthorList';
 
 const override = css`
   display: flex;
@@ -13,26 +12,23 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-// const CATEGORY = ['mood', 'animals', 'light', 'nature', 'human', 'road', 'food'];
-
 const Discover = () => {
-  const [allCollections, setAllCollections] = useState();
-  const { collections } = useDiscoverCollections({
-    username: config.pickyAdmin,
+  const [allUsers, setAllUsers] = useState();
+  const { users } = useUsers({
     first: 30,
   });
 
   useEffect(() => {
-    if (collections) {
-      const temp = collections && collections.edges
-        ? collections.edges.map((edge) => edge.node)
+    if (users) {
+      const temp = users && users.edges
+        ? users.edges.map((edge) => edge.node)
         : [];
 
-      setAllCollections(temp);
+      setAllUsers(temp);
     }
-  }, [collections]);
+  }, [users]);
 
-  if (allCollections === undefined) {
+  if (allUsers === undefined) {
     return (
       <div className="discover">
         <div className="p-3 container-profile">
@@ -58,13 +54,12 @@ const Discover = () => {
         <div className="container-profile profile-item subheader">
           <p>Authors</p>
         </div>
-        <DiscoverCollectionList allCollections={allCollections} category="nature" />
+        <DiscoverAuthorList allUsers={allUsers} category="nature" />
       </div>
       <div className="p-3">
         <div className="container-profile profile-item subheader">
           <p>Articles</p>
         </div>
-        <DiscoverCollectionList allCollections={allCollections} category="human" />
       </div>
     </div>
   );
