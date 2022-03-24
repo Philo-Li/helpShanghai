@@ -38,9 +38,9 @@ const DiscoverAuthorList = ({ allUsers }) => {
         columnClassName="my-masonry-grid_column"
       >
         {collectionsToShow.map((user) => (
-          <a href={`/@${user.username}`}>
+          <a href={`/@${user.username}`} key={user.username}>
             <div className="container-profile">
-              <div className="profile-item">
+              <div className="profile-item" key={`${user.username}-avatar`}>
                 <Image
                   src={user.profileImage || initProfileImage}
                   width={100}
@@ -49,7 +49,7 @@ const DiscoverAuthorList = ({ allUsers }) => {
                   roundedCircle
                 />
               </div>
-              <div className="profile-item">
+              <div className="profile-item" key={`${user.username}-name`}>
                 <h1>{`${user.firstName}`}</h1>
                 {user.lastName && ` ${user.lastName}`}
               </div>
