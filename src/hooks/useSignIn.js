@@ -6,8 +6,8 @@ const useSignIn = () => {
   const [mutate, result] = useMutation(AUTHORIZE);
   const apolloClient = useApolloClient();
 
-  const signIn = async ({ username, password }) => {
-    const payload = await mutate({ variables: { username, password } });
+  const signIn = async ({ email, password }) => {
+    const payload = await mutate({ variables: { email, password } });
     const { data } = payload;
 
     if (data && data.authorize) {

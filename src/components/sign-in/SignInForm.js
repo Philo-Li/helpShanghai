@@ -9,9 +9,9 @@ const SignInForm = ({ loading }) => (
   <Form>
     <div className="col-item-1">
       <TextInput
-        label="Username"
-        name="username"
-        type="text"
+        label="Email"
+        name="email"
+        type="email"
         placeholder=""
       />
     </div>
