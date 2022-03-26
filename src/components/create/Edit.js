@@ -30,6 +30,7 @@ const Edit = () => {
   const [loading, setLoading] = useState(false);
   const [updateArticle] = useUpdateArticle();
   const [editorState, setEditorState] = useState();
+  const [license, setLicense] = useState('CC BY');
   const userId = localStorage.getItem('userId');
 
   const { article } = useArticle({
@@ -54,7 +55,7 @@ const Edit = () => {
 
   if (articleToShow === undefined) {
     return (
-      <div className="discover">
+      <div className="discover min-height-500">
         <div className="p-3 container-profile">
           <div className="profile-item">
             <p className="header">Loading</p>
@@ -87,7 +88,7 @@ const Edit = () => {
         title,
         summary: '',
         content: JSON.stringify(editorState),
-        license: 'CC 3.0',
+        license,
         published: true,
       };
       // console.log('content', files, JSON.stringify(files));
@@ -117,6 +118,7 @@ const Edit = () => {
         loading={loading}
         editorState={editorState}
         setEditorState={setEditorState}
+        setLicense={setLicense}
       />
     </div>
   );

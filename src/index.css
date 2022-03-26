@@ -930,6 +930,72 @@
     margin-right: 5%;
   }
 }
+/* Style The Dropdown Button */
+.license-btn .dropbtn {
+  background-color: transparent;
+  color: black;
+  width: 10rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.25);
+  border-width: 1px;
+  margin-top: 1rem;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.license-btn .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.license-btn .dropdown-content {
+  display: none;
+  position: absolute;
+  width: 10rem;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.license-btn .dropdown-content button {
+  display: block;
+  background-color: white;
+  width: 10rem;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.license-btn .dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
+
+.license-btn .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.container-row-license {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.container-row-license-item {
+  align-self: flex-end;
+  padding: 1rem;
+}
+
+.license-btn-info {
+  font-size: 1rem;
+  margin-top: 10%;
+  font-weight: light;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: ease 0.2s;
+}
+
 .article-comment-card a {
   color: black;
 }

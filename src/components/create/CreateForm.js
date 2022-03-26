@@ -3,9 +3,13 @@ import React from 'react';
 import { Button, Spinner } from 'react-bootstrap';
 import { Form } from 'formik';
 import TextInputTitle from '../others/TextInputTitle';
+import TextInput from '../others/TextInput';
 import MyEditor from '../editor/draft';
+import LicenseButton from '../others/LicenseButton';
 
-const CreateForm = ({ loading, editorState, setEditorState }) => (
+const CreateForm = ({
+  loading, editorState, setEditorState, setLicense,
+}) => (
   <Form>
     <div className="container-col-title">
       <TextInputTitle
@@ -17,8 +21,29 @@ const CreateForm = ({ loading, editorState, setEditorState }) => (
     <div className="editor-border editor-container">
       <MyEditor editorState={editorState} setEditorState={setEditorState} />
     </div>
-    <div>
-      Powered by draft.js
+    <div className="container-col-tag">
+      <TextInput
+        name="tags"
+        type="text"
+        placeholder="add tags..."
+      />
+    </div>
+    <div className="container-row-license">
+      <div className="container-row-license-item">
+        License:
+      </div>
+      <div className="container-row-license-item">
+        <LicenseButton setLicense={setLicense} />
+      </div>
+      <div className="container-row-license-item">
+        <button
+          type="button"
+          className="license-btn-info license-btn-item"
+          onClick={() => window.open('/license')}
+        >
+          Info
+        </button>
+      </div>
     </div>
     <div className="container-row-signup">
       {/* <div className="col-item-1">

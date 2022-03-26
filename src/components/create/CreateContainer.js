@@ -7,10 +7,12 @@ import CreateForm from './CreateForm';
 const validationSchema = yup.object().shape({
   title: yup
     .string(),
+  tags: yup
+    .string(),
 });
 
 const CreateContainer = ({
-  initialValues, onSubmit, errorInfo, loading, editorState, setEditorState,
+  initialValues, onSubmit, errorInfo, loading, editorState, setEditorState, setLicense,
 }) => (
   <div className="container-col-create">
     {errorInfo && (
@@ -29,6 +31,7 @@ const CreateContainer = ({
           loading={loading}
           editorState={editorState}
           setEditorState={setEditorState}
+          setLicense={setLicense}
         />
       )}
     </Formik>

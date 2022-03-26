@@ -21,7 +21,7 @@ const baseUrl = config.waldonApi;
 
 const initialValues = {
   title: '',
-  description: '',
+  tags: '',
   license: 'CC 3.0',
 };
 
@@ -32,6 +32,7 @@ const Create = () => {
   const [createArticle] = useCreateArticle();
   const [editorstate, setEditorState] = useState([]);
   const userId = localStorage.getItem('userId');
+  const [license, setLicense] = useState('CC BY');
 
   if (!userId) {
     return (
@@ -53,7 +54,7 @@ const Create = () => {
       const variables = {
         title,
         content: JSON.stringify(editorstate),
-        license: 'CC 3.0',
+        license,
         published: true,
       };
       // console.log('content', editorstate, JSON.stringify(editorstate));
@@ -76,6 +77,7 @@ const Create = () => {
         loading={loading}
         editorstate={editorstate}
         setEditorState={setEditorState}
+        setLicense={setLicense}
       />
     </div>
   );
