@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import LazyLoad from 'react-lazyload';
 import { format } from 'date-fns';
 import SaveToCollectionsModal from './SaveToCollectionsModal';
-import '../../../MDB-Free_4.19.2/css/mdb.css';
+import '../../../mdb.css';
 
 const ArticleCard = ({ article }) => {
   if (!article) return null;
