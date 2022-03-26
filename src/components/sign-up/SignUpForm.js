@@ -30,7 +30,7 @@ const SignUpForm = ({ loading }) => (
       <div className="col-item-1">
         <TextInput
           label="Password *"
-          info=" (at least 6 char)"
+          info=" (at least 1 number, 1 uppercase and 1 lowercase letter )"
           name="password"
           type="password"
           placeholder=""

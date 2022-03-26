@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React from 'react';
 import { Image, Alert } from 'react-bootstrap';
 import { Formik } from 'formik';
@@ -15,7 +16,8 @@ const validationSchema = Yup.object({
     .matches('^[a-zA-Z0-9_]*$', 'Invalid username')
     .required('Required'),
   password: Yup.string()
-    .min(6, 'Must be 6 characters or more')
+    .min(8, 'Password length must be greater than or equal to 8')
+    .matches('(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', 'At least 1 number, 1 uppercase and lowercase letter')
     .required('Required'),
   confirmPassword: Yup.string()
     .required()

@@ -21,7 +21,7 @@ const ChangePasswordForm = ({ loading }) => (
       <div className="col-item-1">
         <TextInput
           label="New password *"
-          info=" (at least 6 char)"
+          info=" (At least 1 number, 1 uppercase and 1 lowercase letter)"
           name="newPassword"
           type="password"
           placeholder=""

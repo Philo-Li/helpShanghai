@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React from 'react';
 import { Formik } from 'formik';
 import { Alert } from 'react-bootstrap';
@@ -7,9 +8,11 @@ import ChangePasswordForm from './ChangePasswordForm';
 
 const validationSchema = Yup.object({
   currentPassword: Yup.string()
-    .min(6, 'Must be 6 characters or more'),
+    .required('Required'),
   newPassword: Yup.string()
-    .min(6, 'Must be 6 characters or more'),
+    .min(8, 'Password length must be greater than or equal to 8')
+    .matches('(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', 'At least 1 number, 1 uppercase and lowercase letter')
+    .required('Required'),
 });
 
 const ChangePasswordContainer = ({
