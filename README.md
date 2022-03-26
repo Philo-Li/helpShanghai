@@ -1,14 +1,12 @@
 # Waldon
 
-The relative Node.js backend is here: [waldon-api](https://github.com/Philo-Li/waldon-api)
-
 ## ✔️ Website
 
-https://waldon.la/
+https://waldon.io/
 
 ## 🚀 About Waldon
 
-- Blog app
+- Blog Platform
 
 ## 🐛 Found a bug?
 
