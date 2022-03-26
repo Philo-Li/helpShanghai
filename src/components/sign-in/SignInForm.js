@@ -25,14 +25,14 @@ const SignInForm = ({ loading }) => (
       />
     </div>
 
-    <div className="col-item-1">
+    <div className="d-grid margin-tb-2rem">
       {!loading && (
-        <Button variant="primary" id="login-button" type="submit" block>
+        <Button variant="dark" id="login-button" type="submit" block="true">
           Login
         </Button>
       )}
       {loading && (
-        <Button variant="primary" id="login-button-loading" disabled block>
+        <Button variant="primary" id="login-button-loading" disabled block="true">
           <Spinner
             as="span"
             animation="border"

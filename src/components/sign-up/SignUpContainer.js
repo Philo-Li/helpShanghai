@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import SignUpForm from './SignUpForm';
-import logo from '../../img/logo/logo2.svg';
+import logo from '../../img/logo/logo-w-dark-192.jpg';
 
 const validationSchema = Yup.object({
   email: Yup.string()
