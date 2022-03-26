@@ -44,6 +44,7 @@ export const USER_DETAILS = gql`
     lastName
     email
     profileImage
+    description
   }
 `;
 

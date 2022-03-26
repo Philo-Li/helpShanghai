@@ -106,6 +106,7 @@ export const GET_USER = gql`
       username
       isFollowed(checkUserFollow: $checkUserFollow)
       profileImage
+      description
       articleCount
       followerCount
     }

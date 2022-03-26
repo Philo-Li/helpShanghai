@@ -40,6 +40,7 @@ export const UPDATE_PROFILE = gql`
     $firstName: String!
     $lastName: String
     $email: String!
+    $description: String
     ) {
     updateUserProfile(user: {
       username: $username
@@ -47,8 +48,10 @@ export const UPDATE_PROFILE = gql`
       firstName: $firstName
       lastName: $lastName
       email:$email
+      description: $description
     }) {
       ...userDetails
+      description
     }
   }
   ${USER_DETAILS}

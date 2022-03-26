@@ -56,8 +56,11 @@ const Profile = () => {
           <Image src={profileImage} width={100} height={100} magin={10} roundedCircle />
         </div>
         <div className="profile-item">
-          <h1>{username}</h1>
+          <h1>{userNow && `${userNow.firstName} ${userNow.lastName || ''}`}</h1>
         </div>
+      </div>
+      <div className="container-profile">
+        <div className="user-description">{userNow && userNow.description && `${userNow.description}`}</div>
       </div>
       <div className="container-profile">
         <div className="profile-item">

@@ -33,7 +33,7 @@ const ArticleDetails = () => {
 
   if (article === undefined) {
     return (
-      <div className="discover">
+      <div className="discover min-height-500">
         <div className="p-3 container-profile">
           <div className="profile-item">
             <p className="header">Loading</p>
