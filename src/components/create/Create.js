@@ -3,7 +3,6 @@ import React, { useState, useMemo } from 'react';
 import axios from 'axios';
 import { css } from '@emotion/react';
 import { nanoid } from 'nanoid';
-import { useHistory } from 'react-router-dom';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import CreateContainer from './CreateContainer';
 import useCreateArticle from '../../hooks/useCreateArticle';
@@ -21,13 +20,13 @@ const baseUrl = config.waldonApi;
 
 const initialValues = {
   title: '',
-  tags: '',
-  license: 'CC 3.0',
+  tag: '',
+  license: 'CC BY',
 };
 
 const Create = () => {
-  const history = useHistory();
   const [errorInfo, setErrorInfo] = useState('');
+  const [successInfo, setSuccessInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [createArticle] = useCreateArticle();
   const [editorstate, setEditorState] = useState([]);
@@ -44,7 +43,7 @@ const Create = () => {
 
   const onSubmit = async (values) => {
     const {
-      title, content,
+      title, tag,
     } = values;
 
     setLoading(true);
@@ -55,11 +54,16 @@ const Create = () => {
         title,
         content: JSON.stringify(editorstate),
         license,
+        tag,
         published: true,
       };
       // console.log('content', editorstate, JSON.stringify(editorstate));
       await createArticle(variables);
-      history.push('/');
+      setSuccessInfo('Cover details updated');
+
+      setTimeout(() => {
+        setSuccessInfo('');
+      }, 2000);
       setLoading(false);
     } catch (e) {
       setErrorInfo(e.message);
@@ -74,6 +78,7 @@ const Create = () => {
         initialValues={initialValues}
         onSubmit={onSubmit}
         errorInfo={errorInfo}
+        successInfo={successInfo}
         loading={loading}
         editorstate={editorstate}
         setEditorState={setEditorState}

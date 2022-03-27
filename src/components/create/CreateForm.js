@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Button, Spinner } from 'react-bootstrap';
+import { Button, Spinner, Alert } from 'react-bootstrap';
 import { Form } from 'formik';
 import TextInputTitle from '../others/TextInputTitle';
 import TextInput from '../others/TextInput';
@@ -8,7 +8,7 @@ import MyEditor from '../editor/draft';
 import LicenseButton from '../others/LicenseButton';
 
 const CreateForm = ({
-  loading, editorState, setEditorState, setLicense,
+  loading, editorState, setEditorState, setLicense, errorInfo, successInfo,
 }) => (
   <Form>
     <div className="container-col-title">
@@ -23,9 +23,9 @@ const CreateForm = ({
     </div>
     <div className="container-col-tag">
       <TextInput
-        name="tags"
+        name="tag"
         type="text"
-        placeholder="add tags..."
+        placeholder="add tag..."
       />
     </div>
     <div className="container-row-license">
@@ -45,6 +45,16 @@ const CreateForm = ({
         </button>
       </div>
     </div>
+    {errorInfo && (
+      <Alert variant="danger">
+        {errorInfo}
+      </Alert>
+    )}
+    {successInfo && (
+      <Alert variant="success">
+        {successInfo}
+      </Alert>
+    )}
     <div className="container-row-signup">
       {/* <div className="col-item-1">
         {!loading && (

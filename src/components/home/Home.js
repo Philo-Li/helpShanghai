@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
 import { Tabs, Tab, Carousel } from 'react-bootstrap';
 import useArticles from '../../hooks/useArticles';
 import HomeArticleList from '../others/list/HomeArticleList';
-// import CategoryBar from '../others/CategoryBar';
 import Discover from '../discover/Discover';
 import config from '../../config';
-// import '../../MDB-Free_4.19.2/css/mdb.css';
 
 const Home = () => {
   const [allArticles, setAllArticles] = useState();
@@ -14,7 +11,6 @@ const Home = () => {
   const [key, setKey] = useState('home');
 
   const userId = localStorage.getItem('userId');
-  // const baseUrl = 'https://media.waldon.io/articles.json';
 
   const variables = {
     username: config.admin,
@@ -33,10 +29,6 @@ const Home = () => {
 
       setAllArticles(temp);
       setLoading(false);
-    } else {
-      // const temp = await axios.get(baseUrl).then((res) => res.data.node);
-
-      // setAllArticles(temp);
     }
   }, [articles]);
 
@@ -58,7 +50,6 @@ const Home = () => {
           </Carousel.Item>
         </Carousel>
       </div>
-      {/* <CategoryBar /> */}
       <div className="container-margin-top">
         <Tabs
           id="controlled-tab-example"

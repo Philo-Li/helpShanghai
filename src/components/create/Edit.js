@@ -27,6 +27,7 @@ const Edit = () => {
   const { id } = useParams();
   const [articleToShow, setArticleToShow] = useState();
   const [errorInfo, setErrorInfo] = useState('');
+  const [successInfo, setSuccessInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [updateArticle] = useUpdateArticle();
   const [editorState, setEditorState] = useState();
@@ -70,13 +71,13 @@ const Edit = () => {
 
   const initialValues = {
     title: articleToShow.title,
-    description: '',
-    license: 'CC 3.0',
+    tag: articleToShow.tag || '',
+    license: 'CC BY',
   };
 
   const onSubmit = async (values) => {
     const {
-      title, content,
+      title, tag,
     } = values;
 
     setLoading(true);
@@ -87,13 +88,18 @@ const Edit = () => {
         articleId: articleToShow.id,
         title,
         summary: '',
+        tag,
         content: JSON.stringify(editorState),
         license,
         published: true,
       };
       // console.log('content', files, JSON.stringify(files));
       await updateArticle(variables);
-      history.push('/');
+      setSuccessInfo('Cover details updated');
+
+      setTimeout(() => {
+        setSuccessInfo('');
+      }, 2000);
       setLoading(false);
     } catch (e) {
       setErrorInfo(e.message);
@@ -115,6 +121,7 @@ const Edit = () => {
         initialValues={initialValues}
         onSubmit={onSubmit}
         errorInfo={errorInfo}
+        successInfo={successInfo}
         loading={loading}
         editorState={editorState}
         setEditorState={setEditorState}

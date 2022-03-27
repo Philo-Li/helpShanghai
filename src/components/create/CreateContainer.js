@@ -7,18 +7,23 @@ import CreateForm from './CreateForm';
 const validationSchema = yup.object().shape({
   title: yup
     .string(),
-  tags: yup
+  tag: yup
     .string(),
 });
 
 const CreateContainer = ({
-  initialValues, onSubmit, errorInfo, loading, editorState, setEditorState, setLicense,
+  initialValues, onSubmit, errorInfo, successInfo, loading, editorState, setEditorState, setLicense,
 }) => (
   <div className="container-col-create">
     {errorInfo && (
     <Alert variant="danger">
       {errorInfo}
     </Alert>
+    )}
+    {successInfo && (
+      <Alert variant="success">
+        {successInfo}
+      </Alert>
     )}
     <Formik
       initialValues={initialValues}
@@ -32,6 +37,8 @@ const CreateContainer = ({
           editorState={editorState}
           setEditorState={setEditorState}
           setLicense={setLicense}
+          errorInfo={errorInfo}
+          successInfo={successInfo}
         />
       )}
     </Formik>
