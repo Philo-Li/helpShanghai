@@ -1,7 +1,8 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
+import ProfileDetailCard from './ProfileDetailCard';
 
 const breakpointColumnsObj = {
   default: 3,
@@ -31,30 +32,36 @@ const DiscoverAuthorList = ({ allUsers }) => {
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
   return (
-    <div className="p-3">
+    <div className="p-3 discover-author-list">
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
         {collectionsToShow.map((user) => (
-          <a href={`/@${user.username}`} key={user.username}>
-            <div className="container-profile">
-              <div className="profile-item" key={`${user.username}-avatar`}>
-                <Image
-                  src={user.profileImage || initProfileImage}
-                  width={100}
-                  height={100}
-                  magin={10}
-                  roundedCircle
+          <Card>
+            <a href={`/@${user.username}`} key={user.username}>
+              <div className="container-profile">
+                <ProfileDetailCard
+                  userNow={user}
+                  profileImage={user.profileImage || initProfileImage}
                 />
+                {/* <div className="profile-item" key={`${user.username}-avatar`}>
+                  <Image
+                    src={user.profileImage || initProfileImage}
+                    width={100}
+                    height={100}
+                    magin={10}
+                    roundedCircle
+                  />
+                </div>
+                <div className="profile-item" key={`${user.username}-name`}>
+                  <h1>{`${user.firstName}`}</h1>
+                  {user.lastName && ` ${user.lastName}`}
+                </div> */}
               </div>
-              <div className="profile-item" key={`${user.username}-name`}>
-                <h1>{`${user.firstName}`}</h1>
-                {user.lastName && ` ${user.lastName}`}
-              </div>
-            </div>
-          </a>
+            </a>
+          </Card>
         ))}
       </Masonry>
     </div>

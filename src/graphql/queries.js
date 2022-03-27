@@ -60,10 +60,14 @@ export const GET_USERS = gql`
     ) {
       edges {
         node {
+          id
           username
           firstName
           lastName
           profileImage
+          articleCount
+          followerCount
+          followingCount
         }
         cursor
       }

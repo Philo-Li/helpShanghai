@@ -1105,6 +1105,21 @@
   color: rgba(0, 0, 0, 0.75);
 }
 
+.button-follow:disabled {
+  font-weight: light;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 2px 10px;
+  margin-right: 5px;
+  transition: ease 0.2s;
+}
+
+.discover-author-list a {
+  color: black;
+}
+
 body {
   height: 100vh;
   scroll-behavior: smooth;
