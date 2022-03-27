@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { Formik } from 'formik';
 import { Alert } from 'react-bootstrap';
@@ -11,7 +12,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const EditCollectionContainer = ({
-  initialValues, onSubmit, errorInfo, successInfo, loading,
+  initialValues, onSubmit, errorInfo, successInfo, loading, tabKey, cover, setCover,
 }) => (
   <div className="p-3">
     {errorInfo && (
@@ -29,7 +30,15 @@ const EditCollectionContainer = ({
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ handleSubmit }) => <EditCollectionForm onSubmit={handleSubmit} loading={loading} />}
+      {({ handleSubmit }) => (
+        <EditCollectionForm
+          onSubmit={handleSubmit}
+          loading={loading}
+          tabKey={tabKey}
+          cover={cover}
+          setCover={setCover}
+        />
+      )}
     </Formik>
   </div>
 );

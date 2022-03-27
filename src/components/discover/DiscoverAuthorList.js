@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { nanoid } from 'nanoid';
 import Masonry from 'react-masonry-css';
 import ProfileDetailCard from './ProfileDetailCard';
 
@@ -10,24 +10,14 @@ const breakpointColumnsObj = {
   500: 1,
 };
 
-// const INIT_COVER = galleryIcon;
-
 const DiscoverAuthorList = ({ allUsers }) => {
-  const collectionsToShow = allUsers;
-
-  const history = useHistory();
-  if (!collectionsToShow) {
+  if (!allUsers) {
     return (
       <div className="col-item-3">
         <h3>No result</h3>
       </div>
     );
   }
-
-  // eslint-disable-next-line no-unused-vars
-  const openCollection = (collection) => {
-    history.push(`/collection/${collection.id}`);
-  };
 
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
@@ -38,27 +28,14 @@ const DiscoverAuthorList = ({ allUsers }) => {
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
       >
-        {collectionsToShow.map((user) => (
-          <Card>
-            <a href={`/@${user.username}`} key={user.username}>
+        {allUsers.map((user) => (
+          <Card key={nanoid()}>
+            <a href={`/@${user.username}`}>
               <div className="container-profile">
                 <ProfileDetailCard
                   userNow={user}
                   profileImage={user.profileImage || initProfileImage}
                 />
-                {/* <div className="profile-item" key={`${user.username}-avatar`}>
-                  <Image
-                    src={user.profileImage || initProfileImage}
-                    width={100}
-                    height={100}
-                    magin={10}
-                    roundedCircle
-                  />
-                </div>
-                <div className="profile-item" key={`${user.username}-name`}>
-                  <h1>{`${user.firstName}`}</h1>
-                  {user.lastName && ` ${user.lastName}`}
-                </div> */}
               </div>
             </a>
           </Card>

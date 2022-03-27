@@ -61,9 +61,9 @@ const rejectStyle = {
   borderColor: '#ff1744',
 };
 
-function Previews({ files, setFiles }) {
+function Previews({ cover, setCover }) {
   // const [files, setFiles] = useState([]);
-  if (!files) return null;
+  if (!cover) return null;
   const {
     getRootProps,
     getInputProps,
@@ -74,7 +74,7 @@ function Previews({ files, setFiles }) {
     // accept: "image/*",
     onDrop: (acceptedFiles) => {
       // console.log('accepted', acceptedFiles);
-      setFiles(
+      setCover(
         acceptedFiles.map((file) => Object.assign(file, { preview: URL.createObjectURL(file) })),
       );
     },
@@ -90,7 +90,7 @@ function Previews({ files, setFiles }) {
     [isDragActive, isDragReject, isDragAccept],
   );
 
-  const thumbs = files.map((file) => (
+  const thumbs = cover.map((file) => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
         <img alt="selected" src={file.preview} style={img} />
@@ -101,9 +101,9 @@ function Previews({ files, setFiles }) {
   useEffect(
     () => () => {
       // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach((file) => URL.revokeObjectURL(file.preview));
+      cover.forEach((file) => URL.revokeObjectURL(file.preview));
     },
-    [files],
+    [cover],
   );
 
   return (
@@ -112,7 +112,7 @@ function Previews({ files, setFiles }) {
         <input {...getInputProps()} />
         { isDragActive ? (
           <p>Drop the files here ...</p>
-        ) : files.length === 0 ? (
+        ) : cover.length === 0 ? (
           <p>Drag and drop some files here, or click to select files</p>
         ) : null}
         <aside style={thumbContainer}>{thumbs}</aside>

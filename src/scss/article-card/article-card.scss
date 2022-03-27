@@ -101,3 +101,14 @@
 	align-items: center;
 	padding-top: 0.5rem;
 }
+
+.flex-btn-end {
+	align-self: flex-end;
+}
+
+.flex-btn-end-item {
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+	align-items: center;
+}

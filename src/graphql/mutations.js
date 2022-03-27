@@ -278,10 +278,12 @@ export const UPDATE_ARTICLE_COVER = gql`
   mutation updateArticleCover(
     $articleId: ID!
     $newCover: String
+    $newThumb: String
     ){
     updateArticleCover(edit: {
       articleId: $articleId
       newCover: $newCover
+      newThumb: $newThumb
     })
   }
 `;

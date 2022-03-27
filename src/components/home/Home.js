@@ -3,7 +3,6 @@ import { Tabs, Tab, Carousel } from 'react-bootstrap';
 import useArticles from '../../hooks/useArticles';
 import HomeArticleList from '../others/list/HomeArticleList';
 import Discover from '../discover/Discover';
-import config from '../../config';
 
 const Home = () => {
   const [allArticles, setAllArticles] = useState();
@@ -13,7 +12,6 @@ const Home = () => {
   const userId = localStorage.getItem('userId');
 
   const variables = {
-    username: config.admin,
     checkUserLike: userId,
     checkUserCollect: userId,
     first: 20,

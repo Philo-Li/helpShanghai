@@ -82,6 +82,13 @@ const Create = () => {
 
   return (
     <div>
+      {/* <img
+        src={cover}
+        className="article-details-cover"
+        width="100%"
+        height={300}
+        alt="gird item"
+      /> */}
       <CreateContainer
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -91,8 +98,6 @@ const Create = () => {
         editorState={editorState}
         setEditorState={setEditorState}
         setLicense={setLicense}
-        cover={cover}
-        setCover={setCover}
       />
     </div>
   );

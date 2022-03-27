@@ -6,6 +6,9 @@ import PacmanLoader from 'react-spinners/PacmanLoader';
 import CreateContainer from './CreateContainer';
 import useArticle from '../../hooks/useArticle';
 import useUpdateArticle from '../../hooks/useUpdateArticle';
+import DropdownButton from '../others/button/edit-page-article-btn/DropdownButton';
+import EditModal from '../article-page/edit-article-meta/EditModal';
+import DeleteConfirmModal from '../article-page/DeleteConfirmModal';
 
 const override = css`
   display: flex;
@@ -33,6 +36,9 @@ const Edit = () => {
   const [editorState, setEditorState] = useState(editorContentInit);
   const [license, setLicense] = useState('CC BY');
   const userId = localStorage.getItem('userId');
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const { article } = useArticle({
     id,
@@ -118,11 +124,31 @@ const Edit = () => {
   return (
     <div>
       <img
-        src={article.cover}
+        src={articleToShow.cover}
         className="article-details-cover"
         width="100%"
         height={300}
         alt="gird item"
+      />
+      <div className="container-collection-title p-3">
+        <div className="collection-dropbtn">
+          <DropdownButton
+            setShowEditModal={setShowEditModal}
+            setShowDeleteModal={setShowDeleteModal}
+          />
+        </div>
+      </div>
+      <EditModal
+        articleToShow={article}
+        setArticleToShow={setArticleToShow}
+        showEditModal={showEditModal}
+        setShowEditModal={setShowEditModal}
+      />
+      <DeleteConfirmModal
+        id={articleToShow.id}
+        itemType="Article"
+        showDeleteModal={showDeleteModal}
+        setShowDeleteModal={setShowDeleteModal}
       />
       <CreateContainer
         initialValues={initialValues}
