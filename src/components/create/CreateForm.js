@@ -9,8 +9,16 @@ import LicenseButton from '../others/LicenseButton';
 
 const CreateForm = ({
   loading, editorState, setEditorState, setLicense, errorInfo, successInfo,
+  cover, setCover,
 }) => (
   <Form>
+    <img
+      src={cover}
+      className="article-details-cover"
+      width="100%"
+      height={300}
+      alt="gird item"
+    />
     <div className="container-col-title">
       <TextInputTitle
         name="title"

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { css } from '@emotion/react';
 import { nanoid } from 'nanoid';
@@ -24,14 +24,22 @@ const initialValues = {
   license: 'CC BY',
 };
 
+const editorContentInit = {
+  entityMap: {},
+  blocks: [{
+    key: '637gr', text: 'Type here.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {},
+  }],
+};
+
 const Create = () => {
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [createArticle] = useCreateArticle();
-  const [editorstate, setEditorState] = useState([]);
+  const [editorState, setEditorState] = useState(editorContentInit);
   const userId = localStorage.getItem('userId');
   const [license, setLicense] = useState('CC BY');
+  const [cover, setCover] = useState('');
 
   if (!userId) {
     return (
@@ -52,14 +60,14 @@ const Create = () => {
 
       const variables = {
         title,
-        content: JSON.stringify(editorstate),
+        content: JSON.stringify(editorState),
         license,
         tag,
         published: true,
       };
       // console.log('content', editorstate, JSON.stringify(editorstate));
       await createArticle(variables);
-      setSuccessInfo('Cover details updated');
+      setSuccessInfo('Article created');
 
       setTimeout(() => {
         setSuccessInfo('');
@@ -80,9 +88,11 @@ const Create = () => {
         errorInfo={errorInfo}
         successInfo={successInfo}
         loading={loading}
-        editorstate={editorstate}
+        editorState={editorState}
         setEditorState={setEditorState}
         setLicense={setLicense}
+        cover={cover}
+        setCover={setCover}
       />
     </div>
   );

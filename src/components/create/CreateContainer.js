@@ -12,7 +12,8 @@ const validationSchema = yup.object().shape({
 });
 
 const CreateContainer = ({
-  initialValues, onSubmit, errorInfo, successInfo, loading, editorState, setEditorState, setLicense,
+  initialValues, onSubmit, errorInfo, successInfo, loading,
+  editorState, setEditorState, setLicense, cover, setCover,
 }) => (
   <div className="container-col-create">
     {errorInfo && (
@@ -39,6 +40,8 @@ const CreateContainer = ({
           setLicense={setLicense}
           errorInfo={errorInfo}
           successInfo={successInfo}
+          cover={cover}
+          setCover={setCover}
         />
       )}
     </Formik>

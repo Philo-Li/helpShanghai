@@ -23,6 +23,7 @@ export const ARTICLE_DETAILS = gql`
       firstName
       lastName
       profileImage
+      id
     }
   }
 `;

@@ -30,7 +30,7 @@ const Edit = () => {
   const [successInfo, setSuccessInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [updateArticle] = useUpdateArticle();
-  const [editorState, setEditorState] = useState();
+  const [editorState, setEditorState] = useState(editorContentInit);
   const [license, setLicense] = useState('CC BY');
   const userId = localStorage.getItem('userId');
 
@@ -42,17 +42,16 @@ const Edit = () => {
     if (article) {
       const content = JSON.parse(article.content);
       setArticleToShow({ ...article, content });
-      setEditorState(content);
+      setEditorState(content.length !== 0 ? content : editorContentInit);
     }
   }, [article]);
 
-  if (!userId) {
-    return (
-      <div className="col-item-3">
-        You are not authorized to edit this article;
-      </div>
-    );
-  }
+  const checkPermission = () => {
+    if (userId === articleToShow.user.id) {
+      return true;
+    }
+    return false;
+  };
 
   if (articleToShow === undefined) {
     return (
@@ -65,6 +64,14 @@ const Edit = () => {
         <div className="col-item-3">
           <PacmanLoader color="#9B9B9B" loading css={override} size={50} />
         </div>
+      </div>
+    );
+  }
+
+  if (!checkPermission(articleToShow)) {
+    return (
+      <div className="col-item-3 min-height-500">
+        You are not authorized to edit this article
       </div>
     );
   }
@@ -95,7 +102,7 @@ const Edit = () => {
       };
       // console.log('content', files, JSON.stringify(files));
       await updateArticle(variables);
-      setSuccessInfo('Cover details updated');
+      setSuccessInfo('Article updated');
 
       setTimeout(() => {
         setSuccessInfo('');

@@ -13,6 +13,13 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
+const editorContentInit = {
+  entityMap: {},
+  blocks: [{
+    key: '637gr', text: 'No content.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {},
+  }],
+};
+
 const ArticleDetails = () => {
   const [articleToShow, setArticleToShow] = useState();
   const { id } = useParams();
@@ -27,7 +34,8 @@ const ArticleDetails = () => {
   useEffect(() => {
     if (article) {
       const content = JSON.parse(article.content);
-      setArticleToShow({ ...article, content });
+      const editorContent = content.length !== 0 ? content : editorContentInit;
+      setArticleToShow({ ...article, content, editorContent });
     }
   }, [article]);
 

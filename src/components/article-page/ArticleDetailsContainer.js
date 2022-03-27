@@ -162,7 +162,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
       <div className="article-details-content container-col-article-details">
         <Editor
           toolbarHidden="true"
-          initialContentState={articleToShow.content}
+          initialContentState={articleToShow.editorContent}
           readOnly="true"
         />
       </div>
