@@ -652,6 +652,10 @@
   width: 50%;
 }
 
+.min-height-300 {
+  height: 300px;
+}
+
 .license-icon-x {
   padding: 10px 20px;
   font-size: 2rem;
