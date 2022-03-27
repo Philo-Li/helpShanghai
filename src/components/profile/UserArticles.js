@@ -22,7 +22,8 @@ const UserArticles = ({ username, setProfileImage }) => {
       const temp = articles && articles.edges
         ? articles.edges.map((edge) => edge.node)
         : [];
-      setProfileImage(temp[0].user.profileImage);
+      const newProfileImage = temp[0].user.profileImage;
+      if (newProfileImage) setProfileImage(newProfileImage);
       setAllArticles(temp);
       setLoading(false);
     }

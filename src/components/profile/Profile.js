@@ -37,6 +37,8 @@ const Profile = () => {
     }
   }, [user]);
 
+  console.log(profileImage);
+
   const handleFollowUser = async () => {
     if (!userId) {
       history.push('/signin');
