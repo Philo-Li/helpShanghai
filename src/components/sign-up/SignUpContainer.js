@@ -17,7 +17,6 @@ const validationSchema = Yup.object({
     .required('Required'),
   password: Yup.string()
     .min(8, 'Password length must be greater than or equal to 8')
-    .matches('(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}', 'At least 1 number, 1 uppercase and lowercase letter')
     .required('Required'),
   confirmPassword: Yup.string()
     .required()
