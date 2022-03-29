@@ -32,7 +32,7 @@ const SignInForm = ({ loading }) => (
         </Button>
       )}
       {loading && (
-        <Button variant="primary" id="login-button-loading" disabled block="true">
+        <Button variant="dark" id="login-button-loading" disabled block="true">
           <Spinner
             as="span"
             animation="border"

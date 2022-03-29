@@ -1,39 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Tabs, Tab, Carousel } from 'react-bootstrap';
-import useArticles from '../../hooks/useArticles';
-import HomeArticleList from '../others/list/HomeArticleList';
 import Discover from '../discover/Discover';
+import Latest from './Latest';
+import RecommendArticles from './RecommendArticles';
 
 const Home = () => {
-  const [allArticles, setAllArticles] = useState();
-  const [loading, setLoading] = useState(false);
   const [key, setKey] = useState('home');
-
-  const userId = localStorage.getItem('userId');
-
-  const variables = {
-    checkUserLike: userId,
-    checkUserCollect: userId,
-    first: 20,
-  };
-
-  const { articles, fetchMore, hasNextPage } = useArticles(variables);
-
-  useEffect(async () => {
-    if (articles) {
-      const temp = articles && articles.edges
-        ? articles.edges.map((edge) => edge.node)
-        : [];
-
-      setAllArticles(temp);
-      setLoading(false);
-    }
-  }, [articles]);
-
-  const clickFetchMore = () => {
-    fetchMore();
-    setLoading(true);
-  };
 
   return (
     <div>
@@ -56,16 +28,13 @@ const Home = () => {
           className="mb-3"
         >
           <Tab eventKey="home" title="Home">
-            <HomeArticleList
-              allArticles={allArticles}
-              setAllArticles={setAllArticles}
-              clickFetchMore={clickFetchMore}
-              loading={loading}
-              hasNextPage={hasNextPage}
-            />
+            <RecommendArticles />
           </Tab>
-          <Tab eventKey="Recommend" title="Recommend">
+          <Tab eventKey="discover" title="Discover">
             <Discover />
+          </Tab>
+          <Tab eventKey="latest" title="Latest">
+            <Latest />
           </Tab>
         </Tabs>
       </div>
