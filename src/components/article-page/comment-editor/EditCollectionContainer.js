@@ -7,7 +7,8 @@ import EditCollectionForm from './EditCollectionForm';
 
 const validationSchema = Yup.object().shape({
   content: Yup
-    .string(),
+    .string()
+    .required(),
 });
 
 const EditCollectionContainer = ({
