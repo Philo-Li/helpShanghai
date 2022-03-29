@@ -20,7 +20,7 @@ import SignUp from './components/sign-up/SignUp';
 import useAuthorizedUser from './hooks/useAuthorizedUser';
 import useField from './hooks/useField';
 import NavSearchBar from './components/others/NavSearchBar';
-import SearchPage from './components/search/SearchPage';
+import SearchPage from './components/search-article/SearchPage';
 import License from './components/license/License';
 import LicenseZh from './components/license/LicenseZh';
 import About from './components/about/About';
