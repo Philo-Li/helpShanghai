@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import { css } from '@emotion/react';
 import { nanoid } from 'nanoid';
 import PacmanLoader from 'react-spinners/PacmanLoader';
@@ -35,11 +36,13 @@ const Create = () => {
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
   const [loading, setLoading] = useState(false);
-  const [createArticle] = useCreateArticle();
+  const [createArticle, result] = useCreateArticle();
   const [editorState, setEditorState] = useState(editorContentInit);
   const userId = localStorage.getItem('userId');
   const [license, setLicense] = useState('CC BY');
   const [cover, setCover] = useState('');
+  const [articleId, setArticleId] = useState('');
+  const history = useHistory();
 
   if (!userId) {
     return (
@@ -48,6 +51,17 @@ const Create = () => {
       </div>
     );
   }
+
+  useEffect(() => {
+    if (result && result.data) {
+      const tempId = result.data.createArticle.id;
+      setArticleId(tempId);
+      setTimeout(() => {
+        setSuccessInfo('');
+        history.push(`/article/${articleId}`);
+      }, 3000);
+    }
+  }, [result]);
 
   const onSubmit = async (values) => {
     const {
@@ -65,13 +79,9 @@ const Create = () => {
         tag,
         published: true,
       };
-      // console.log('content', editorstate, JSON.stringify(editorstate));
-      await createArticle(variables);
+      const res = await createArticle(variables);
       setSuccessInfo('Article created');
 
-      setTimeout(() => {
-        setSuccessInfo('');
-      }, 2000);
       setLoading(false);
     } catch (e) {
       setErrorInfo(e.message);
