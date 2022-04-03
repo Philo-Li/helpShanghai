@@ -5,6 +5,7 @@ export const AUTHORIZE = gql`
   mutation authorize($email: String!, $password: String!) {
     authorize(credentials: { email: $email, password: $password }) {
       accessToken
+      expiresAt
       user {
         username
         id

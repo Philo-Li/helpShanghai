@@ -1,12 +1,13 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApolloClient } from '@apollo/client';
 import {
   BrowserRouter as Router,
   Switch, Route, Redirect,
 } from 'react-router-dom';
 import { Nav, NavDropdown } from 'react-bootstrap';
+import { isBefore } from 'date-fns';
 import Navbar from 'react-bootstrap/Navbar';
 import Home from './components/home/Home';
 import Discover from './components/discover/Discover';
@@ -17,7 +18,6 @@ import ArticleDetails from './components/article-page/ArticleDetails';
 import CollectionDetails from './components/collection-page/CollectionDetails';
 import SignIn from './components/sign-in/SignIn';
 import SignUp from './components/sign-up/SignUp';
-import useAuthorizedUser from './hooks/useAuthorizedUser';
 import useField from './hooks/useField';
 import NavSearchBar from './components/others/NavSearchBar';
 import SearchPage from './components/search-article/SearchPage';
@@ -30,6 +30,7 @@ import Create from './components/create/Create';
 import Edit from './components/create/Edit';
 import logo from './img/logo/logo-w-dark-192.jpg';
 import './index.css';
+import TokenExpireModal from './components/others/TokenExpireModal';
 
 const navStyle = {
   // fontStyle: 'bold',
@@ -38,12 +39,13 @@ const navStyle = {
 
 const App = () => {
   const client = useApolloClient();
-  const { authorizedUser } = useAuthorizedUser();
   const searchValue = useField('searchValue');
   const [newSearchValue, setNewSearchValue] = useState('');
+  const [showTokenExpireModal, setShowTokenExpireModal] = useState(false);
 
   const Menu = () => {
     const token = localStorage.getItem('token');
+    const expirationTime = localStorage.getItem('expirationTime');
     const username = localStorage.getItem('username');
 
     const handleLogout = async (event) => {
@@ -54,6 +56,18 @@ const App = () => {
 
     let userPage;
     if (token) userPage = `/@${username}`;
+
+    const checkTokenExpire = isBefore(new Date(expirationTime), new Date(Date.now()));
+
+    useEffect(() => {
+      if (token && !expirationTime) {
+        setShowTokenExpireModal(true);
+      }
+      if (token && checkTokenExpire) {
+        setShowTokenExpireModal(true);
+      }
+    });
+
     return (
       <div style={navStyle}>
         <Navbar collapseOnSelect expand="md" bg="white" variant="light" fixed="sticky">
@@ -91,6 +105,10 @@ const App = () => {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        <TokenExpireModal
+          showTokenExpireModal={showTokenExpireModal}
+          setShowTokenExpireModal={setShowTokenExpireModal}
+        />
       </div>
     );
   };
@@ -138,7 +156,7 @@ const App = () => {
               <Settings />
             </Route>
             <Route path="/:username" exact>
-              <Profile authorizedUser={authorizedUser} />
+              <Profile />
             </Route>
             <Route path="/article/:id" exact>
               <ArticleDetails />

@@ -12,6 +12,7 @@ const useSignIn = () => {
 
     if (data && data.authorize) {
       localStorage.setItem('token', data.authorize.accessToken);
+      localStorage.setItem('expirationTime', data.authorize.expiresAt);
       localStorage.setItem('userId', data.authorize.user.id);
       localStorage.setItem('username', data.authorize.user.username);
       apolloClient.resetStore();
