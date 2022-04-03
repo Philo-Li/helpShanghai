@@ -12,6 +12,8 @@ const TokenExpireModal = ({
 
   const redirectToSignIn = async () => {
     setShowTokenExpireModal(false);
+    localStorage.clear();
+    client.resetStore();
     history.push('/signin');
   };
 
