@@ -3,11 +3,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { css } from '@emotion/react';
-import { nanoid } from 'nanoid';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import CreateContainer from './CreateContainer';
 import useCreateArticle from '../../hooks/useCreateArticle';
-import config from '../../config';
 
 const override = css`
   display: flex;
@@ -17,12 +15,20 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-const baseUrl = config.waldonApi;
-
 const initialValues = {
   title: '',
   tag: '',
-  license: 'CC BY',
+  address1: '',
+  address2: '',
+  peopleCount: '',
+  need: '',
+  provide: '',
+  surviveDate: '',
+  contact: '',
+  note: '',
+  emergencyRate: '',
+  type: '物资购买/分享交换',
+  status: '待解决',
 };
 
 const editorContentInit = {
@@ -32,15 +38,18 @@ const editorContentInit = {
   }],
 };
 
+const map = { 不紧急: 1, 紧急: 2, 危急: 3 };
+
 const Create = () => {
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [createArticle, result] = useCreateArticle();
-  const [editorState, setEditorState] = useState(editorContentInit);
+  const [editorState, setEditorState] = useState('');
   const userId = localStorage.getItem('userId');
-  const [license, setLicense] = useState('CC BY');
-  const [cover, setCover] = useState('');
+  const [type, setType] = useState('物资购买/分享交换');
+  const [status, setStatus] = useState('待解决');
+  const [emergencyRate, setEmergencyRate] = useState('不紧急');
   const [articleId, setArticleId] = useState('');
   const history = useHistory();
 
@@ -65,22 +74,30 @@ const Create = () => {
 
   const onSubmit = async (values) => {
     const {
-      title, tag,
+      title, tag, address2, peopleCount, need, provide, surviveDate, contact, note,
     } = values;
 
     setLoading(true);
     try {
-      // get secure url from our server
-
+      const titleArray = title ? [...editorState, title] : editorState;
       const variables = {
-        title,
-        content: JSON.stringify(editorState),
-        license,
+        title: titleArray.join('-'),
         tag,
-        published: true,
+        address1: JSON.stringify(editorState),
+        address2,
+        fullAddress: JSON.stringify([...editorState, address2]),
+        peopleCount: peopleCount || 1,
+        need,
+        provide,
+        surviveDate,
+        contact,
+        note,
+        emergencyRate: map[emergencyRate],
+        type,
+        status,
       };
       const res = await createArticle(variables);
-      setSuccessInfo('Article created');
+      setSuccessInfo('信息发布成功');
 
       setLoading(false);
     } catch (e) {
@@ -92,13 +109,6 @@ const Create = () => {
 
   return (
     <div>
-      {/* <img
-        src={cover}
-        className="article-details-cover"
-        width="100%"
-        height={300}
-        alt="gird item"
-      /> */}
       <CreateContainer
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -107,7 +117,12 @@ const Create = () => {
         loading={loading}
         editorState={editorState}
         setEditorState={setEditorState}
-        setLicense={setLicense}
+        type={type}
+        setType={setType}
+        status={status}
+        setStatus={setStatus}
+        emergencyRate={emergencyRate}
+        setEmergencyRate={setEmergencyRate}
       />
     </div>
   );

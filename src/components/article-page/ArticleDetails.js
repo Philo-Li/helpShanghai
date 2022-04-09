@@ -13,12 +13,7 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-const editorContentInit = {
-  entityMap: {},
-  blocks: [{
-    key: '637gr', text: 'No content.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {},
-  }],
-};
+const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
 
 const ArticleDetails = () => {
   const [articleToShow, setArticleToShow] = useState();
@@ -33,9 +28,10 @@ const ArticleDetails = () => {
 
   useEffect(() => {
     if (article) {
-      const content = JSON.parse(article.content);
-      const editorContent = content.length !== 0 ? content : editorContentInit;
-      setArticleToShow({ ...article, content, editorContent });
+      const fullAddress = JSON.parse(article.fullAddress);
+      const fullAddressStr = fullAddress.join('-');
+      const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
+      setArticleToShow({ ...article, fullAddress: fullAddressStr, emergencyRate });
     }
   }, [article]);
 
@@ -53,8 +49,6 @@ const ArticleDetails = () => {
       </div>
     );
   }
-
-  // console.log('article', articleToShow);
 
   return (
     <div>

@@ -61,21 +61,35 @@ export const UPDATE_PROFILE = gql`
 export const CREATE_ARTICLE = gql`
   mutation createArticle(
     $title: String!
-    $summary: String
     $tag: String
-    $cover: String
-    $content: String
-    $license: String
-    $published: Boolean!
+    $address1: String
+    $address2: String
+    $fullAddress: String
+    $peopleCount: Int
+    $need: String
+    $provide: String
+    $surviveDate: String
+    $contact: String
+    $note: String
+    $emergencyRate: Int
+    $type: String
+    $status: String
     ) {
     createArticle(article: {
       title: $title
-      summary: $summary
       tag: $tag
-      cover: $cover
-      content: $content
-      license: $license
-      published: $published
+      address1: $address1
+      address2: $address2
+      fullAddress: $fullAddress
+      peopleCount: $peopleCount
+      need: $need
+      provide: $provide
+      surviveDate: $surviveDate
+      contact: $contact
+      note: $note
+      emergencyRate: $emergencyRate
+      type: $type
+      status: $status
     } ) {
       id
     }
@@ -86,20 +100,36 @@ export const UPDATE_ARTICLE = gql`
   mutation updateArticle(
     $articleId: ID!
     $title: String!
-    $summary: String
     $tag: String
-    $content: String
-    $license: String
-    $published: Boolean!
+    $address1: String
+    $address2: String
+    $fullAddress: String
+    $peopleCount: Int
+    $need: String
+    $provide: String
+    $surviveDate: String
+    $contact: String
+    $note: String
+    $emergencyRate: Int
+    $type: String
+    $status: String
     ) {
     updateArticle(article: {
       articleId: $articleId
       title: $title
-      summary: $summary
       tag: $tag
-      content: $content
-      license: $license
-      published: $published
+      address1: $address1
+      address2: $address2
+      fullAddress: $fullAddress
+      peopleCount: $peopleCount
+      need: $need
+      provide: $provide
+      surviveDate: $surviveDate
+      contact: $contact
+      note: $note
+      emergencyRate: $emergencyRate
+      type: $type
+      status: $status
     } ) {
       id
     }

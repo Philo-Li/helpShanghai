@@ -18,12 +18,8 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-const editorContentInit = {
-  entityMap: {},
-  blocks: [{
-    key: '637gr', text: 'Type here.', type: 'unstyled', depth: 0, inlineStyleRanges: [], entityRanges: [], data: {},
-  }],
-};
+const emergencyRateMap = { 不紧急: 1, 紧急: 2, 危急: 3 };
+const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
 
 const Edit = () => {
   const history = useHistory();
@@ -33,10 +29,11 @@ const Edit = () => {
   const [successInfo, setSuccessInfo] = useState('');
   const [loading, setLoading] = useState(false);
   const [updateArticle] = useUpdateArticle();
-  const [editorState, setEditorState] = useState(editorContentInit);
-  const [license, setLicense] = useState('CC BY');
+  const [editorState, setEditorState] = useState('');
   const userId = localStorage.getItem('userId');
-
+  const [type, setType] = useState('');
+  const [status, setStatus] = useState('待解决');
+  const [emergencyRate, setEmergencyRate] = useState('');
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
@@ -46,9 +43,13 @@ const Edit = () => {
 
   useEffect(() => {
     if (article) {
-      const content = JSON.parse(article.content);
-      setArticleToShow({ ...article, content });
-      setEditorState(content.length !== 0 ? content : editorContentInit);
+      const fullAddress = JSON.parse(article.fullAddress);
+      const fullAddressStr = fullAddress.join('-');
+      setArticleToShow({ ...article, fullAddress: fullAddressStr });
+      setEditorState(JSON.parse(article.address1));
+      setType(article.type);
+      setStatus(article.status);
+      setEmergencyRate(emergencyRateMapReverse[article.emergencyRate]);
     }
   }, [article]);
 
@@ -84,31 +85,49 @@ const Edit = () => {
 
   const initialValues = {
     title: articleToShow.title,
-    tag: articleToShow.tag || '',
-    license: 'CC BY',
+    tag: articleToShow.tag,
+    address1: articleToShow.address1,
+    address2: articleToShow.address2,
+    peopleCount: articleToShow.peopleCount,
+    need: articleToShow.need,
+    provide: articleToShow.provide,
+    surviveDate: articleToShow.surviveDate,
+    contact: articleToShow.contact,
+    note: articleToShow.note,
+    emergencyRate: articleToShow.emergencyRate,
+    type: articleToShow.type,
+    status: articleToShow.status,
   };
 
   const onSubmit = async (values) => {
     const {
-      title, tag,
+      title, tag, address2, peopleCount, need, provide, surviveDate, contact, note,
     } = values;
 
     setLoading(true);
     try {
       // get secure url from our server
 
+      const titleArray = !title ? [...editorState, title] : editorState;
       const variables = {
         articleId: articleToShow.id,
-        title,
-        summary: '',
+        title: titleArray.join('-'),
         tag,
-        content: JSON.stringify(editorState),
-        license,
-        published: true,
+        address1: JSON.stringify(editorState),
+        address2,
+        fullAddress: JSON.stringify([...editorState, address2]),
+        peopleCount: peopleCount || 1,
+        need,
+        provide,
+        surviveDate,
+        contact,
+        note,
+        emergencyRate: emergencyRateMap[emergencyRate],
+        type,
+        status,
       };
-      // console.log('content', files, JSON.stringify(files));
       await updateArticle(variables);
-      setSuccessInfo('Article updated');
+      setSuccessInfo('信息更新成功');
 
       setTimeout(() => {
         setSuccessInfo('');
@@ -123,13 +142,6 @@ const Edit = () => {
 
   return (
     <div>
-      <img
-        src={articleToShow.cover}
-        className="article-details-cover"
-        width="100%"
-        height={300}
-        alt="gird item"
-      />
       <div className="container-collection-title p-3">
         <div className="collection-dropbtn">
           <DropdownButton
@@ -158,7 +170,12 @@ const Edit = () => {
         loading={loading}
         editorState={editorState}
         setEditorState={setEditorState}
-        setLicense={setLicense}
+        type={type}
+        setType={setType}
+        status={status}
+        setStatus={setStatus}
+        emergencyRate={emergencyRate}
+        setEmergencyRate={setEmergencyRate}
       />
     </div>
   );

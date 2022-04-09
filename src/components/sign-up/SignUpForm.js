@@ -10,8 +10,8 @@ const SignUpForm = ({ loading }) => (
     <Form>
       <div className="col-item-1">
         <TextInput
-          label="Username *"
-          info=" (only letters, numbers, and underscores)"
+          label="用户名 *"
+          info=" (字母或数字或下划线)"
           name="username"
           type="username"
           placeholder=""
@@ -20,7 +20,7 @@ const SignUpForm = ({ loading }) => (
 
       <div className="col-item-1">
         <TextInput
-          label="Email Address *"
+          label="邮箱 *"
           name="email"
           type="email"
           placeholder="example@mail.com"
@@ -29,8 +29,8 @@ const SignUpForm = ({ loading }) => (
 
       <div className="col-item-1">
         <TextInput
-          label="Password *"
-          info=" (at least 1 number, 1 uppercase and 1 lowercase letter )"
+          label="密码 *"
+          info=" (至少8个字符)"
           name="password"
           type="password"
           placeholder=""
@@ -39,7 +39,7 @@ const SignUpForm = ({ loading }) => (
 
       <div className="col-item-1">
         <TextInput
-          label="Password Confirm *"
+          label="再次输入密码 *"
           name="confirmPassword"
           type="password"
           placeholder=""
@@ -49,7 +49,7 @@ const SignUpForm = ({ loading }) => (
       <div className="d-grid margin-tb-2rem">
         {!loading && (
           <Button variant="dark" id="signup-button" type="submit" block>
-            Sign up
+            注册
           </Button>
         )}
         {loading && (
@@ -61,7 +61,7 @@ const SignUpForm = ({ loading }) => (
               role="status"
               aria-hidden="true"
             />
-            <span className="sr-only">Loading...</span>
+            <span className="sr-only">注册中...</span>
           </Button>
         )}
       </div>

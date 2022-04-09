@@ -4,18 +4,20 @@ export const ARTICLE_DETAILS = gql`
   fragment articleDetails on Article {
     id
     title
-    metaTitle
-    slug
-    summary
-    content
     tag
-    author
-    viewCount
-    license
-    cover
-    thumb
-    published
-    publishedAt
+    address1
+    address2
+    fullAddress
+    peopleCount
+    need
+    provide
+    surviveDate
+    contact
+    note
+    emergencyRate
+    type
+    status
+    createdAt
     updatedAt
     articleLikeCount
     user {

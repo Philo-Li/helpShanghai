@@ -23,7 +23,7 @@ const SignInContainer = ({
   <div className="container-col-login">
     <div className="container-profile">
       <div className="profile-item">
-        <h1>Login</h1>
+        <h1>登录</h1>
       </div>
       <div className="profile-item">
         <Image src={logo} width={150} height={150} magin={10} roundedCircle />
@@ -42,8 +42,7 @@ const SignInContainer = ({
       {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} loading={loading} />}
     </Formik>
     <div className="login-info flex-center">
-      Don&rsquo;t have an account?
-      <a href="/signup">Join</a>
+      <a href="/signup">注册</a>
     </div>
   </div>
 );

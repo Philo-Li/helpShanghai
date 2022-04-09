@@ -10,7 +10,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
-const options = ['Change Cover', 'Delete'];
+const options = ['Delete'];
 
 export default function DropdownButton({
   setShowDeleteModal,

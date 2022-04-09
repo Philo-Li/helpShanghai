@@ -9,11 +9,46 @@ const validationSchema = yup.object().shape({
     .string(),
   tag: yup
     .string(),
+  address1: yup
+    .string()
+    .trim(),
+  address2: yup
+    .string()
+    .trim(),
+  fullAddress: yup
+    .string()
+    .trim(),
+  peopleCount: yup
+    .number(),
+  need: yup
+    .string()
+    .trim(),
+  provide: yup
+    .string()
+    .trim(),
+  surviveDate: yup
+    .string()
+    .trim(),
+  contact: yup
+    .string()
+    .trim(),
+  note: yup
+    .string()
+    .trim(),
+  emergencyRate: yup
+    .number(),
+  type: yup
+    .string()
+    .trim(),
+  status: yup
+    .string()
+    .trim(),
 });
 
 const CreateContainer = ({
   initialValues, onSubmit, errorInfo, successInfo, loading,
-  editorState, setEditorState, setLicense,
+  editorState, setEditorState, type, setType, status, setStatus,
+  emergencyRate, setEmergencyRate,
 }) => (
   <div className="container-col-create">
     {errorInfo && (
@@ -37,7 +72,12 @@ const CreateContainer = ({
           loading={loading}
           editorState={editorState}
           setEditorState={setEditorState}
-          setLicense={setLicense}
+          type={type}
+          setType={setType}
+          status={status}
+          setStatus={setStatus}
+          emergencyRate={emergencyRate}
+          setEmergencyRate={setEmergencyRate}
           errorInfo={errorInfo}
           successInfo={successInfo}
         />

@@ -23,17 +23,7 @@ export const GET_ARTICLES = gql`
       edges {
         node {
           id
-          title
-          author
-          tag
-          publishedAt
-          thumb
-          user {
-            username
-            firstName
-            lastName
-            profileImage
-          }
+          ...articleDetails
           isLiked(checkUserLike: $checkUserLike)
           isCollected(checkUserCollect: $checkUserCollect)
         }
@@ -47,6 +37,7 @@ export const GET_ARTICLES = gql`
       }
     }
   }
+  ${ARTICLE_DETAILS}
 `;
 
 export const GET_USERS = gql`

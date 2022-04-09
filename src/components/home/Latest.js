@@ -6,12 +6,12 @@ const Latest = () => {
   const [allArticles, setAllArticles] = useState();
   const [loading, setLoading] = useState(false);
 
-  const userId = localStorage.getItem('userId');
+  // const userId = localStorage.getItem('userId');
 
   const variables = {
-    checkUserLike: userId,
-    checkUserCollect: userId,
-    first: 20,
+    // checkUserLike: userId,
+    // checkUserCollect: userId,
+    first: 50,
   };
 
   const { articles, fetchMore, hasNextPage } = useArticles(variables);
@@ -21,7 +21,7 @@ const Latest = () => {
       const temp = articles && articles.edges
         ? articles.edges.map((edge) => edge.node)
         : [];
-
+      console.log(articles);
       setAllArticles(temp);
       setLoading(false);
     }

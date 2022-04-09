@@ -89,19 +89,19 @@ const App = () => {
               </div>
             </Nav>
             <Nav className="justify-content-end container-row-0 navbar-link">
-              <a className="navbar-link" href="/discover">Discover</a>
+              {/* <a className="navbar-link" href="/discover">Discover</a> */}
               {/* <a className="navbar-link" href="/about">About</a> */}
-              {!token && <a className="navbar-link" href="/signin">Login</a>}
+              {!token && <a className="navbar-link" href="/signin">登录</a>}
               {token && (
-                <NavDropdown title="My Account" id="basic-nav-dropdown">
-                  <NavDropdown.Item className="navbar-link" href={userPage}>Profile</NavDropdown.Item>
-                  <NavDropdown.Item href="/user/edit">Settings</NavDropdown.Item>
+                <NavDropdown title="我的账户" id="basic-nav-dropdown">
+                  <NavDropdown.Item className="navbar-link" href={userPage}>主页</NavDropdown.Item>
+                  <NavDropdown.Item href="/user/edit">设置</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  {token && <button className="navbar-button-logout" type="submit" onClick={handleLogout}>Logout</button>}
+                  {token && <button className="navbar-button-logout" type="submit" onClick={handleLogout}>登出</button>}
                 </NavDropdown>
               )}
-              {token && <a href="/create" className="navbar-button-join">Create</a>}
-              {!token && <a href="/signup" className="navbar-button-join">Sign up</a>}
+              {token && <a href="/create" className="navbar-button-join">发布信息</a>}
+              {!token && <a href="/signup" className="navbar-button-join">注册</a>}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

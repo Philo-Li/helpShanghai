@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
+import LazyLoad from 'react-lazyload';
 import { format } from 'date-fns';
 import SaveToCollectionsModal from './SaveToCollectionsModal';
 import '../../../mdb.css';
@@ -13,6 +12,27 @@ const ArticleCard = ({ article }) => {
   const [showCollectModal, setShowCollectModal] = useState(false);
 
   const userId = localStorage.getItem('userId');
+  const thumb = article.thumb || 'https://cdn.philoart.io/b/700x700/ejt2Vbza56UViZTf2vEHY.jpg';
+
+  const bgColor = article.color || '#84B0B3';
+
+  const mystyle = {
+    backgroundColor: bgColor,
+  };
+
+  const Placeholder = () => (
+    <div style={mystyle}>
+      <a href={`/article/${article.id}`}>
+        <img
+          src={thumb}
+          className="lazyload-img"
+          width="100%"
+          alt="gird item"
+        />
+      </a>
+    </div>
+  );
+
   const openCollectModal = async () => {
     if (!userId) {
       history.push('/signin');
@@ -21,7 +41,7 @@ const ArticleCard = ({ article }) => {
     }
   };
 
-  const publishedDate = format(new Date(article.createdAt), 'PP');
+  const publishedDate = format(new Date(article.publishedAt), 'PP');
   // console.log('article', article, publishedDate, article.publishedAt);
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   const { profileImage } = article.user;
@@ -30,6 +50,25 @@ const ArticleCard = ({ article }) => {
     <div className="grid-item">
       <div className="p-3">
         <Card key={article.id}>
+          <LazyLoad
+            height={300}
+            offset={[-100, 0]}
+            debounce={500}
+            once
+            placeholder={<Placeholder />}
+          >
+            <div className="article-card overlay">
+              <a href={`/article/${article.id}`}>
+                <img
+                  className="article-card-cover"
+                  src={thumb}
+                  width="100%"
+                  height={200}
+                  alt="gird item"
+                />
+              </a>
+            </div>
+          </LazyLoad>
           <Card.Title>
             <div className="article-card">
               <a href={`/article/${article.id}`}>
@@ -37,7 +76,7 @@ const ArticleCard = ({ article }) => {
                   {article.title}
                 </div>
                 <div className="article-card-summary">
-                  {article.tag}
+                  {article.summary}
                 </div>
               </a>
             </div>
@@ -52,7 +91,7 @@ const ArticleCard = ({ article }) => {
               </a>
               <div className="article-card-date">{publishedDate}</div>
             </div>
-            {/* <div className="container-article-card-bookmark">
+            <div className="container-article-card-bookmark">
               <div className="article-card-bookmark-btn-end">
                 {userId && (
                 <SaveToCollectionsModal
@@ -76,7 +115,7 @@ const ArticleCard = ({ article }) => {
                   </div>
                 </button>
               </div>
-            </div> */}
+            </div>
           </Card.Title>
         </Card>
       </div>
