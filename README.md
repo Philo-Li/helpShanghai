@@ -1,12 +1,12 @@
-# Waldon
+# HelpShanghai
 
 ## ✔️ Website
 
-https://waldon.io/
+https://helpShanghai.com/
 
-## 🚀 About Waldon
+## 🚀 About HelpShanghai
 
-- Blog Platform
+- 中国上海等各城市封控期食品医疗等资源信息共享自救互助平台
 
 ## 🐛 Found a bug?
 

@@ -27,7 +27,7 @@ const Footer = () => {
                 className="d-inline-block align-top margin-right-5"
                 alt="Free Stock Photos"
               />
-              Waldon
+              Help Shanghai
             </Navbar.Brand>
             {/* <div>- Share your artworks with the world.</div> */}
             <div className="container-social-row">
