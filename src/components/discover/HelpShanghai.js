@@ -11,9 +11,14 @@ const HelpShanghaiInfo = () => (
     <div className="container-col-article-details">
       <div className="container-row-license">
         <div className="container-row-license-item">
+          有部分网友表示用 iOS 移动端的 Safari 浏览器访问会出现白屏现象，正在调查原因，并紧急抢修中。
+          本人用 Chrome 浏览器的桌面和移动端目前都可以正常访问，没有出现白屏现象，建议大家先用 Chrome 桌面端来访问本站，在有条件的情况下也可以科学上网来保证访问速度。
+        </div>
+      </div>
+      <div className="container-row-license">
+        <div className="container-row-license-item">
           1.本平台主要提供物资、医疗等互助信息的发布，以及全网各大防疫指南、求助互助平台的链接。帮助大家在最短的时间内获取最有价值的信息、得到帮助。
         </div>
-
       </div>
       <div className="container-row-license">
         <div className="container-row-license-item">

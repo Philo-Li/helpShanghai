@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs, Tab, Carousel } from 'react-bootstrap';
-import Discover from '../discover/Discover';
 import HelpShanghaiInfo from '../discover/HelpShanghai';
+import MentalHealth from '../discover/MentalHealth';
 import AllArticlesList from './AllArticlesList';
 import AllEmergencyList from './AllEmergencyList';
 import AllSOSList from './AllSOSList';
@@ -44,7 +44,7 @@ const Home = () => {
             <AllSOSList />
           </Tab>
           <Tab eventKey="mental-health" title="心理健康">
-            <Discover />
+            <MentalHealth />
           </Tab>
         </Tabs>
       </div>
