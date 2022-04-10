@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import {
-  Card, Navbar, Nav,
+  Card, Navbar,
 } from 'react-bootstrap';
 import logo from '../img/logo/red-cross-logo1.jpg';
 
@@ -43,9 +43,9 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <Nav className="justify-content-end">
+          {/* <Nav className="justify-content-end">
             <Nav.Link className="text-dark" href="/license">License</Nav.Link>
-          </Nav>
+          </Nav> */}
         </Card.Body>
       </Card>
     </div>
