@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Card, Navbar, Nav,
 } from 'react-bootstrap';
-import logo from '../img/logo/logo-w-dark-192.jpg';
+import logo from '../img/logo/red-cross-logo1.jpg';
 
 const Footer = () => {
   const footerStyle = {

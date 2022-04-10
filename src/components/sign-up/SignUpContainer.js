@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import SignUpForm from './SignUpForm';
-import logo from '../../img/logo/logo-w-dark-192.jpg';
+import logo from '../../img/logo/red-cross-logo1.jpg';
 
 const validationSchema = Yup.object({
   email: Yup.string()
@@ -29,15 +29,15 @@ const SignUpContainer = ({
   <div className="container-col-login">
     <div className="container-profile">
       <div className="profile-item">
-        <h1>Sign up</h1>
+        <h1>注册</h1>
       </div>
       <div className="profile-item">
         <Image src={logo} width={150} height={150} magin={10} roundedCircle />
       </div>
     </div>
     <div className="login-info flex-center">
-      Already have an account?
-      <a href="/signin">Login</a>
+      已经有账户?
+      <a href="/signin">登录</a>
     </div>
     {errorInfo && (
     <Alert variant="danger">
