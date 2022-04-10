@@ -24,6 +24,7 @@
   transition: 0.5s ease;
 }
 
+
 .jumbotron-slice-2 {
   background-image: url("https://pbs.twimg.com/media/FALwz4FVEAkrVNV?format=jpg&name=4096x4096");
   background-size: cover;
@@ -63,6 +64,7 @@
 @media screen and (max-width: 800px) {
   .jumbotron-slice-1 {
     height: 25rem;
+    background-image: url("https://cdn.waldon.io/700x700/a/ejt2Vbza56UViZTf2vEHY.jpg");
   }
   .jumbotron-slice-2 {
     height: 25rem;
