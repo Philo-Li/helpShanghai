@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
-const options = ['物资购买/分享交换', '求助信息', '其他'];
+const options = ['物资', '物资交换', '普通求助', '医疗求助', '其他'];
 
 // eslint-disable-next-line no-unused-vars
 const TypeButton = ({ type, setType }) => {

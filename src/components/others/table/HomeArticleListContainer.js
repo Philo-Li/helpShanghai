@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { nanoid } from 'nanoid';
 import LoadMore from '../button/LoadMore';
 import ArticleCard from '../article-card/ArticleCardTableItem';
 import ArticleDetailsCardModal from '../article-card/ArticleDetailsCardModal';
@@ -31,6 +32,7 @@ const HomeArticleListContainer = ({
             {allArticles.map((article) => (
               <ArticleCard
                 article={article}
+                key={nanoid()}
                 // showDetailsModal={showDetailsModal}
                 setShowDetailsModal={setShowDetailsModal}
                 setArticleDetailsToShow={setArticleDetailsToShow}

@@ -27,7 +27,7 @@ const initialValues = {
   contact: '',
   note: '',
   emergencyRate: '',
-  type: '物资购买/分享交换',
+  type: '物资',
   status: '待解决',
 };
 
@@ -47,7 +47,7 @@ const Create = () => {
   const [createArticle, result] = useCreateArticle();
   const [editorState, setEditorState] = useState('');
   const userId = localStorage.getItem('userId');
-  const [type, setType] = useState('物资购买/分享交换');
+  const [type, setType] = useState('物资');
   const [status, setStatus] = useState('待解决');
   const [emergencyRate, setEmergencyRate] = useState('不紧急');
   const [articleId, setArticleId] = useState('');

@@ -34,13 +34,13 @@ const Home = () => {
             {/* <RecommendArticles /> */}
             <HelpShanghaiInfo />
           </Tab>
-          <Tab eventKey="all-list" title="各区物资互助信息（实时更新）">
+          <Tab eventKey="all-list" title="物资互助信息（实时更新）">
             <AllArticlesList />
           </Tab>
-          <Tab eventKey="urgent" title="紧急求助列表">
+          <Tab eventKey="urgent" title="紧急求助">
             <AllEmergencyList />
           </Tab>
-          <Tab eventKey="sos" title="老弱病残孕紧急通道">
+          <Tab eventKey="sos" title="老弱病残孕紧急求助">
             <AllSOSList />
           </Tab>
           <Tab eventKey="mental-health" title="心理健康">

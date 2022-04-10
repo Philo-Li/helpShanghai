@@ -113,7 +113,7 @@ const ArticleDetailsCard = ({ article }) => {
               <div className="container-row-primary">
                 <div className="article-card-summary">
                   创建日期：
-                  {article.updatedAt}
+                  {article.createdAt}
                 </div>
               </div>
               <div className="container-row-primary">

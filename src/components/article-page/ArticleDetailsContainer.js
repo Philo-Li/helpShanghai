@@ -223,7 +223,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         </div>
         <div className="container-col-text-input-create">
           创建日期：
-          {article.updatedAt}
+          {article.createdAt}
         </div>
         <div className="container-col-text-input-create">
           最后更新日期：

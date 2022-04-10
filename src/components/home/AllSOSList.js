@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 import useArticles from '../../hooks/useArticles';
 import HomeArticleList from '../others/table/HomeArticleList';
 
@@ -24,7 +25,15 @@ const AllSOSList = () => {
           const address1 = JSON.parse(article.address1);
           const address1Str = address1.join('-');
           const fullAddressStr = fullAddress.join('-');
-          const updatedArticle = { ...article, fullAddress: fullAddressStr, address1: address1Str };
+          const createdAt = format(new Date(article.createdAt), 'yyyy-MM-dd HH:mm', { timeZone: 'Asia/Shanghai' });
+          const updatedAt = format(new Date(article.updatedAt), 'yyyy-MM-dd HH:mm', { timeZone: 'Asia/Shanghai' });
+          const updatedArticle = {
+            ...article,
+            fullAddress: fullAddressStr,
+            address1: address1Str,
+            createdAt,
+            updatedAt,
+          };
           return updatedArticle;
         })
         : [];
