@@ -30,14 +30,14 @@ const LoadMore = ({
         <div className="row-item-2">
           <button className="more-photos-btn" type="button" onClick={clickFetchMore}>
             <i className="bi bi-three-dots" />
-            More photos
+            加载更多
           </button>
         </div>
       </div>
     )}
     {!hasNextPage && (
       <div>
-        <h3 className="the-end-title">The end</h3>
+        <h3 className="the-end-title">页面到头啦</h3>
       </div>
     )}
   </div>

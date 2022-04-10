@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Tabs, Tab, Carousel } from 'react-bootstrap';
 import Discover from '../discover/Discover';
+import HelpShanghaiInfo from '../discover/HelpShanghai';
 import AllArticlesList from './AllArticlesList';
-import Latest from './Latest';
-import RecommendArticles from './RecommendArticles';
+import AllEmergencyList from './AllEmergencyList';
+import AllSOSList from './AllSOSList';
+// import RecommendArticles from './RecommendArticles';
 
 const Home = () => {
   const [key, setKey] = useState('home');
@@ -28,14 +30,18 @@ const Home = () => {
           onSelect={(k) => setKey(k)}
           className="mb-3"
         >
-          <Tab eventKey="home" title="自救指南（必读）">
-            <RecommendArticles />
+          <Tab eventKey="home" title="自救互助指南（必读）">
+            {/* <RecommendArticles /> */}
+            <HelpShanghaiInfo />
           </Tab>
-          <Tab eventKey="all-list" title="各区各户物资信息（实时更新）">
+          <Tab eventKey="all-list" title="各区物资互助信息（实时更新）">
             <AllArticlesList />
           </Tab>
-          <Tab eventKey="latest" title="紧急求助列表">
-            <Latest />
+          <Tab eventKey="urgent" title="紧急求助列表">
+            <AllEmergencyList />
+          </Tab>
+          <Tab eventKey="sos" title="老弱病残孕紧急通道">
+            <AllSOSList />
           </Tab>
           <Tab eventKey="mental-health" title="心理健康">
             <Discover />

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import useArticles from '../../hooks/useArticles';
 import HomeArticleList from '../others/table/HomeArticleList';
 
-const AllArticlesList = () => {
+const AllEmergencyList = () => {
   const [allArticles, setAllArticles] = useState();
   const [loading, setLoading] = useState(false);
 
   const variables = {
+    searchKeyword: '',
+    urgent: true,
     orderDirection: 'DESC',
     first: 30,
   };
@@ -50,4 +52,4 @@ const AllArticlesList = () => {
   );
 };
 
-export default AllArticlesList;
+export default AllEmergencyList;

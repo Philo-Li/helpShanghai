@@ -6,13 +6,9 @@ const RecommendArticles = () => {
   const [allArticles, setAllArticles] = useState();
   const [loading, setLoading] = useState(false);
 
-  const userId = localStorage.getItem('userId');
-
   const variables = {
-    checkUserLike: userId,
-    checkUserCollect: userId,
-    orderDirection: 'ASC',
-    first: 20,
+    orderDirection: 'DESC',
+    first: 30,
   };
 
   const { articles, fetchMore, hasNextPage } = useArticles(variables);

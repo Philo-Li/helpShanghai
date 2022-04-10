@@ -6,6 +6,8 @@ export const GET_ARTICLES = gql`
     $orderBy: AllArticlesOrderBy
     $orderDirection: OrderDirection
     $searchKeyword: String
+    $urgent: Boolean
+    $SOS: Boolean
     $username: String
     $first: Int
     $after: String
@@ -16,6 +18,8 @@ export const GET_ARTICLES = gql`
       orderBy: $orderBy
       orderDirection: $orderDirection
       searchKeyword: $searchKeyword
+      urgent: $urgent
+      SOS: $SOS
       username: $username
       first: $first
       after: $after
