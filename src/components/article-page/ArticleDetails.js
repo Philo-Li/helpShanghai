@@ -13,7 +13,7 @@ const override = css`
   margin-bottom: 6rem;
 `;
 
-const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
+// const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
 
 const ArticleDetails = () => {
   const [articleToShow, setArticleToShow] = useState();
@@ -30,8 +30,8 @@ const ArticleDetails = () => {
     if (article) {
       const fullAddress = JSON.parse(article.fullAddress);
       const fullAddressStr = fullAddress.join('-');
-      const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
-      setArticleToShow({ ...article, fullAddress: fullAddressStr, emergencyRate });
+      // const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
+      setArticleToShow({ ...article, fullAddress: fullAddressStr });
     }
   }, [article]);
 

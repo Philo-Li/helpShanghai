@@ -74,7 +74,7 @@ const CreateForm = ({
 
     <div className="container-col-text-input-create">
       <TextInput
-        label="详细地址（精确到户）："
+        label="详细地址（为了更好地帮助到你，建议精确到户）："
         name="address2"
         type="text"
         placeholder="add tag..."
@@ -106,7 +106,7 @@ const CreateForm = ({
     </div>
     <div className="container-col-text-input-create">
       <TextInput
-        label="联系方式"
+        label="联系方式（会对未注册用户隐藏）"
         name="contact"
         type="text"
         placeholder=""

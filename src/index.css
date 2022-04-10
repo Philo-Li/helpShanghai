@@ -886,6 +886,91 @@
   align-items: center;
 }
 
+.article-card-btn-emergencyrate-1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin-left: 1rem;
+  transition: ease 0.2s;
+}
+
+.article-card-btn-emergencyrate-1:hover {
+  color: white;
+  background-color: #f96f6d;
+}
+
+.article-card-btn-emergencyrate-2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: #ff8400;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin-left: 1rem;
+  transition: ease 0.2s;
+}
+
+.article-card-btn-emergencyrate-2:hover {
+  color: white;
+  background-color: #f79035;
+}
+
+.article-card-btn-emergencyrate-3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: #656565;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin-left: 1rem;
+  transition: ease 0.2s;
+}
+
+.article-card-btn-emergencyrate-3:hover {
+  color: white;
+  background-color: #d1d3d1;
+}
+
+.article-card-btn-status-1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: forestgreen;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin-left: 1rem;
+  transition: ease 0.2s;
+}
+
+.article-card-btn-status-1:hover {
+  color: white;
+  background-color: #4cbb17;
+}
+
+.article-card-btn-status-2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: #656565;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+  margin-left: 1rem;
+  transition: ease 0.2s;
+}
+
+.article-card-btn-status-2:hover {
+  color: white;
+  background-color: #d1d3d1;
+}
+
 .article-details-title {
   display: flex;
   flex-flow: row;

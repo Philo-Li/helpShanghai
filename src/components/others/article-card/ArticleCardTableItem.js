@@ -3,11 +3,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
-import { format, formatDistance } from 'date-fns';
+import { format } from 'date-fns';
 import SaveToCollectionsModal from './SaveToCollectionsModal';
 import '../../../mdb.css';
-
-const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
 
 const ArticleCard = ({ article }) => {
   if (!article) return null;
@@ -25,24 +23,12 @@ const ArticleCard = ({ article }) => {
 
   const publishedDate = format(new Date(article.createdAt), 'PP');
   // console.log('article', article, publishedDate, article.publishedAt);
-  const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   const { profileImage } = article.user;
 
-  const statusBtnStyleMap = { 待解决: 'article-card-btn-status-1', 已解决: 'article-card-btn-status-2' };
-  const statusBtnStyle = statusBtnStyleMap[article.status];
-
-  const emergencyRateBtnStyleMap = {
-    危急: 'article-card-btn-emergencyrate-1',
-    紧急: 'article-card-btn-emergencyrate-2',
-    不紧急: 'article-card-btn-emergencyrate-3',
-  };
-  const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
-  const emergencyRateBtnStyle = emergencyRateBtnStyleMap[emergencyRate];
-
   return (
     <div className="grid-item">
-      <div className="p-3 article-card">
+      <div className="p-3">
         <Card key={article.id}>
           <Card.Title>
             <div className="article-card">
@@ -50,15 +36,10 @@ const ArticleCard = ({ article }) => {
                 <div className="article-card-title">
                   {article.title}
                 </div>
+                <div className="article-card-summary">
+                  {article.tag}
+                </div>
               </a>
-            </div>
-            <div className="container-row-primary">
-              <div className={statusBtnStyle}>
-                {article.status}
-              </div>
-              <div className={emergencyRateBtnStyle}>
-                {emergencyRate}
-              </div>
             </div>
             <div className="container-row-primary">
               <a href={`/@${article.user.username}`}>
@@ -71,44 +52,7 @@ const ArticleCard = ({ article }) => {
               </a>
               <div className="article-card-date">{publishedDate}</div>
             </div>
-            <a href={`/article/${article.id}`}>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  {article.address2}
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  可以提供：
-                  {article.provide}
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  需要：
-                  {article.need}
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  生存指数：
-                  {article.surviveDate}
-                  (
-                  {remianDays}
-                  )
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-date">
-                  点击卡片查看其他详情（或者去评论）
-                </div>
-              </div>
-            </a>
-            <div className="container-article-card-bookmark">
-              <div className="article-card-summary">
-                标签：
-                {article.tag || '无'}
-              </div>
+            {/* <div className="container-article-card-bookmark">
               <div className="article-card-bookmark-btn-end">
                 {userId && (
                 <SaveToCollectionsModal
@@ -132,7 +76,7 @@ const ArticleCard = ({ article }) => {
                   </div>
                 </button>
               </div>
-            </div>
+            </div> */}
           </Card.Title>
         </Card>
       </div>

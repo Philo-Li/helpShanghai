@@ -112,3 +112,88 @@
 	justify-content: flex-end;
 	align-items: center;
 }
+
+.article-card-btn-emergencyrate-1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-left: 1rem;
+    transition: ease 0.2s;
+  }
+  
+.article-card-btn-emergencyrate-1:hover {
+    color: white;
+    background-color: rgb(249, 111, 109);
+}
+
+.article-card-btn-emergencyrate-2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(255, 132, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-left: 1rem;
+    transition: ease 0.2s;
+  }
+  
+.article-card-btn-emergencyrate-2:hover {
+    color: white;
+    background-color: rgb(247, 144, 53);
+}
+
+.article-card-btn-emergencyrate-3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(101, 101, 101);
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-left: 1rem;
+    transition: ease 0.2s;
+  }
+  
+.article-card-btn-emergencyrate-3:hover {
+    color: white;
+    background-color: rgb(209, 211, 209);
+}
+
+.article-card-btn-status-1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(34,139,34);
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-left: 1rem;
+    transition: ease 0.2s;
+  }
+  
+.article-card-btn-status-1:hover {
+    color: white;
+    background-color: rgb(76,187,23);
+}
+
+.article-card-btn-status-2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(101, 101, 101);
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin-left: 1rem;
+    transition: ease 0.2s;
+  }
+  
+.article-card-btn-status-2:hover {
+    color: white;
+    background-color: rgb(209, 211, 209);
+}

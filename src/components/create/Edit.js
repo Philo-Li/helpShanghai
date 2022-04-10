@@ -108,10 +108,10 @@ const Edit = () => {
     try {
       // get secure url from our server
 
-      const titleArray = !title ? [...editorState, title] : editorState;
+      const titleArrayString = !title ? [...editorState, title].join('-') : title;
       const variables = {
         articleId: articleToShow.id,
-        title: titleArray.join('-'),
+        title: titleArrayString,
         tag,
         address1: JSON.stringify(editorState),
         address2,
