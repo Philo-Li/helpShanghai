@@ -57,6 +57,11 @@ const CreateForm = ({
     </div>
     <div className="container-row-license">
       <div className="container-row-license-item">
+        （存粮耗尽日小于等于3天建议选择紧急，小于等于1天建议选择危急）
+      </div>
+    </div>
+    <div className="container-row-license">
+      <div className="container-row-license-item">
         状态:
       </div>
       <div className="container-row-license-item">
@@ -90,7 +95,7 @@ const CreateForm = ({
     </div>
     <div className="container-col-text-input-create">
       <TextInputDescription
-        label="需要的物资"
+        label="需要的物资（如有变动记得实时更新）"
         name="need"
         type="text"
         placeholder=""
@@ -98,7 +103,7 @@ const CreateForm = ({
     </div>
     <div className="container-col-text-input-create">
       <TextInputDescription
-        label="可以提供的物资"
+        label="可以提供的物资（如有变动记得实时更新）"
         name="provide"
         type="text"
         placeholder=""

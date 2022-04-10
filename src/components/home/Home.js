@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs, Tab, Carousel } from 'react-bootstrap';
 import Discover from '../discover/Discover';
+import AllArticlesList from './AllArticlesList';
 import Latest from './Latest';
 import RecommendArticles from './RecommendArticles';
 
@@ -31,12 +32,12 @@ const Home = () => {
             <RecommendArticles />
           </Tab>
           <Tab eventKey="discover" title="上海小区各户物资信息（实时更新）">
-            <Discover />
+            <AllArticlesList />
           </Tab>
           <Tab eventKey="latest" title="紧急求助列表">
             <Latest />
           </Tab>
-          <Tab eventKey="discover" title="心理健康">
+          <Tab eventKey="mental-health" title="心理健康">
             <Discover />
           </Tab>
         </Tabs>

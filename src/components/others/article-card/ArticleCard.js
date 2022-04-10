@@ -53,6 +53,12 @@ const ArticleCard = ({ article }) => {
               </a>
             </div>
             <div className="container-row-primary">
+              <div className="article-card-summary">
+                分类：
+                {article.type}
+              </div>
+            </div>
+            <div className="container-row-primary">
               <div className={statusBtnStyle}>
                 {article.status}
               </div>

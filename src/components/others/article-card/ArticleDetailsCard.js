@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import { format, formatDistance } from 'date-fns';
 import '../../../mdb.css';
 
 const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
 
-const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) => {
+const ArticleDetailsCard = ({ article }) => {
   if (!article) return null;
-
   const publishedDate = format(new Date(article.createdAt), 'PP');
+  // console.log('article', article, publishedDate, article.publishedAt);
   const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   const { profileImage } = article.user;
@@ -25,11 +26,6 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
   };
   const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
   const emergencyRateBtnStyle = emergencyRateBtnStyleMap[emergencyRate];
-
-  const handleClickShowModal = () => {
-    setShowDetailsModal(true);
-    setArticleDetailsToShow(article);
-  };
 
   return (
     <div className="grid-item">
@@ -68,7 +64,7 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
               </a>
               <div className="article-card-date">{publishedDate}</div>
             </div>
-            <div>
+            <a href={`/article/${article.id}`}>
               <div className="container-row-primary">
                 <div className="article-card-summary">
                   {article.address2}
@@ -97,18 +93,10 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
               </div>
               <div className="container-row-primary">
                 <div className="article-card-date">
-                  <button
-                    type="button"
-                    className="article-card-btn-bookmark article-card-btn-item article-card-date"
-                    onClick={() => handleClickShowModal()}
-                  >
-                    <div className="">
-                      查看详情
-                    </div>
-                  </button>
+                  点击查看其他详情（或者去评论）
                 </div>
               </div>
-            </div>
+            </a>
             <div className="container-article-card-bookmark">
               <div className="article-card-summary">
                 标签：
@@ -122,4 +110,4 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
   );
 };
 
-export default ArticleCard;
+export default ArticleDetailsCard;
