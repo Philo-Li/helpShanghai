@@ -21,7 +21,6 @@ const Latest = () => {
       const temp = articles && articles.edges
         ? articles.edges.map((edge) => edge.node)
         : [];
-      console.log(articles);
       setAllArticles(temp);
       setLoading(false);
     }

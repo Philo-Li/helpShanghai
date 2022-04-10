@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import BeatLoader from 'react-spinners/BeatLoader';
 import useArticles from '../../hooks/useArticles';
 import HomeArticleList from '../others/list/HomeArticleList';
-import ArticleRelatedTagBar from '../others/ArticleRelatedTagBar';
+// import ArticleRelatedTagBar from '../others/ArticleRelatedTagBar';
 import NavSearchBar from '../others/NavSearchBar';
 
 const override = css`
@@ -20,12 +20,10 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
   const parsed = queryString.parse(location.search);
-  const userId = localStorage.getItem('userId');
 
   const variables = {
     searchKeyword: parsed.q,
-    checkUserLike: userId,
-    first: 20,
+    first: 30,
   };
 
   const { articles, fetchMore, hasNextPage } = useArticles(variables);
@@ -50,13 +48,13 @@ const SearchPage = () => {
     <div>
       <div className="p-3 container-profile">
         <div className="profile-item">
-          <h3>Search:</h3>
+          <h3>搜索:</h3>
         </div>
         <div className="container-row-searchpage-searchbox">
           <NavSearchBar placeholder={parsed.q} searchRange="picky" />
         </div>
       </div>
-      <ArticleRelatedTagBar allArticles={allArticles} />
+      {/* <ArticleRelatedTagBar allArticles={allArticles} /> */}
       { !articles && allArticles && (<BeatLoader color="#9B9B9B" loading css={override} size={50} />) }
       <HomeArticleList
         allArticles={allArticles}
