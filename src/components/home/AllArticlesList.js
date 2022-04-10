@@ -20,7 +20,15 @@ const AllArticlesList = () => {
   useEffect(async () => {
     if (articles) {
       const temp = articles && articles.edges
-        ? articles.edges.map((edge) => edge.node)
+        ? articles.edges.map((edge) => {
+          const article = edge.node;
+          const fullAddress = JSON.parse(article.fullAddress);
+          const address1 = JSON.parse(article.address1);
+          const address1Str = address1.join('-');
+          const fullAddressStr = fullAddress.join('-');
+          const updatedArticle = { ...article, fullAddress: fullAddressStr, address1: address1Str };
+          return updatedArticle;
+        })
         : [];
 
       setAllArticles(temp);

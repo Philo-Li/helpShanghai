@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import Masonry from 'react-masonry-css';
-import { nanoid } from 'nanoid';
+import { Table } from 'react-bootstrap';
 import LoadMore from '../button/LoadMore';
 import ArticleCard from '../article-card/ArticleCardTableItem';
 import ArticleDetailsCardModal from '../article-card/ArticleDetailsCardModal';
-
-const breakpointColumnsObj = {
-  default: 1,
-};
 
 const HomeArticleListContainer = ({
   // eslint-disable-next-line no-unused-vars
@@ -19,22 +14,30 @@ const HomeArticleListContainer = ({
   return (
     <div className="p-3 article-list-container">
       <div className="">
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
-          {allArticles.map((article) => (
-            <div key={nanoid()}>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>状态</th>
+              <th>紧急程度</th>
+              <th>城市</th>
+              <th>分类</th>
+              <th>生存指数</th>
+              <th>可提供</th>
+              <th>需要</th>
+              <th>详情</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allArticles.map((article) => (
               <ArticleCard
                 article={article}
                 // showDetailsModal={showDetailsModal}
                 setShowDetailsModal={setShowDetailsModal}
                 setArticleDetailsToShow={setArticleDetailsToShow}
               />
-            </div>
-          ))}
-        </Masonry>
+            ))}
+          </tbody>
+        </Table>
       </div>
       <ArticleDetailsCardModal
         articleDetailsToShow={articleDetailsToShow}

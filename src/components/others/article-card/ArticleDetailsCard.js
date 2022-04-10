@@ -7,14 +7,13 @@ import { format, formatDistance } from 'date-fns';
 import '../../../mdb.css';
 
 const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
+const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
 const ArticleDetailsCard = ({ article }) => {
   if (!article) return null;
   const publishedDate = format(new Date(article.createdAt), 'PP');
-  // console.log('article', article, publishedDate, article.publishedAt);
   const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
-  const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
-  const { profileImage } = article.user;
+  const userId = localStorage.getItem('userId');
 
   const statusBtnStyleMap = { 待解决: 'article-card-btn-status-1', 已解决: 'article-card-btn-status-2' };
   const statusBtnStyle = statusBtnStyleMap[article.status];
@@ -26,6 +25,11 @@ const ArticleDetailsCard = ({ article }) => {
   };
   const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
   const emergencyRateBtnStyle = emergencyRateBtnStyleMap[emergencyRate];
+  const contact = userId ? article.contact : '已填写，登录后查看';
+
+  const handleClickOpenDetails = () => {
+    window.open(`https://helpshanghai.com/article/${article.id}`);
+  };
 
   return (
     <div className="grid-item">
@@ -56,7 +60,7 @@ const ArticleDetailsCard = ({ article }) => {
             <div className="container-row-primary">
               <a href={`/@${article.user.username}`}>
                 <div className="">
-                  <img src={profileImage || initProfileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
+                  <img src={initProfileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
                 </div>
               </a>
               <a href={`/@${article.user.username}`}>
@@ -64,10 +68,11 @@ const ArticleDetailsCard = ({ article }) => {
               </a>
               <div className="article-card-date">{publishedDate}</div>
             </div>
-            <a href={`/article/${article.id}`}>
+            <div>
               <div className="container-row-primary">
                 <div className="article-card-summary">
-                  {article.address2}
+                  详细地址：
+                  {article.fullAddress}
                 </div>
               </div>
               <div className="container-row-primary">
@@ -84,7 +89,7 @@ const ArticleDetailsCard = ({ article }) => {
               </div>
               <div className="container-row-primary">
                 <div className="article-card-summary">
-                  生存指数：
+                  存粮预计消耗至：
                   {article.surviveDate}
                   (
                   {remianDays}
@@ -92,11 +97,45 @@ const ArticleDetailsCard = ({ article }) => {
                 </div>
               </div>
               <div className="container-row-primary">
-                <div className="article-card-date">
-                  点击查看其他详情（或者去评论）
+                <div className="article-card-summary">
+                  联系方式：
+                  {article.contact
+                    ? contact
+                    : '未填写'}
                 </div>
               </div>
-            </a>
+              <div className="container-row-primary">
+                <div className="article-card-summary">
+                  备注：
+                  {article.note}
+                </div>
+              </div>
+              <div className="container-row-primary">
+                <div className="article-card-summary">
+                  创建日期：
+                  {article.updatedAt}
+                </div>
+              </div>
+              <div className="container-row-primary">
+                <div className="article-card-summary">
+                  最后更新日期：
+                  {article.updatedAt}
+                </div>
+              </div>
+              <div className="container-row-primary">
+                <div className="article-card-table-item container-table-item">
+                  <button
+                    type="button"
+                    className="article-card-btn-primary article-card-date"
+                    onClick={() => handleClickOpenDetails()}
+                  >
+                    <div className="article-card-btn-emergencyrate-3">
+                      去评论
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
             <div className="container-article-card-bookmark">
               <div className="article-card-summary">
                 标签：

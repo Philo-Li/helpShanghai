@@ -31,94 +31,63 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
     setArticleDetailsToShow(article);
   };
 
+  // <th>紧急程度</th>
+  // <th>状态</th>
+  // <th>城市</th>
+  // <th>分类</th>
+  // <th>生存指数</th>
+  // <th>可提供</th>
+  // <th>需要</th>
+  // <th>详情</th>
+
   return (
-    <div className="grid-item">
-      <div className="p-3 article-card">
-        <Card key={article.id}>
-          <Card.Title>
-            <div className="article-card">
-              <a href={`/article/${article.id}`}>
-                <div className="article-card-title">
-                  {article.title}
-                </div>
-              </a>
+    <tr className="grid-item">
+      <td>
+        <div className="article-card-table-item container-table-item">
+          <div className={statusBtnStyle}>
+            {article.status}
+          </div>
+        </div>
+      </td>
+      <td>
+        <div className="article-card-table-item container-table-item">
+          <div className={emergencyRateBtnStyle}>
+            {emergencyRate}
+          </div>
+        </div>
+      </td>
+      <td>
+        {article.address1}
+      </td>
+      <td>
+        {article.type}
+      </td>
+      <td>
+        {article.surviveDate}
+        (
+        {remianDays}
+        )
+      </td>
+      <td>
+        {article.provide}
+      </td>
+      <td>
+        {article.need}
+      </td>
+      <td>
+        <div className="article-card-table-item container-table-item">
+          <button
+            type="button"
+            className="article-card-btn-primary article-card-date"
+            onClick={() => handleClickShowModal()}
+          >
+            <div className="article-card-table-item">
+              查看详情
             </div>
-            <div className="container-row-primary">
-              <div className="article-card-summary">
-                分类：
-                {article.type}
-              </div>
-            </div>
-            <div className="container-row-primary">
-              <div className={statusBtnStyle}>
-                {article.status}
-              </div>
-              <div className={emergencyRateBtnStyle}>
-                {emergencyRate}
-              </div>
-            </div>
-            <div className="container-row-primary">
-              <a href={`/@${article.user.username}`}>
-                <div className="">
-                  <img src={profileImage || initProfileImage} alt="user avatar" className="article-card-author article-card-author-avatar" />
-                </div>
-              </a>
-              <a href={`/@${article.user.username}`}>
-                <div className="article-card-author-name">{`${article.user.firstName} ${article.user.lastName || ''}`}</div>
-              </a>
-              <div className="article-card-date">{publishedDate}</div>
-            </div>
-            <div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  {article.address2}
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  可以提供：
-                  {article.provide}
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  需要：
-                  {article.need}
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  生存指数：
-                  {article.surviveDate}
-                  (
-                  {remianDays}
-                  )
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-date">
-                  <button
-                    type="button"
-                    className="article-card-btn-bookmark article-card-btn-item article-card-date"
-                    onClick={() => handleClickShowModal()}
-                  >
-                    <div className="">
-                      查看详情
-                    </div>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="container-article-card-bookmark">
-              <div className="article-card-summary">
-                标签：
-                {article.tag || '无'}
-              </div>
-            </div>
-          </Card.Title>
-        </Card>
-      </div>
-    </div>
+          </button>
+        </div>
+      </td>
+    </tr>
   );
 };
 

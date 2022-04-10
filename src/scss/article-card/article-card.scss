@@ -114,7 +114,7 @@
 }
 
 .article-card-btn-emergencyrate-1 {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 700;
     color: white;
     background-color: rgb(255, 0, 0);
@@ -131,7 +131,7 @@
 }
 
 .article-card-btn-emergencyrate-2 {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 700;
     color: white;
     background-color: rgb(255, 132, 0);
@@ -148,7 +148,7 @@
 }
 
 .article-card-btn-emergencyrate-3 {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 700;
     color: white;
     background-color: rgb(101, 101, 101);
@@ -165,7 +165,7 @@
 }
 
 .article-card-btn-status-1 {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 700;
     color: white;
     background-color: rgb(34,139,34);
@@ -182,7 +182,7 @@
 }
 
 .article-card-btn-status-2 {
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 700;
     color: white;
     background-color: rgb(101, 101, 101);
@@ -199,5 +199,19 @@
 }
 
 .article-card-table-item {
-    
+    font-size: rem;
+}
+
+.container-table-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.article-card-btn-primary {
+    font-size: 1rem;
+    font-weight: light;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
 }

@@ -31,7 +31,7 @@ const Home = () => {
           <Tab eventKey="home" title="自救指南（必读）">
             <RecommendArticles />
           </Tab>
-          <Tab eventKey="discover" title="上海小区各户物资信息（实时更新）">
+          <Tab eventKey="all-list" title="各区各户物资信息（实时更新）">
             <AllArticlesList />
           </Tab>
           <Tab eventKey="latest" title="紧急求助列表">
