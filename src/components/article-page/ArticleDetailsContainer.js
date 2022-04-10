@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -53,7 +54,7 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   };
 
   const publishedDate = format(new Date(article.updatedAt), 'PP');
-  const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
+  // const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
   // const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
@@ -207,9 +208,9 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
         <div className="container-col-text-input-create">
           存粮预计消耗至：
           {article.surviveDate}
-          (
+          {/* (
           {remianDays}
-          )
+          ) */}
         </div>
         <div className="container-col-text-input-create">
           联系方式：

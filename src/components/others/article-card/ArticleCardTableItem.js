@@ -11,7 +11,7 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
   if (!article) return null;
 
   const publishedDate = format(new Date(article.createdAt), 'PP');
-  const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
+  // const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   const { profileImage } = article.user;
 
@@ -64,9 +64,9 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
       </td>
       <td>
         {article.surviveDate}
-        (
+        {/* (
         {remianDays}
-        )
+        ) */}
       </td>
       <td>
         {article.provide}
