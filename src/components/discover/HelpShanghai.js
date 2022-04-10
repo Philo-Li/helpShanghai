@@ -17,7 +17,8 @@ const HelpShanghaiInfo = () => (
       </div>
       <div className="container-row-license">
         <div className="container-row-license-item">
-          2.希望封禁区的大家多多关照身边的弱势群体，尤其是那些不擅长使用手机、抢不到菜、物资不充足已经断粮、或是家里没有做饭设备的人。
+          2.遇到困难的可能是你我或者其他人的同学、朋友、家人、同事，希望封禁区大家发挥人道主义精神，多多关照身边的弱势群体，老弱病残孕，还有那些不擅长使用手机、抢不到菜、物资不充足、或是家里没有做饭设备的人。
+          衷心希望大家都可以平安度过本次危机。
         </div>
       </div>
       <div className="container-row-license">
