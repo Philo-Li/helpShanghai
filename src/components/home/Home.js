@@ -17,7 +17,7 @@ const Home = () => {
           <Carousel.Item>
             <div className="jumbotron-slice-1" alt="First slide" />
             <Carousel.Caption>
-              <h3 className="jumbotron-header">封禁期物资信息共享互助平台</h3>
+              <h3 className="jumbotron-header">疫情封控期物资信息共享互助平台</h3>
               <p className="jumbotron-subheader">人类就该相互帮助</p>
             </Carousel.Caption>
           </Carousel.Item>

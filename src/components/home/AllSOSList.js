@@ -25,8 +25,8 @@ const AllSOSList = () => {
           const address1 = JSON.parse(article.address1);
           const address1Str = address1.join('-');
           const fullAddressStr = fullAddress.join('-');
-          const createdAt = format(new Date(article.createdAt), 'yyyy-MM-dd HH:mm', { timeZone: 'Asia/Shanghai' });
-          const updatedAt = format(new Date(article.updatedAt), 'yyyy-MM-dd HH:mm', { timeZone: 'Asia/Shanghai' });
+          const createdAt = format(new Date(article.createdAt), 'yyyy-MM-dd HH:mm');
+          const updatedAt = format(new Date(article.updatedAt), 'yyyy-MM-dd HH:mm');
           const updatedArticle = {
             ...article,
             fullAddress: fullAddressStr,

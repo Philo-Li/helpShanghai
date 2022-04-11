@@ -57,14 +57,15 @@ const App = () => {
     let userPage;
     if (token) userPage = `/@${username}`;
 
-    const checkTokenExpire = isBefore(new Date(expirationTime), new Date(Date.now()));
-
     useEffect(() => {
-      if (token && !expirationTime) {
-        setShowTokenExpireModal(true);
-      }
-      if (token && checkTokenExpire) {
-        setShowTokenExpireModal(true);
+      if (token) {
+        const checkTokenExpire = isBefore(new Date(expirationTime), new Date(Date.now()));
+        if (!expirationTime) {
+          setShowTokenExpireModal(true);
+        }
+        if (checkTokenExpire) {
+          setShowTokenExpireModal(true);
+        }
       }
     });
 
