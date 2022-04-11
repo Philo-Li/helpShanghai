@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import useArticles from '../../hooks/useArticles';
@@ -23,9 +24,8 @@ const AllArticlesList = () => {
           const address1 = JSON.parse(article.address1);
           const address1Str = address1.join('-');
           const fullAddressStr = fullAddress.join('-');
-
-          const createdAt = format(new Date(article.createdAt), 'yyyy-MM-dd HH:mm');
-          const updatedAt = format(new Date(article.updatedAt), 'yyyy-MM-dd HH:mm');
+          const createdAt = format(new Date(article.createdAt), 'PPpp');
+          const updatedAt = format(new Date(article.updatedAt), 'PPpp');
           const updatedArticle = {
             ...article,
             fullAddress: fullAddressStr,

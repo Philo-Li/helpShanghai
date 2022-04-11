@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import { Card } from 'react-bootstrap';
 import { format, formatDistance } from 'date-fns';
 import '../../../mdb.css';
@@ -12,7 +11,7 @@ const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-p
 const ArticleDetailsCard = ({ article }) => {
   if (!article) return null;
   const publishedDate = format(new Date(article.createdAt), 'PP');
-  // const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
+  const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const userId = localStorage.getItem('userId');
 
   const statusBtnStyleMap = { 待解决: 'article-card-btn-status-1', 已解决: 'article-card-btn-status-2' };
@@ -91,9 +90,9 @@ const ArticleDetailsCard = ({ article }) => {
                 <div className="article-card-summary">
                   存粮预计消耗至：
                   {article.surviveDate}
-                  {/* (
+                  (
                   {remianDays}
-                  ) */}
+                  )
                 </div>
               </div>
               <div className="container-row-primary">

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Tabs, Tab, Carousel } from 'react-bootstrap';
 import HelpShanghaiInfo from '../discover/HelpShanghai';
 import MentalHealth from '../discover/MentalHealth';
-// import AllArticlesList from './AllArticlesList';
-// import AllEmergencyList from './AllEmergencyList';
-// import AllSOSList from './AllSOSList';
+import AllArticlesList from './AllArticlesList';
+import AllEmergencyList from './AllEmergencyList';
+import AllSOSList from './AllSOSList';
 // import RecommendArticles from './RecommendArticles';
 
 const Home = () => {
@@ -35,16 +35,13 @@ const Home = () => {
             <HelpShanghaiInfo />
           </Tab>
           <Tab eventKey="all-list" title="物资互助信息（实时更新）">
-            {/* <AllArticlesList /> */}
-            紧急维护中
+            <AllArticlesList />
           </Tab>
           <Tab eventKey="urgent" title="紧急求助">
-            {/* <AllEmergencyList /> */}
-            紧急维护中
+            <AllEmergencyList />
           </Tab>
           <Tab eventKey="sos" title="老弱病残孕紧急求助">
-            {/* <AllSOSList /> */}
-            紧急维护中
+            <AllSOSList />
           </Tab>
           <Tab eventKey="mental-health" title="心理健康">
             <MentalHealth />
