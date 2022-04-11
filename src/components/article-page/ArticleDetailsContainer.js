@@ -48,13 +48,12 @@ const ArticleDetailContainer = ({ articleToShow, setArticleToShow }) => {
   };
 
   const article = articleToShow;
-  if (!article) return null;
 
   const redirectToEditPage = async () => {
     history.push(`/edit/${articleToShow.id}`);
   };
 
-  const publishedDate = format(new Date(article.updatedAt), 'PP');
+  const publishedDate = format(new Date(article.createdAt), 'PP');
   const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
