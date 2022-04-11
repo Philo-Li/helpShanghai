@@ -22,7 +22,13 @@ const HelpShanghaiInfo = () => (
       </div>
       <div className="container-row-license">
         <div className="container-row-license-item">
-          3. 为方便记忆，域名是 helpshanghai.com（Help Shanghai），但帮助的不只是上海。欢迎扩散，多一个渠道多一条路。
+          3.这不只是一个求助平台。据说个别地方还存在物资物流严重不通畅的情况，除了买菜难，还有购买的物资进不了小区，或是进了小区送不到户，导致物资在路上浪费掉。
+          本平台也希望减少因信息差导致的损失及附带伤害，所有也欢迎大家以匿名的形式发布自己所在社区的真实情况，加速信息的流通。
+        </div>
+      </div>
+      <div className="container-row-license">
+        <div className="container-row-license-item">
+          4. 为方便记忆，域名是 helpshanghai.com（Help Shanghai），但帮助的不只是上海。欢迎扩散，多一个渠道多一条路。
         </div>
       </div>
     </div>
