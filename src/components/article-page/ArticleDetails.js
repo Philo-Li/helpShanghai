@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import { useParams } from 'react-router-dom';
 import useArticle from '../../hooks/useArticle';
@@ -29,16 +29,16 @@ const ArticleDetails = () => {
 
   useEffect(() => {
     if (article) {
-      // const fullAddress = JSON.parse(article.fullAddress);
-      // const fullAddressStr = fullAddress.join('-');
-      const createdAt = format(new Date(article.createdAt), 'yyyy-MM-dd HH:mm');
-      const updatedAt = format(new Date(article.updatedAt), 'yyyy-MM-dd HH:mm');
+      const fullAddress = JSON.parse(article.fullAddress);
+      const fullAddressStr = fullAddress.join('-');
+      // const createdAt = format(new Date(article.createdAt), 'yyyy-MM-dd HH:mm');
+      // const updatedAt = format(new Date(article.updatedAt), 'yyyy-MM-dd HH:mm');
       // const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
       setArticleToShow({
         ...article,
-        // fullAddress: fullAddressStr,
-        createdAt,
-        updatedAt,
+        fullAddress: fullAddressStr,
+        // createdAt,
+        // updatedAt,
       });
     }
   }, [article]);
