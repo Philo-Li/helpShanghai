@@ -10,7 +10,6 @@ import { Nav, NavDropdown } from 'react-bootstrap';
 import { isBefore } from 'date-fns';
 import Navbar from 'react-bootstrap/Navbar';
 import Home from './components/home/Home';
-import Discover from './components/discover/Discover';
 import Footer from './components/Footer';
 import Profile from './components/profile/Profile';
 import Settings from './components/profile/Settings';
@@ -31,6 +30,8 @@ import Edit from './components/create/Edit';
 import logo from './img/logo/red-cross-logo1.jpg';
 import './index.css';
 import TokenExpireModal from './components/others/TokenExpireModal';
+import Handbook from './components/article-page/Handbook';
+import HelpShanghaiInfo from './components/discover/HelpShanghai';
 
 const navStyle = {
   // fontStyle: 'bold',
@@ -120,8 +121,11 @@ const App = () => {
         <Menu />
         <div>
           <Switch>
+            <Route path="/storage-handbook" exact>
+              <Handbook />
+            </Route>
             <Route path="/discover" exact>
-              <Discover />
+              <HelpShanghaiInfo />
             </Route>
             <Route path="/license" exact>
               <License />

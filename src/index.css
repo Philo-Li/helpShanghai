@@ -1138,6 +1138,10 @@
   padding: 1rem 1rem 1rem 0rem;
 }
 
+.margin-top-2rem {
+  margin-top: 2rem;
+}
+
 .article-comment-card a {
   color: black;
 }

@@ -34,89 +34,117 @@ const HelpShanghaiInfo = () => (
     </div>
     <div className="p-3">
       <div className="container-profile profile-item subheader">
-        <p>网上各类防疫指南汇总（持续更新中）</p>
+        <p>网上各类防疫指南汇总（持续更新中，最后更新4.12）</p>
       </div>
-      <div className="container-col-article-details">
-        <div className="container-col-text-input-create">
-          <h3>
-            魔都防疫指南3.0
-          </h3>
-          <div className="container-row-license-item">
-            描述（摘录自指南）：2022年3月，新冠疫情再度爆发，上海成为主战场。为帮助群众更好地解决特殊时期生活问题，温州和上海两地志愿者合作编写《魔都防疫指南》，按照「志愿者花时间，帮群众省时间」原则，收集、审核、汇总、发布最新信息，以问答方式，提供求助、防疫、看病、买菜、身心、社区等方面实用资讯，并附上链接和推荐人。指南是集体合作产物，是本文档及所有链接文档的编写者们的共同成果。
-          </div>
-          <div className="container-row-license-item">
-            形式：石墨文档
-          </div>
-          <div className="container-row-license-item">
-            原始链接：
-            <a href="https://shimo.im/docs/0l3NV5lEwOfpQx3R/read">
-              《魔都防疫指南3.0》
-            </a>
-          </div>
-          <div className="container-row-license-item">
-            本站镜像备份：(更新中)
-          </div>
+
+    </div>
+    <div className="container-col-article-details">
+      <div className="container-col-text-input-create">
+        <h3>
+          我们来帮你上海抗疫互助平台
+        </h3>
+        <div className="container-row-license-item">
+          描述：网友搭建的互助平台，与本站有类似功能，平台中已有几千条求助信息，涵盖多个类目。
+          建议使用国内IP访问，偶尔也会出现网络不通畅的问题。如有需要也可在本站点发布信息。
         </div>
-        <div className="container-col-text-input-create">
-          <h3>
-            上海物资互帮互助文档
-          </h3>
-          <div className="container-row-license-item">
-            描述：上海物资互帮互助，文档中包含上海各街道互助群、团购群联系方式
-          </div>
-          <div className="container-row-license-item">
-            形式：腾讯文档
-          </div>
-          <div className="container-row-license-item">
-            原始链接：
-            <a href="https://docs.qq.com/sheet/DRUdjRmttZmtrWGVq?tab=kiujv6&scode=">
-              上海物资互帮互助群集合
-            </a>
-          </div>
-          <div className="container-row-license-item">
-            本站镜像备份：(更新中)
-          </div>
+        <div className="container-row-license-item">
+          形式：网站 （https://www.helpothers.cn/help/）
         </div>
-        <div className="container-col-text-input-create">
-          <h3>
-            各渠道防疫信息渠道汇总（以官方为主）
-          </h3>
-          <div className="container-row-license-item">
-            描述：各渠道防疫信息渠道汇总
-          </div>
-          <div className="container-row-license-item">
-            形式：网页
-          </div>
-          <div className="container-row-license-item">
-            原始链接：
-            <a href="https://www.xiaolvji.com/u/covid19">
-              各渠道防疫信息汇总
-            </a>
-          </div>
-          <div className="container-row-license-item">
-            本站镜像备份：(更新中)
-          </div>
+        <div className="container-row-license-item">
+          直达链接：
+          <a href="https://www.helpothers.cn/help/">
+            《我们来帮你上海抗疫互助平台》
+          </a>
         </div>
-        <div className="container-col-text-input-create">
-          <h3>
-            非常时期囤货手册
-          </h3>
-          <div className="container-row-license-item">
-            描述：谷歌文档
-          </div>
-          <div className="container-row-license-item">
-            形式：谷歌文档
-          </div>
-          <div className="container-row-license-item">
-            原始链接：
-            <a href="https://docs.google.com/document/d/1-c93ax4Uog_CHTOLBKpKLNCUtZYwacGbXm8OP3Fh810/edit#">
-              《非常时期囤货手册》
-            </a>
-          </div>
-          <div className="container-row-license-item">
-            本站镜像备份：(更新中)
-          </div>
+      </div>
+      <div className="container-col-text-input-create">
+        <h3>
+          魔都防疫指南3.0
+        </h3>
+        <div className="container-row-license-item">
+          描述（摘录自指南）：2022年3月，新冠疫情再度爆发，上海成为主战场。为帮助群众更好地解决特殊时期生活问题，温州和上海两地志愿者合作编写《魔都防疫指南》，按照「志愿者花时间，帮群众省时间」原则，收集、审核、汇总、发布最新信息，以问答方式，提供求助、防疫、看病、买菜、身心、社区等方面实用资讯，并附上链接和推荐人。指南是集体合作产物，是本文档及所有链接文档的编写者们的共同成果。
         </div>
+        <div className="container-row-license-item">
+          形式：石墨文档
+        </div>
+        <div className="container-row-license-item">
+          原始链接：
+          <a href="https://shimo.im/docs/0l3NV5lEwOfpQx3R/read">
+            《魔都防疫指南4.0》
+          </a>
+        </div>
+        <div className="container-row-license-item">
+          本站镜像备份：(更新中)
+        </div>
+      </div>
+      <div className="container-col-text-input-create">
+        <h3>
+          上海物资互帮互助文档
+        </h3>
+        <div className="container-row-license-item">
+          描述：上海物资互帮互助，文档中包含上海各街道互助群、团购群联系方式
+        </div>
+        <div className="container-row-license-item">
+          形式：腾讯文档
+        </div>
+        <div className="container-row-license-item">
+          原始链接：
+          <a href="https://docs.qq.com/sheet/DRUdjRmttZmtrWGVq?tab=kiujv6&scode=">
+            上海物资互帮互助群集合
+          </a>
+        </div>
+        <div className="container-row-license-item">
+          本站镜像备份：(更新中)
+        </div>
+      </div>
+      <div className="container-col-text-input-create">
+        <h3>
+          各渠道防疫信息渠道汇总（以官方为主）
+        </h3>
+        <div className="container-row-license-item">
+          描述：各渠道防疫信息渠道汇总
+        </div>
+        <div className="container-row-license-item">
+          形式：网页
+        </div>
+        <div className="container-row-license-item">
+          原始链接：
+          <a href="https://www.xiaolvji.com/u/covid19">
+            各渠道防疫信息汇总
+          </a>
+        </div>
+        <div className="container-row-license-item">
+          本站镜像备份：(更新中)
+        </div>
+      </div>
+      <div className="container-col-text-input-create">
+        <h3>
+          非常时期囤货手册
+        </h3>
+        <div className="container-row-license-item">
+          描述：本手册的目的是给出一个可供选择的居家封闭情况下的商品列表，分为简单有效的“快速版”和面面俱到的“详细版”。
+        </div>
+        <div className="container-row-license-item">
+          形式：谷歌文档（本手册来自于推特网友集体编辑，无版权）
+        </div>
+        <div className="container-row-license-item">
+          本站镜像备份：
+          <a href="/storage-handbook">
+            《非常时期囤货手册》
+          </a>
+        </div>
+        <div className="container-row-license-item">
+          原始链接：
+          <a href="https://docs.google.com/document/d/1-c93ax4Uog_CHTOLBKpKLNCUtZYwacGbXm8OP3Fh810/edit#">
+            《非常时期囤货手册》
+          </a>
+        </div>
+        {/* <div className="container-row-license-item">
+          doc文档下载：
+          <a href="/document.docx">
+            《非常时期囤货手册》
+          </a>
+        </div> */}
       </div>
     </div>
   </div>
