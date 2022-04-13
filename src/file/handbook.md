@@ -620,7 +620,7 @@
 
 ●   布洛芬        退烧，止疼
 
-●     头疼粉        退烧，止疼 ![img](file:///C:/Users/Dream/AppData/Local/Packages/oice_16_974fa576_32c1d314_2582/AC/Temp/msohtmlclip1/01/clip_image008.gif)
+●     头疼粉        退烧，止疼 
 
 ●   对乙酰氨基酚（泰诺林）   退烧
 
@@ -652,9 +652,9 @@
 
 ●   复方氨酚烷胺片    缓解感冒症状[[10\]](#_msocom_10) 
 
-●   维生素C       维生素缺乏（纯制剂，常备）![img](file:///C:/Users/Dream/AppData/Local/Packages/oice_16_974fa576_32c1d314_2582/AC/Temp/msohtmlclip1/01/clip_image010.gif)
+●   维生素C       维生素缺乏（纯制剂，常备）
 
-●   复合维生素B       维生素缺乏（纯制剂，常备）![img](file:///C:/Users/Dream/AppData/Local/Packages/oice_16_974fa576_32c1d314_2582/AC/Temp/msohtmlclip1/01/clip_image010.gif)
+●   复合维生素B       维生素缺乏（纯制剂，常备）
 
 ●   碘伏消毒液        皮肤消毒
 
@@ -666,7 +666,7 @@
 
 ~~●     ~~扶他林软膏(双氯芬酸二乙胺) 外用缓解肌肉酸痛、关节痛等，非甾体类，较为安全。~~~~
 
-●   口服补液盐        腹泻、感冒时补水（可以用盐、糖自配）![img](file:///C:/Users/Dream/AppData/Local/Packages/oice_16_974fa576_32c1d314_2582/AC/Temp/msohtmlclip1/01/clip_image012.gif)
+●   口服补液盐        腹泻、感冒时补水（可以用盐、糖自配）
 
 ●   布地奈德 （雾化药）   特布他林 （雾化药）    异丙托  （雾化药）         互相配合使用  止咳 祛痰 平喘
 
