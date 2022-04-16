@@ -60,18 +60,6 @@ const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) 
         {article.type}
       </td>
       <td>
-        {article.surviveDate}
-        (
-        {remianDays}
-        )
-      </td>
-      <td>
-        {article.provide}
-      </td>
-      <td>
-        {article.need}
-      </td>
-      <td>
         <div className="article-card-table-item container-table-item">
           <button
             type="button"

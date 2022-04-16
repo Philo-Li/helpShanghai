@@ -24,7 +24,7 @@ const ArticleDetailsCard = ({ article }) => {
   };
   const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
   const emergencyRateBtnStyle = emergencyRateBtnStyleMap[emergencyRate];
-  const contact = userId ? article.contact : '已填写，登录后查看';
+  const contact = article && article.contact;
 
   const handleClickOpenDetails = () => {
     window.open(`https://helpshanghai.com/article/${article.id}`);
@@ -84,15 +84,6 @@ const ArticleDetailsCard = ({ article }) => {
                 <div className="article-card-summary">
                   需要：
                   {article.need}
-                </div>
-              </div>
-              <div className="container-row-primary">
-                <div className="article-card-summary">
-                  存粮预计消耗至：
-                  {article.surviveDate}
-                  (
-                  {remianDays}
-                  )
                 </div>
               </div>
               <div className="container-row-primary">

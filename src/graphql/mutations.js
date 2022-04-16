@@ -96,6 +96,30 @@ export const CREATE_ARTICLE = gql`
   }
 `;
 
+export const CREATE_INSTANT_ARTICLE = gql`
+  mutation createInstantArticle(
+    $title: String!
+    $tag: String
+    $need: String
+    $contact: String
+    $emergencyRate: Int
+    $type: String
+    $status: String
+    ) {
+    createInstantArticle(article: {
+      title: $title
+      tag: $tag
+      need: $need
+      contact: $contact
+      emergencyRate: $emergencyRate
+      type: $type
+      status: $status
+    } ) {
+      id
+    }
+  }
+`;
+
 export const UPDATE_ARTICLE = gql`
   mutation updateArticle(
     $articleId: ID!
@@ -342,6 +366,7 @@ export default {
   EDIT_COLLECTION,
   UPDATE_ARTICLE_COVER,
   UPDATE_ARTICLE,
+  CREATE_INSTANT_ARTICLE,
   CREATE_ARTICLE_COMMENT,
   DELETE_ARTICLE_COMMENT,
   UNFOLLOW_USER,

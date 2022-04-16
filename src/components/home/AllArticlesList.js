@@ -22,8 +22,8 @@ const AllArticlesList = () => {
           const article = edge.node;
           const fullAddress = JSON.parse(article.fullAddress);
           const address1 = JSON.parse(article.address1);
-          const address1Str = address1.join('-');
-          const fullAddressStr = fullAddress.join('-');
+          const address1Str = address1 && address1.join('-');
+          const fullAddressStr = fullAddress && fullAddress.join('-');
           const createdAt = format(new Date(article.createdAt), 'PPpp');
           const updatedAt = format(new Date(article.updatedAt), 'PPpp');
           const updatedArticle = {

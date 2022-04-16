@@ -22,9 +22,6 @@ const HomeArticleListContainer = ({
               <th>紧急程度</th>
               <th>城市</th>
               <th>分类</th>
-              <th>生存指数</th>
-              <th>可提供</th>
-              <th>需要</th>
               <th>详情</th>
             </tr>
           </thead>

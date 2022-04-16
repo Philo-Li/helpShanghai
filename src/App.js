@@ -26,6 +26,7 @@ import About from './components/about/About';
 import AboutZh from './components/about/AboutZh';
 import ContactUs from './components/ContactUs';
 import Create from './components/create/Create';
+import CreateNow from './components/create-now/Create';
 import Edit from './components/create/Edit';
 import logo from './img/logo/red-cross-logo1.jpg';
 import './index.css';
@@ -153,6 +154,9 @@ const App = () => {
             </Route>
             <Route path="/create" exact>
               <Create />
+            </Route>
+            <Route path="/create-now" exact>
+              <CreateNow />
             </Route>
             <Route path="/search" render={() => (<SearchPage />)}>
               {/* <SearchPage authorizedUser={authorizedUser} /> */}

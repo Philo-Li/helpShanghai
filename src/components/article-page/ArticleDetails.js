@@ -30,7 +30,7 @@ const ArticleDetails = () => {
   useEffect(() => {
     if (article) {
       const fullAddress = JSON.parse(article.fullAddress);
-      const fullAddressStr = fullAddress.join('-');
+      const fullAddressStr = fullAddress && fullAddress.join('-');
 
       const createdAt = format(new Date(article.createdAt), 'PPpp');
       const updatedAt = format(new Date(article.updatedAt), 'PPpp');
