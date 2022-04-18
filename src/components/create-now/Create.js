@@ -58,6 +58,7 @@ const Create = () => {
       const variables = {
         title: type,
         tag,
+        address1: JSON.stringify(editorState),
         need,
         contact,
         note,
