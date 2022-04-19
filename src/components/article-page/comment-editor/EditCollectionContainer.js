@@ -8,7 +8,7 @@ import EditCollectionForm from './EditCollectionForm';
 const validationSchema = Yup.object().shape({
   content: Yup
     .string()
-    .required(),
+    .required('评论不能为空'),
 });
 
 const EditCollectionContainer = ({

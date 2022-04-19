@@ -11,6 +11,23 @@ const HelpShanghaiInfo = () => (
     <div className="container-col-article-details">
       <div className="container-row-license">
         <div className="container-row-license-item">
+          修复了账号登录问题等bug，添加了无需登录的
+          <a href="/create-now">
+            快速发布精简信息通道
+          </a>
+          ，添加了无需登录的
+          <a href="/comment">
+            匿名留言板块
+          </a>
+          ，更新了
+          <a href="/storage-handbook">
+            《非常时期囤货手册》
+          </a>
+          （站点最后一次更新发布于2022.04.19）。
+        </div>
+      </div>
+      <div className="container-row-license">
+        <div className="container-row-license-item">
           1.本平台主要提供物资、医疗等互助信息的发布，以及全网各大防疫指南、求助互助平台的链接。帮助大家在最短的时间内获取最有价值的信息、得到帮助。
         </div>
       </div>
@@ -34,7 +51,7 @@ const HelpShanghaiInfo = () => (
     </div>
     <div className="p-3">
       <div className="container-profile profile-item subheader">
-        <p>网上各类防疫指南汇总（持续更新中，最后更新4.12）</p>
+        <p>网上各类防疫指南汇总（持续更新中，最后更新4.19）</p>
       </div>
 
     </div>
