@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { format, formatDistance } from 'date-fns';
+import { format } from 'date-fns';
 import '../../../mdb.css';
 
 const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
@@ -11,7 +11,6 @@ const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-p
 const ArticleDetailsCard = ({ article }) => {
   if (!article) return null;
   const publishedDate = format(new Date(article.createdAt), 'PP');
-  const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const userId = localStorage.getItem('userId');
 
   const statusBtnStyleMap = { 待解决: 'article-card-btn-status-1', 已解决: 'article-card-btn-status-2' };

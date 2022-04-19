@@ -37,7 +37,9 @@ const AllArticlesList = () => {
         })
         : [];
 
-      setAllArticles(temp);
+      const temp2 = temp.filter((item) => item.id !== 'uS-6emdcWD');
+
+      setAllArticles(temp2);
       setLoading(false);
     }
   }, [articles]);

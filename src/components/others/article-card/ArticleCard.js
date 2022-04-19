@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
-import { format, formatDistance } from 'date-fns';
+import { format } from 'date-fns';
 import SaveToCollectionsModal from './SaveToCollectionsModal';
 import '../../../mdb.css';
 
@@ -25,7 +25,6 @@ const ArticleCard = ({ article }) => {
 
   const publishedDate = format(new Date(article.createdAt), 'PP');
   // console.log('article', article, publishedDate, article.publishedAt);
-  const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
   const { profileImage } = article.user;
 
@@ -99,9 +98,6 @@ const ArticleCard = ({ article }) => {
                 <div className="article-card-summary">
                   生存指数：
                   {article.surviveDate}
-                  (
-                  {remianDays}
-                  )
                 </div>
               </div>
               <div className="container-row-primary">

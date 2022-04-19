@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React from 'react';
-import { formatDistance } from 'date-fns';
 import '../../../mdb.css';
 
 const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
@@ -9,7 +8,6 @@ const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
 const ArticleCard = ({ article, setShowDetailsModal, setArticleDetailsToShow }) => {
   if (!article) return null;
 
-  const remianDays = formatDistance(new Date(article.surviveDate), new Date(), { addSuffix: true });
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
   const statusBtnStyleMap = { 待解决: 'article-card-btn-status-1', 已解决: 'article-card-btn-status-2' };
