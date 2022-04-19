@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useCreateArticleComment from '../../../hooks/useCreateArticleComment';
+import useCreateAnonymousComment from '../../../hooks/useCreateAnonymousComment';
 import EditCollectionContainer from './EditCollectionContainer';
 
 const CommentEditor = ({
@@ -7,6 +8,7 @@ const CommentEditor = ({
   // setArticleToShow,
 }) => {
   const [createArticleComment] = useCreateArticleComment();
+  const [createAnonymousComment] = useCreateAnonymousComment();
   const [loading, setLoading] = useState(false);
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
@@ -27,7 +29,11 @@ const CommentEditor = ({
     setLoading(true);
 
     try {
-      await createArticleComment(variables);
+      if (articleId === 'uS-6emdcWD') {
+        await createAnonymousComment(variables);
+      } else {
+        await createArticleComment(variables);
+      }
       setSuccessInfo('Comment sent');
 
       setTimeout(() => {

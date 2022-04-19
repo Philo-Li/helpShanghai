@@ -47,6 +47,7 @@ const CommentCard = ({ comment, updateList }) => {
               className="article-comment-card-btn-delete article-card-date"
               onClick={() => setShowDeleteModal(true)}
             >
+              删除
               <i className="bi bi-trash" />
             </button>
           </div>

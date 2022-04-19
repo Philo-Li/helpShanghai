@@ -101,6 +101,7 @@ export const CREATE_INSTANT_ARTICLE = gql`
     $title: String!
     $tag: String
     $need: String
+    $address1: String
     $contact: String
     $emergencyRate: Int
     $type: String
@@ -110,12 +111,28 @@ export const CREATE_INSTANT_ARTICLE = gql`
       title: $title
       tag: $tag
       need: $need
+      address1: $address1
       contact: $contact
       emergencyRate: $emergencyRate
       type: $type
       status: $status
     } ) {
       id
+    }
+  }
+`;
+
+export const CREATE_ANONYMOUS_COMMENT = gql`
+  mutation createAnonymousComment(
+    $articleId: ID!
+    $content: String!
+    ) {
+    createAnonymousComment(articleComment: {
+      articleId: $articleId
+      content: $content
+    } ) {
+      id
+      content
     }
   }
 `;
@@ -370,4 +387,5 @@ export default {
   CREATE_ARTICLE_COMMENT,
   DELETE_ARTICLE_COMMENT,
   UNFOLLOW_USER,
+  CREATE_ANONYMOUS_COMMENT,
 };

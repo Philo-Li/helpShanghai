@@ -33,6 +33,7 @@ import './index.css';
 import TokenExpireModal from './components/others/TokenExpireModal';
 import Handbook from './components/article-page/Handbook';
 import HelpShanghaiInfo from './components/discover/HelpShanghai';
+import LeaveMessagePage from './components/article-page/LeaveMessagePage';
 
 const navStyle = {
   // fontStyle: 'bold',
@@ -157,6 +158,9 @@ const App = () => {
             </Route>
             <Route path="/create-now" exact>
               <CreateNow />
+            </Route>
+            <Route path="/comment" exact>
+              <LeaveMessagePage />
             </Route>
             <Route path="/search" render={() => (<SearchPage />)}>
               {/* <SearchPage authorizedUser={authorizedUser} /> */}
