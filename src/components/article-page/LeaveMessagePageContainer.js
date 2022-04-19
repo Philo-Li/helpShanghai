@@ -4,9 +4,6 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { format } from 'date-fns';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import useLikeArticle from '../../hooks/useLikeArticle';
-import useUnlikeArticle from '../../hooks/useUnlikeArticle';
-import SaveToCollectionsModal from '../others/article-card/SaveToCollectionsModal';
 import DropdownButton from '../others/button/edit-article-btn/DropdownButton';
 import EditModal from './edit-article-meta/EditModal';
 import DeleteConfirmModal from './DeleteConfirmModal';
@@ -17,7 +14,6 @@ const LeaveMessagePageContainer = ({ articleToShow, setArticleToShow }) => {
   // eslint-disable-next-line no-unused-vars
   const [showEditModal, setShowEditModal] = useState(false);
   const history = useHistory();
-  const userId = localStorage.getItem('userId');
   const username = localStorage.getItem('username');
 
   if (!articleToShow) return null;
@@ -30,21 +26,6 @@ const LeaveMessagePageContainer = ({ articleToShow, setArticleToShow }) => {
 
   const publishedDate = format(new Date(article.createdAt), 'PP');
   const initProfileImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
-
-  // const profileImage = 'https://cdn.philoart.io/1/700x700/vQAgad7txFp8EhHrq8qTW-avatar.jpg';
-
-  const statusBtnStyleMap = { 待解决: 'article-card-btn-status-1', 已解决: 'article-card-btn-status-2' };
-  const statusBtnStyle = statusBtnStyleMap[article.status];
-
-  const emergencyRateBtnStyleMap = {
-    危急: 'article-card-btn-emergencyrate-1',
-    紧急: 'article-card-btn-emergencyrate-2',
-    不紧急: 'article-card-btn-emergencyrate-3',
-  };
-  const emergencyRateMapReverse = { 1: '不紧急', 2: '紧急', 3: '危急' };
-  const emergencyRate = emergencyRateMapReverse[article.emergencyRate];
-  const emergencyRateBtnStyle = emergencyRateBtnStyleMap[emergencyRate];
-  const contact = userId ? article.contact : '已填写，登录后查看';
 
   return (
     <div className="">

@@ -45,7 +45,7 @@ const ArticleComment = ({
         <CommentEditor articleId={articleId} />
       </div>
       <div className="p-3 container-profile">
-        <h3>Comments</h3>
+        <h3>评论区</h3>
       </div>
       {allComments && allComments.map((comment) => (
         <div key={nanoid()}>

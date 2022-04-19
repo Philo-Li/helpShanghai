@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import useCreateArticleComment from '../../../hooks/useCreateArticleComment';
 import useCreateAnonymousComment from '../../../hooks/useCreateAnonymousComment';
 import EditCollectionContainer from './EditCollectionContainer';
@@ -12,6 +13,7 @@ const CommentEditor = ({
   const [loading, setLoading] = useState(false);
   const [errorInfo, setErrorInfo] = useState('');
   const [successInfo, setSuccessInfo] = useState('');
+  const history = useHistory();
 
   const initialValues = {
     content: '',
@@ -34,11 +36,12 @@ const CommentEditor = ({
       } else {
         await createArticleComment(variables);
       }
-      setSuccessInfo('Comment sent');
+      setSuccessInfo('评论发布成功');
 
       setTimeout(() => {
         setSuccessInfo('');
         // setArticleToShow(updatedArticle);
+        history.push('/comment');
       }, 2000);
       setTimeout(() => { setSuccessInfo(''); }, 3000);
     } catch (e) {

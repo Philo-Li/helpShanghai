@@ -11,13 +11,13 @@ const EditCollectionForm = ({ loading }) => (
       <TextInputDescription
         name="content"
         type="text"
-        placeholder="Comment here..."
+        placeholder="输入评论..."
       />
     </div>
     <div className="col-item-1 container-flex-end item-flex-end">
       {!loading && (
         <Button variant="outline-dark" id="comment-button" type="submit" block="true">
-          Comment
+          发布评论
         </Button>
       )}
       {loading && (
@@ -29,7 +29,7 @@ const EditCollectionForm = ({ loading }) => (
             role="status"
             aria-hidden="true"
           />
-          <span className="sr-only">Loading...</span>
+          <span className="sr-only">发布中...</span>
         </Button>
       )}
     </div>
