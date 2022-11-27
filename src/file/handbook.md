@@ -1,6 +1,6 @@
 # 非常时期囤货手册
 
-（同步更新至9.8日的版本，PDF下载：[PDF](https://helpshanghai.com/非常时期囤货手册.pdf)，原始链接：[非常时期囤货手册](https://docs.google.com/document/d/1-c93ax4Uog_CHTOLBKpKLNCUtZYwacGbXm8OP3Fh810/edit#)）
+（同步更新至9.8日的版本，PDF下载：[PDF](https://helpshanghai.com/handbook.pdf)，原始链接：[非常时期囤货手册](https://docs.google.com/document/d/1-c93ax4Uog_CHTOLBKpKLNCUtZYwacGbXm8OP3Fh810/edit#)）
 
 来自推特网友集体编辑，无版权
 
