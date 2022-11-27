@@ -11,16 +11,15 @@ const HelpShanghaiInfo = () => (
     <div className="container-col-article-details">
       <div className="container-row-license">
         <div className="container-row-license-item">
-          更新了
+          (2022.11.27) 更新了
           <a href="/storage-handbook">
             《非常时期囤货手册》
           </a>
-          （站点最后一次更新发布于2022.11.27）。
         </div>
       </div>
       <div className="container-row-license">
         <div className="container-row-license-item">
-          修复了账号登录问题等bug，添加了无需登录的
+          (2022.04.19) 修复了账号登录问题等bug，添加了无需登录的
           <a href="/create-now">
             快速发布精简信息通道
           </a>
